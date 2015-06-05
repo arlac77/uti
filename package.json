@@ -1,0 +1,23 @@
+{
+  "name": "uti",
+  "version": "1.0.0",
+  "description": "javascript implementation of a \"Uniform Type Identifier\" (UTI)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arlac77/uti.git"
+  },
+  "keywords": [
+    "UTI",
+    "mime"
+  ],
+  "author": "Markus Felten",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/arlac77/uti/issues"
+  },
+  "homepage": "https://github.com/arlac77/uti#readme"
+}
