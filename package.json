@@ -4,12 +4,20 @@
   "description": "javascript implementation of a \"Uniform Type Identifier\" (UTI)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --harmony_shipping test/*.js",
+    "cover": "node --harmony ./node_modules/istanbul-harmony/lib/cli.js cover --hook-run-in-context ./node_modules/mocha/bin/_mocha -- --R spec --U exports test"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/arlac77/uti.git"
   },
+  "devDependencies": {
+    "chai": "2.3.0",
+    "chai-as-promised": "5.1.0",
+    "istanbul-harmony": "^0.3.12",
+    "mocha": "2.2.5"
+  },
+
   "keywords": [
     "UTI",
     "mime"

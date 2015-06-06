@@ -1,29 +1,43 @@
 /* jslint node: true, esnext: true */
 
 "use strict";
+
 const fs = require("fs");
 const path = require("path");
 
-
-exports = function () {
+exports.initialize = function () {
 
   const registry = {};
 
   const uti = {
+    getUTI(name) {
+      return registry[name];
+    },
     conformesTo(a, b) {
-      return false;
+      const utiA = registry[a];
+      if(!utiA) { return false; }
+      return utiA.conformsTo[b];
+    }, loadDefinitions(fileName) {
+      return new Promise(function (resolve, reject) {
+        console.log(`load: ${fileName}`);
+        fs.createReadStream(fileName, {
+          encoding: "utf8"
+        }, function (error, data) {
+          console.log(`${error} ${data}`);
+          if(error) { reject(error); return; }
+
+          const u = JSON.parse(data);
+
+          for (let i in u) {
+            const nu = { conformsTo: { }};
+            registry[i] = nu;
+          }
+
+          resolve(uti);
+        });
+      });
     }
   };
 
-  fs.createReadStream(path.join(__dirname, 'publicUTI.json'), {
-    encoding: "utf8"
-  }, function (error, data) {
-    const u = JSON.parse(data);
-
-    for (let i in u) {
-      registry[i] = {};
-    }
-  });
-
-  return new Promise();
+  return uti.loadDefinitions(path.join(__dirname, 'publicUTI.json'));
 };

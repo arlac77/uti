@@ -1,30 +1,85 @@
 {
-  "public.item" : {},
-  "public.content" : {},
-  "public.composite-content " : { "conformsTo": "public.content" },
-  "public.data" : { "conformsTo": "public.item" },
-  "public.text" : { "conformsTo": ["public.data", "public.content" ] },
-  "public.plain-text" : { "conformsTo": "public.text", "fileNameExtension": ".txt", "mimeType" : "text/plain" },
-  "public.utf8-plain-text" : { "conformsTo": "public.plain-text" },
-  "public.utf16-external-plain-​text" : { "conformsTo": "public.plain-text" },
-  "public.utf16-plain-text" : { "conformsTo": "public.plain-text" },
-  "public.rtf" : { "conformsTo": "public.text","fileNameExtension": ".rtf", "mimeType" : "text/rtf" },
-  "public.html" : { "conformsTo": "public.text","fileNameExtension": [".html",".htm" ], "mimeType" : "text/html" },
-  "public.xml" : { "conformsTo": "public.text","fileNameExtension": ".xml", "mimeType" : "text/xml" },
-  "public.source-code" : { "conformsTo": "public.plain-text" },
+  "public.item": {},
+  "public.content": {},
+  "public.composite-content ": {
+    "conformsTo": "public.content"
+  },
+  "public.data": {
+    "conformsTo": "public.item"
+  },
+  "public.text": {
+    "conformsTo": ["public.data", "public.content"]
+  },
+  "public.plain-text": {
+    "conformsTo": "public.text",
+    "fileNameExtension": ".txt",
+    "mimeType": "text/plain"
+  },
+  "public.utf8-plain-text": {
+    "conformsTo": "public.plain-text"
+  },
+  "public.utf16-external-plain-​text": {
+    "conformsTo": "public.plain-text"
+  },
+  "public.utf16-plain-text": {
+    "conformsTo": "public.plain-text"
+  },
+  "public.rtf": {
+    "conformsTo": "public.text",
+    "fileNameExtension": ".rtf",
+    "mimeType": "text/rtf"
+  },
+  "public.html": {
+    "conformsTo": "public.text",
+    "fileNameExtension": [".html", ".htm"],
+    "mimeType": "text/html"
+  },
+  "public.xml": {
+    "conformsTo": "public.text",
+    "fileNameExtension": ".xml",
+    "mimeType": "text/xml"
+  },
+  "public.json": {
+    "conformsTo": "public.text",
+    "fileNameExtension": ".json",
+    "mimeType": ["application/json", "text/json"]
+  },
+  "public.source-code": {
+    "conformsTo": "public.plain-text"
+  },
 
-  "org.gnu.gnu-tar-archive" : { "conformsTo": [ "public.data", "public.archive" ], "fileNameExtension": ".tar", "mimeType" : ["application/x-tar","application/tar"]  },
-  "public.tar-archive" : { "conformsTo": "org.gnu.gnu-tar-archive", "fileNameExtension": ".tar", "mimeType" : ["application/x-tar","application/tar"]  },
-  "org.gnu.gnu-zip-archive" : { "conformsTo": [ "public.data", "public.archive" ], "fileNameExtension": [".gz",".gzip" ], "mimeType" : "application/gzip"  },
+  "org.gnu.gnu-tar-archive": {
+    "conformsTo": ["public.data", "public.archive"],
+    "fileNameExtension": ".tar",
+    "mimeType": ["application/x-tar", "application/tar"]
+  },
+  "public.tar-archive": {
+    "conformsTo": "org.gnu.gnu-tar-archive",
+    "fileNameExtension": ".tar",
+    "mimeType": ["application/x-tar", "application/tar"]
+  },
+  "org.gnu.gnu-zip-archive": {
+    "conformsTo": ["public.data", "public.archive"],
+    "fileNameExtension": [".gz", ".gzip"],
+    "mimeType": "application/gzip"
+  },
 
-  "public.database" : { },
-  "public.archive" : { },
-  "public.disk-image " : { "conformsTo": "public.archive"},
-  "public.image" : { "conformsTo": ["public.data", "public.content" ] },
+  "public.database": {},
+  "public.archive": {},
+  "public.disk-image ": {
+    "conformsTo": "public.archive"
+  },
+  "public.image": {
+    "conformsTo": ["public.data", "public.content"]
+  },
 
 
 
-  "public.case-insensitive-text" : {},
-  "public.filename-extension" : {"conformsTo" : "public.case-insensitive-text" },
-  "public.mime-type" : {"conformsTo" : "public.case-insensitive-text" }
+  "public.case-insensitive-text": {},
+  "public.filename-extension": {
+    "conformsTo": "public.case-insensitive-text"
+  },
+  "public.mime-type": {
+    "conformsTo": "public.case-insensitive-text"
+  }
 }
