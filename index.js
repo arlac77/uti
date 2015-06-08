@@ -71,7 +71,7 @@ exports.initialize = function (options) {
   const p = uti.loadDefinitions(path.join(__dirname, 'publicUTI.json'));
 
   if (options.definitionFile) {
-    return p.then(uti.loadDefinitions(options.definitionFile));
+    return p.then(uti.loadDefinitions(options.definitionFileName));
   }
 
   return p;

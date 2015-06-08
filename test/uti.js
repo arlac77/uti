@@ -28,13 +28,16 @@ describe('uti', function () {
     });
   });
 
-  describe('addtitional UTIs', function () {
+  describe('additional UTIs', function () {
     it('should be present', function (done) {
       uti.initialize({
-        definitionFile: path.join(__dirname, 'fixtures', 'uti.json')
+        definitionFileName: path.join(__dirname, 'fixtures', 'uti.json')
       }).then(function (uti) {
+        const json = uti.getUTI('public.json');
+        should.exist(json);
         const myUTI = uti.getUTI('com.mydomain.sample');
-        should.exist(myUTI);
+        //console.log(`${json} ${myUTI}`);
+        should.exist(myUTI, `is present ${myUTI}`);
         done();
       }, function (error) {
         console.log(`${error}`);
