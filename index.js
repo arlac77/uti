@@ -52,19 +52,30 @@ exports.initialize = function (options) {
             const u = JSON.parse(data);
 
             for (let i in u) {
-              const c = Array.isArray(u.conformsTo) ? u.conformsTo : [u.conformsTo];
-              const conformsTo = new Set(c.map(function (e) {
-                return registry[c];
-              }));
-
-              const nu = Object.create(RootUTI, {
+              const properties = {
                 name: {
                   value: i
-                },
-                conformsTo: {
-                  value: conformsTo
                 }
-              });
+              };
+
+              if (u.conformsTo) {
+                const c = Array.isArray(u.conformsTo) ? u.conformsTo : [u.conformsTo];
+                const conformsTo = new Set(c.map(function (e) {
+                  const u = registry[e];
+                  if (u) return u;
+                  reject(`unknown uti: ${e}`);
+                  return undefined;
+                }));
+                properties.conformsTo = {
+                  vlaue: conformsTo
+                };
+              } else {
+                properties.conformsTo = {
+                  value: new Set()
+                };
+              }
+
+              const nu = Object.create(RootUTI, properties);
 
               //console.log(i);
               registry[i] = nu;
@@ -80,7 +91,11 @@ exports.initialize = function (options) {
   const p = uti.loadDefinitions(path.join(__dirname, 'publicUTI.json'));
 
   if (options.definitionFileName) {
-    return p.then(uti.loadDefinitions(options.definitionFileName));
+    return new Promise(function (resolve, reject) {
+      return Promise.all([p, uti.loadDefinitions(options.definitionFileName)]).then(function () {
+        resolve(uti);
+      });
+    });
   }
 
   return p;
