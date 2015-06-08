@@ -39,6 +39,7 @@ exports.initialize = function (options) {
         }
         return utiA.conformsTo.has(b);
       }, loadDefinitions(fileName) {
+        //console.log(`load ${fileName}`);
         return new Promise(function (resolve, reject) {
           fs.readFile(fileName, {
             encoding: "utf8"
@@ -68,6 +69,7 @@ exports.initialize = function (options) {
               //console.log(i);
               registry[i] = nu;
             }
+            //console.log(`done load ${fileName}`);
 
             resolve(uti);
           });
