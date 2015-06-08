@@ -28,7 +28,7 @@ exports.initialize = function (options) {
     getUTI(name) {
         return registry[name];
       },
-      conformesTo(a, b) {
+      conformsTo(a, b) {
         const utiA = registry[a];
         if (!utiA) {
           return false;
@@ -47,12 +47,14 @@ exports.initialize = function (options) {
             const u = JSON.parse(data);
 
             for (let i in u) {
+              const conformsTo = new Set(Array.isArray(u.conformsTo) ? u.conformsTo : [u.conformsTo]);
+
               const nu = Object.create(RootUTI, {
                 name: {
                   value: i
                 },
                 conformsTo: {
-                  value: u.conformsTo
+                  value: conformsTo
                 }
               });
 
