@@ -33,7 +33,11 @@ exports.initialize = function (options) {
         if (!utiA) {
           return false;
         }
-        return utiA.conformsTo[b];
+        const utiB = registry[b];
+        if (!utiB) {
+          return false;
+        }
+        return utiA.conformsTo.has(b);
       }, loadDefinitions(fileName) {
         return new Promise(function (resolve, reject) {
           fs.readFile(fileName, {
@@ -47,7 +51,10 @@ exports.initialize = function (options) {
             const u = JSON.parse(data);
 
             for (let i in u) {
-              const conformsTo = new Set(Array.isArray(u.conformsTo) ? u.conformsTo : [u.conformsTo]);
+              const c = Array.isArray(u.conformsTo) ? u.conformsTo : [u.conformsTo];
+              const conformsTo = new Set(c.map(function (e) {
+                return registry[c];
+              }));
 
               const nu = Object.create(RootUTI, {
                 name: {
@@ -70,7 +77,7 @@ exports.initialize = function (options) {
 
   const p = uti.loadDefinitions(path.join(__dirname, 'publicUTI.json'));
 
-  if (options.definitionFile) {
+  if (options.definitionFileName) {
     return p.then(uti.loadDefinitions(options.definitionFileName));
   }
 
