@@ -1,0 +1,7 @@
+language: node_js
+node_js:
+  - "iojs"
+
+notifications:
+  email:
+    - markus.felten@gmx.de
