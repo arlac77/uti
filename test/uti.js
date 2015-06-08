@@ -19,6 +19,9 @@ describe('uti', function () {
       uti.initialize().then(function (uti) {
         const json = uti.getUTI('public.json');
         should.exist(json);
+
+        //console.log(`${uti.conformsTo('public.image', 'public.data')}`);
+        //assert(uti.conformsTo('public.image', 'public.data'));
         done();
       }, function (error) {
         console.log(`${error}`);

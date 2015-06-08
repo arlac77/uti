@@ -11,8 +11,7 @@ const RootUTI = {
     },
     toJSON() {
       return {
-        name: this.name,
-        conformsTo: this.conformsTo
+        name: this.name
       };
     }
 };
@@ -37,6 +36,7 @@ exports.initialize = function (options) {
         if (!utiB) {
           return false;
         }
+        //console.log(`${a} ${utiA} ${b} ${utiB}`);
         return utiA.conformsTo.has(b);
       }, loadDefinitions(fileName) {
         //console.log(`load ${fileName}`);
@@ -49,12 +49,11 @@ exports.initialize = function (options) {
               return;
             }
 
-            const u = JSON.parse(data);
-
-            for (let i in u) {
+            for (let u of JSON.parse(data)) {
+              //console.log(`${JSON.stringify(u)}`);
               const properties = {
                 name: {
-                  value: i
+                  value: u.name
                 }
               };
 
@@ -62,6 +61,7 @@ exports.initialize = function (options) {
                 const c = Array.isArray(u.conformsTo) ? u.conformsTo : [u.conformsTo];
                 const conformsTo = new Set(c.map(function (e) {
                   const u = registry[e];
+                  //console.log(`conformsTo: ${i} ${u}`);
                   if (u) return u;
                   reject(`unknown uti: ${e}`);
                   return undefined;
@@ -77,10 +77,10 @@ exports.initialize = function (options) {
 
               const nu = Object.create(RootUTI, properties);
 
-              //console.log(i);
-              registry[i] = nu;
+              registry[nu.name] = nu;
+
+              //console.log(`${JSON.stringify(nu)}`);
             }
-            //console.log(`done load ${fileName}`);
 
             resolve(uti);
           });
