@@ -3,3 +3,6 @@
 
 Uniform Type Identifier
 -----------------------
+
+
+Fro a list of known UTIs please see [(http://www.escape.gr/manuals/qdrop/UTI.html)]
