@@ -11,7 +11,8 @@ const RootUTI = {
     },
     toJSON() {
       return {
-        name: this.name
+        name: this.name,
+        conformsTo: this.conformsTo.values()
       };
     }
 };
@@ -36,10 +37,9 @@ exports.initialize = function (options) {
         if (!utiB) {
           return false;
         }
-        //console.log(`${a} ${utiA} ${b} ${utiB}`);
+        console.log(`${a} ${utiA} ${b} ${utiB}` /* ${JSON.stringify(utiA.conformsTo)}` */ );
         return utiA.conformsTo.has(b);
       }, loadDefinitions(fileName) {
-        //console.log(`load ${fileName}`);
         return new Promise(function (resolve, reject) {
           fs.readFile(fileName, {
             encoding: "utf8"
@@ -50,7 +50,6 @@ exports.initialize = function (options) {
             }
 
             for (let u of JSON.parse(data)) {
-              //console.log(`${JSON.stringify(u)}`);
               const properties = {
                 name: {
                   value: u.name
@@ -60,14 +59,14 @@ exports.initialize = function (options) {
               if (u.conformsTo) {
                 const c = Array.isArray(u.conformsTo) ? u.conformsTo : [u.conformsTo];
                 const conformsTo = new Set(c.map(function (e) {
-                  const u = registry[e];
-                  //console.log(`conformsTo: ${i} ${u}`);
-                  if (u) return u;
+                  const u1 = registry[e];
+                  //console.log(`conformsTo: ${u.name} ${u1}`);
+                  if (u1) return u1;
                   reject(`unknown uti: ${e}`);
                   return undefined;
                 }));
                 properties.conformsTo = {
-                  vlaue: conformsTo
+                  value: conformsTo
                 };
               } else {
                 properties.conformsTo = {
