@@ -50,15 +50,14 @@ describe('uti', function () {
   });
 
   describe('additional UTIs', function () {
-    xit('should fail on missing file', function (done) {
+    it('should fail on missing file', function (done) {
       uti.initialize({
         definitionFileName: path.join(__dirname, 'fixtures', 'missing_file.json')
       }).then(function (uti) {
         assert(false);
         done();
       }, function (error) {
-        console.log(`${error}`);
-        assert(true);
+        assert(error.toString().match(/ENOENT/));
         done();
       });
     });

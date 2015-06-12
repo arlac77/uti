@@ -7,7 +7,7 @@ const path = require("path");
 
 const RootUTI = {
   toString() {
-      return this.name
+      return this.name;
     },
     toJSON() {
       return {
@@ -93,6 +93,8 @@ exports.initialize = function (options) {
     return new Promise(function (resolve, reject) {
       return Promise.all([p, uti.loadDefinitions(options.definitionFileName)]).then(function () {
         resolve(uti);
+      },function(error) {
+        reject(error);
       });
     });
   }
