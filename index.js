@@ -12,7 +12,7 @@ const RootUTI = {
     toJSON() {
       return {
         name: this.name,
-        conformsTo: this.conformsTo.values()
+        conformsTo: this.conformsTo
       };
     }
 };
@@ -33,12 +33,12 @@ exports.initialize = function (options) {
         if (!utiA) {
           return false;
         }
-        const utiB = registry[b];
+        /*const utiB = registry[b];
         if (!utiB) {
           return false;
-        }
-        console.log(`${a} ${utiA} ${b} ${utiB}` /* ${JSON.stringify(utiA.conformsTo)}` */ );
-        return utiA.conformsTo.has(b);
+        }*/
+        //console.log(`${a} ${utiA} ${b}` /* ${JSON.stringify(utiA.conformsTo)}` */ );
+        return utiA.conformsTo[b];
       }, loadDefinitions(fileName) {
         return new Promise(function (resolve, reject) {
           fs.readFile(fileName, {
@@ -56,29 +56,35 @@ exports.initialize = function (options) {
                 }
               };
 
+              const conformsTo = {};
+
               if (u.conformsTo) {
-                const c = Array.isArray(u.conformsTo) ? u.conformsTo : [u.conformsTo];
-                const conformsTo = new Set(c.map(function (e) {
-                  const u1 = registry[e];
-                  //console.log(`conformsTo: ${u.name} ${u1}`);
-                  if (u1) return u1;
-                  reject(`unknown uti: ${e}`);
-                  return undefined;
-                }));
-                properties.conformsTo = {
-                  value: conformsTo
-                };
-              } else {
-                properties.conformsTo = {
-                  value: new Set()
-                };
+                if(Array.isArray(u.conformsTo)) {
+                  u.conformsTo.forEach(function(name) {
+                    const aUTI = registry[name];
+                    if (aUTI) {
+                      conformsTo[name] = aUTI;
+                    }
+                    else {
+                      //reject(`unknown uti: ${name}`);
+                    }
+                  });
+                  }
+                else {
+                  const name = u.conformsTo;
+                  conformsTo[name] = registry[name];
+                }
               }
+
+              properties.conformsTo = {
+                value: conformsTo
+              };
 
               const nu = Object.create(RootUTI, properties);
 
-              registry[nu.name] = nu;
+              /*if(u.name === 'public.image') console.log(`${JSON.stringify(nu)}`);*/
 
-              //console.log(`${JSON.stringify(nu)}`);
+              registry[nu.name] = nu;
             }
 
             resolve(uti);

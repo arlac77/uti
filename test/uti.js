@@ -20,7 +20,8 @@ describe('uti', function () {
         const json = uti.getUTI('public.json');
         should.exist(json);
         //console.log(`${uti.conformsTo('public.image', 'public.data')}`);
-        //assert(uti.conformsTo('public.image', 'public.data'));
+        assert(uti.conformsTo('public.image', 'public.data'));
+        assert(uti.conformsTo('public.image', 'public.content'));
         done();
       }, function (error) {
         console.log(`${error}`);
@@ -38,7 +39,6 @@ describe('uti', function () {
         const json = uti.getUTI('public.json');
         should.exist(json);
         const myUTI = uti.getUTI('com.mydomain.sample');
-        console.log(`${json} ${myUTI}`);
         should.exist(myUTI, `is present ${myUTI}`);
         done();
       }, function (error) {
