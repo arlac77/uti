@@ -111,17 +111,15 @@ exports.initialize = function (options) {
       }
   };
 
-  const p = uti.loadDefinitions(path.join(__dirname, 'publicUTI.json'));
+  const fileNames = [path.join(__dirname, 'publicUTI.json')];
 
   if (options.definitionFileName) {
-    return new Promise(function (resolve, reject) {
-      return Promise.all([p, uti.loadDefinitions(options.definitionFileName)]).then(function () {
-        resolve(uti);
-      }, function (error) {
-        reject(error);
-      });
-    });
+    fileNames.push(options.definitionFileName);
   }
 
-  return p;
+  return new Promise(function(resolve,reject) {
+    Promise.all(fileNames.map(function(f) { return uti.loadDefinitions(f); })).then(function () {
+      resolve(uti);
+    },reject);
+    });
 };
