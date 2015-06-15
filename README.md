@@ -31,7 +31,24 @@ var uti = require('uti');
 ```
 
 ## initialize(options)
+returns a promise that fullfilles to the api providing object
+if options.definitionFileName is given then additional UTIs will be loaded from the given file name
 
+## conformsTo(a,b)
+returns true if UTI a conforms to UTI b
+
+## getUTIsforFileName(aFileName)
+
+returns array of UTIs matching a file name (extension)
+
+# json structure
+```json
+[
+{ "name" : "org.mydomain.type1", "conformsTo" : ["public.image","public.xml"] },
+{ "name" : "org.mydomain.type2", "conformsTo" : "public.image" }
+
+]
+```
 
 # install
 
@@ -40,6 +57,7 @@ With [npm](http://npmjs.org) do:
 ```
 npm install uti
 ```
+
 # license
 
 BSD-2-Clause

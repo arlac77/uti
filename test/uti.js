@@ -22,6 +22,7 @@ describe('uti', function () {
         //console.log(`${uti.conformsTo('public.image', 'public.data')}`);
         assert(uti.conformsTo('public.image', 'public.data'));
         assert(uti.conformsTo('public.image', 'public.content'));
+        assert(uti.getUTIsforFileName('a.txt')[0], 'public.plain-text');
         done();
       }, function (error) {
         console.log(`${error}`);

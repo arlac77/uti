@@ -23,22 +23,40 @@ exports.initialize = function (options) {
   }
 
   const registry = {};
+  const utiByFileNameExtension = {};
+
+  function assignExtensions(extensions,name) {
+    extensions.forEach(function (ext) {
+      if(utiByFileNameExtension[ext]) {
+        utiByFileNameExtension[ext].push(name);
+      }
+      else {
+        //console.log(`${ext} : ${name}`);
+
+        utiByFileNameExtension[ext] = [name];
+      }
+    });
+  }
 
   const uti = {
     getUTI(name) {
         return registry[name];
+      },
+      getUTIsforFileName(fileName) {
+        const m = fileName.match(/(\.[a-zA-Z_0-9]+)$/);
+
+        //console.log(`${fileName} -> ${m[1]}`);
+        if(m) {
+          return utiByFileNameExtension[m[1]];
+        }
+        return undefined;
       },
       conformsTo(a, b) {
         const utiA = registry[a];
         if (!utiA) {
           return false;
         }
-        /*const utiB = registry[b];
-        if (!utiB) {
-          return false;
-        }*/
-        //console.log(`${a} ${utiA} ${b}` /* ${JSON.stringify(utiA.conformsTo)}` */ );
-        return utiA.conformsTo[b];
+        return utiA.conformsTo[b] ? true : false;
       }, loadDefinitions(fileName) {
         return new Promise(function (resolve, reject) {
           fs.readFile(fileName, {
@@ -56,21 +74,23 @@ exports.initialize = function (options) {
                 }
               };
 
+              if(u.fileNameExtension) {
+                assignExtensions(Array.isArray(u.fileNameExtension) ? u.fileNameExtension : [u.fileNameExtension],u.name);
+              }
+
               const conformsTo = {};
 
               if (u.conformsTo) {
-                if(Array.isArray(u.conformsTo)) {
-                  u.conformsTo.forEach(function(name) {
+                if (Array.isArray(u.conformsTo)) {
+                  u.conformsTo.forEach(function (name) {
                     const aUTI = registry[name];
                     if (aUTI) {
                       conformsTo[name] = aUTI;
-                    }
-                    else {
+                    } else {
                       //reject(`unknown uti: ${name}`);
                     }
                   });
-                  }
-                else {
+                } else {
                   const name = u.conformsTo;
                   conformsTo[name] = registry[name];
                 }
@@ -81,8 +101,6 @@ exports.initialize = function (options) {
               };
 
               const nu = Object.create(RootUTI, properties);
-
-              /*if(u.name === 'public.image') console.log(`${JSON.stringify(nu)}`);*/
 
               registry[nu.name] = nu;
             }
@@ -99,7 +117,7 @@ exports.initialize = function (options) {
     return new Promise(function (resolve, reject) {
       return Promise.all([p, uti.loadDefinitions(options.definitionFileName)]).then(function () {
         resolve(uti);
-      },function(error) {
+      }, function (error) {
         reject(error);
       });
     });

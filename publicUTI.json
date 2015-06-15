@@ -75,7 +75,6 @@
   "conformsTo": "public.archive"
 }, {
   "name": "public.image",
-  "conformsTo": "public.archive",
   "conformsTo": ["public.data", "public.content"]
 }, {
   "name": "public.case-insensitive-text"
