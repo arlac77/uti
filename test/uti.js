@@ -19,10 +19,12 @@ describe('uti', function () {
       uti.initialize().then(function (uti) {
         const json = uti.getUTI('public.json');
         should.exist(json);
-        //console.log(`${uti.conformsTo('public.image', 'public.data')}`);
         assert(uti.conformsTo('public.image', 'public.data'));
         assert(uti.conformsTo('public.image', 'public.content'));
-        assert(uti.getUTIsforFileName('a.txt')[0], 'public.plain-text');
+        assert(!uti.conformsTo('public.image', 'public.xml'));
+        assert(!uti.conformsTo('undefined.uti', 'public.xml'));
+        assert(uti.getUTIsforFileName('a.txt')[0] === 'public.plain-text');
+        assert(uti.getUTIsforFileName('a') === undefined);
         done();
       }, function (error) {
         console.log(`${error}`);
