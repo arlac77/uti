@@ -5,3 +5,7 @@ node_js:
 notifications:
   email:
     - markus.felten@gmx.de
+
+script: "npm run-script cover"
+
+after_script: "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
