@@ -25,12 +25,11 @@ exports.initialize = function (options) {
   const registry = {};
   const utiByFileNameExtension = {};
 
-  function assignExtensions(extensions,name) {
+  function assignExtensions(extensions, name) {
     extensions.forEach(function (ext) {
-      if(utiByFileNameExtension[ext]) {
+      if (utiByFileNameExtension[ext]) {
         utiByFileNameExtension[ext].push(name);
-      }
-      else {
+      } else {
         //console.log(`${ext} : ${name}`);
 
         utiByFileNameExtension[ext] = [name];
@@ -46,7 +45,7 @@ exports.initialize = function (options) {
         const m = fileName.match(/(\.[a-zA-Z_0-9]+)$/);
 
         //console.log(`${fileName} -> ${m[1]}`);
-        if(m) {
+        if (m) {
           return utiByFileNameExtension[m[1]];
         }
         return undefined;
@@ -56,8 +55,20 @@ exports.initialize = function (options) {
         if (!utiA) {
           return false;
         }
-        return utiA.conformsTo[b] ? true : false;
-      }, loadDefinitions(fileName) {
+        if (utiA.conformsTo[b]) {
+          return true;
+        }
+
+        for (let i in utiA.conformsTo) {
+          const u = utiA.conformsTo[i];
+          //console.log(`${u} <> ${b}`);
+          if (u.conformsTo[b]) {
+            return true;
+          }
+        }
+        return false;
+      },
+      loadDefinitions(fileName) {
         return new Promise(function (resolve, reject) {
           fs.readFile(fileName, {
             encoding: "utf8"
@@ -74,8 +85,9 @@ exports.initialize = function (options) {
                 }
               };
 
-              if(u.fileNameExtension) {
-                assignExtensions(Array.isArray(u.fileNameExtension) ? u.fileNameExtension : [u.fileNameExtension],u.name);
+              if (u.fileNameExtension) {
+                assignExtensions(Array.isArray(u.fileNameExtension) ? u.fileNameExtension : [u.fileNameExtension],
+                  u.name);
               }
 
               const conformsTo = {};
@@ -117,9 +129,11 @@ exports.initialize = function (options) {
     fileNames.push(options.definitionFileName);
   }
 
-  return new Promise(function(resolve,reject) {
-    Promise.all(fileNames.map(function(f) { return uti.loadDefinitions(f); })).then(function () {
+  return new Promise(function (resolve, reject) {
+    Promise.all(fileNames.map(function (f) {
+      return uti.loadDefinitions(f);
+    })).then(function () {
       resolve(uti);
-    },reject);
-    });
+    }, reject);
+  });
 };

@@ -22,6 +22,9 @@ describe('uti', function () {
         assert(u1.toJSON().name === 'public.json');
         assert(uti.conformsTo('public.image', 'public.data'));
         assert(uti.conformsTo('public.image', 'public.content'));
+
+        assert(uti.conformsTo('public.plain-text', 'public.data'));
+
         assert(!uti.conformsTo('public.image', 'public.xml'));
         assert(!uti.conformsTo('undefined.uti', 'public.xml'));
         assert(uti.getUTIsforFileName('a.txt')[0] === 'public.plain-text');
