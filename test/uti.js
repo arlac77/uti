@@ -24,6 +24,7 @@ describe('uti', function () {
         assert(uti.conformsTo('public.image', 'public.content'));
 
         assert(uti.conformsTo('public.plain-text', 'public.data'));
+        assert(uti.conformsTo('public.tar-archive', 'public.data'));
 
         assert(!uti.conformsTo('public.image', 'public.xml'));
         assert(!uti.conformsTo('undefined.uti', 'public.xml'));

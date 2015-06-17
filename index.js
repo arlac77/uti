@@ -61,11 +61,16 @@ exports.initialize = function (options) {
 
         for (let i in utiA.conformsTo) {
           const u = utiA.conformsTo[i];
-          //console.log(`${u} <> ${b}`);
+          console.log(`${u} <> ${b}`);
           if (u.conformsTo[b]) {
             return true;
           }
+          /*
+                    if (uti.conformsTo(u, i)) {
+                      return true;
+                    }*/
         }
+
         return false;
       },
       loadDefinitions(fileName) {
