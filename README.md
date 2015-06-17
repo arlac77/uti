@@ -40,14 +40,13 @@ returns true if UTI a conforms to UTI b
 
 ## getUTIsforFileName(aFileName)
 
-returns array of UTIs matching a file name (extension)
+returns array of UTIs matching a file name (based on its extension)
 
 # json structure
 ```json
 [
-{ "name" : "org.mydomain.type1", "conformsTo" : ["public.image","public.xml"] },
+{ "name" : "org.mydomain.type1", "conformsTo" : ["public.image","public.xml"], "fileNameExtension": ".type1" },
 { "name" : "org.mydomain.type2", "conformsTo" : "public.image" }
-
 ]
 ```
 

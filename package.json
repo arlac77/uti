@@ -12,9 +12,9 @@
     "url": "git+https://github.com/arlac77/uti.git"
   },
   "devDependencies": {
-    "coveralls": "2.10.0",
     "chai": "3.0.0",
     "chai-as-promised": "5.1.0",
+    "coveralls": "2.11.2",
     "istanbul-harmony": "0.3.15",
     "mocha": "2.2.5"
   },

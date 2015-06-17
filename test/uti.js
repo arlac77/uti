@@ -17,8 +17,9 @@ describe('uti', function () {
   describe('buildin UTIs', function () {
     it('should be present', function (done) {
       uti.initialize().then(function (uti) {
-        const json = uti.getUTI('public.json');
-        should.exist(json);
+        const u1 = uti.getUTI('public.json');
+        should.exist(u1);
+        assert(u1.toJSON().name === 'public.json');
         assert(uti.conformsTo('public.image', 'public.data'));
         assert(uti.conformsTo('public.image', 'public.content'));
         assert(!uti.conformsTo('public.image', 'public.xml'));
