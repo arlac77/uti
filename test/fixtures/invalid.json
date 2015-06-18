@@ -1,0 +1,5 @@
+[{
+  "name": "com.mydomain.sample",
+  "conformsTo": "public.json",
+  "fileNameExtension": ".myext",
+}]

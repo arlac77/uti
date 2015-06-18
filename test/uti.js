@@ -20,8 +20,6 @@ describe('uti', function () {
         const u1 = uti.getUTI('public.json');
         should.exist(u1);
         assert(u1.toJSON().name === 'public.json');
-        assert(uti.getUTIsforFileName('a.txt')[0] === 'public.plain-text');
-        assert(uti.getUTIsforFileName('a') === undefined);
         done();
       }, function (error) {
         console.log(`${error}`);
@@ -30,21 +28,39 @@ describe('uti', function () {
       });
     });
 
-    it('conformsTo', function (done) {
-      uti.initialize().then(function (uti) {
-        assert(uti.conformsTo('public.image', 'public.data'));
-        assert(uti.conformsTo('public.image', 'public.content'));
-        assert(uti.conformsTo('public.plain-text', 'public.data'));
-        assert(uti.conformsTo('public.tar-archive', 'public.data'));
-        assert(uti.conformsTo('public.volume', 'public.folder'));
-        assert(uti.conformsTo('public.volume', 'public.directory'));
-        assert(uti.conformsTo('public.volume', 'public.item'));
-        assert(!uti.conformsTo('undefined.uti', 'public.xml'));
-        assert(!uti.conformsTo('public.image', 'public.xml'));
-
-        done();
+    describe('getUTIsforFileName', function () {
+      it('simple', function (done) {
+        uti.initialize().then(function (uti) {
+          assert(uti.getUTIsforFileName('a.txt')[0] === 'public.plain-text');
+          assert(uti.getUTIsforFileName('a') === undefined);
+          done();
+        });
       });
     });
+
+    describe('conformsTo', function () {
+      it('positive', function (done) {
+        uti.initialize().then(function (uti) {
+          assert(uti.conformsTo('public.image', 'public.data'));
+          assert(uti.conformsTo('public.image', 'public.content'));
+          assert(uti.conformsTo('public.plain-text', 'public.data'));
+          assert(uti.conformsTo('public.tar-archive', 'public.data'));
+          assert(uti.conformsTo('public.volume', 'public.folder'));
+          assert(uti.conformsTo('public.volume', 'public.directory'));
+          assert(uti.conformsTo('public.volume', 'public.item'));
+          done();
+        });
+      });
+      it('negative', function (done) {
+        uti.initialize().then(function (uti) {
+          assert(!uti.conformsTo('undefined.uti', 'public.xml'));
+          assert(!uti.conformsTo('public.image', 'public.xml'));
+          done();
+        });
+      });
+
+    });
+
   });
 
   describe('load additional UTIs', function () {
@@ -76,7 +92,20 @@ describe('uti', function () {
         assert(error.toString().match(/ENOENT/));
         done();
       });
+
     });
+    it('should fail with json syntax error', function (done) {
+      uti.initialize({
+        definitionFileName: path.join(__dirname, 'fixtures', 'invalid.json')
+      }).then(function (uti) {
+        assert(false);
+        done();
+      }, function (error) {
+        assert(error.toString().match(/SyntaxError/));
+        done();
+      });
+    });
+
   });
 
 });

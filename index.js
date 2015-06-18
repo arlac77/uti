@@ -37,17 +37,6 @@ exports.initialize = function (options) {
     });
   }
 
-  /*
-    function conformsTo(a, b) {
-      console.log(`${a} <> ${b}`);
-
-      const r = _conformsTo(a, b);
-
-      console.log(`${a} <> ${b} -> ${r}`);
-      return r;
-    }
-  */
-
   function conformsTo(a, b) {
     for (let i in a.conformsTo) {
       const u = a.conformsTo[i];
@@ -94,45 +83,48 @@ exports.initialize = function (options) {
               return;
             }
 
-            for (let u of JSON.parse(data)) {
-              const properties = {
-                name: {
-                  value: u.name
+            try {
+              for (let u of JSON.parse(data)) {
+                const properties = {
+                  name: {
+                    value: u.name
+                  }
+                };
+
+                if (u.fileNameExtension) {
+                  assignExtensions(Array.isArray(u.fileNameExtension) ? u.fileNameExtension : [u.fileNameExtension],
+                    u.name);
                 }
-              };
 
-              if (u.fileNameExtension) {
-                assignExtensions(Array.isArray(u.fileNameExtension) ? u.fileNameExtension : [u.fileNameExtension],
-                  u.name);
-              }
+                const conformsTo = {};
 
-              const conformsTo = {};
-
-              if (u.conformsTo) {
-                if (Array.isArray(u.conformsTo)) {
-                  u.conformsTo.forEach(function (name) {
-                    const aUTI = registry[name];
-                    if (aUTI) {
-                      conformsTo[name] = aUTI;
-                    } else {
-                      //reject(`unknown uti: ${name}`);
-                    }
-                  });
-                } else {
-                  const name = u.conformsTo;
-                  conformsTo[name] = registry[name];
+                if (u.conformsTo) {
+                  if (Array.isArray(u.conformsTo)) {
+                    u.conformsTo.forEach(function (name) {
+                      const aUTI = registry[name];
+                      if (aUTI) {
+                        conformsTo[name] = aUTI;
+                      } else {
+                        //reject(`unknown uti: ${name}`);
+                      }
+                    });
+                  } else {
+                    const name = u.conformsTo;
+                    conformsTo[name] = registry[name];
+                  }
                 }
+
+                properties.conformsTo = {
+                  value: conformsTo
+                };
+
+                const nu = Object.create(RootUTI, properties);
+
+                registry[nu.name] = nu;
               }
-
-              properties.conformsTo = {
-                value: conformsTo
-              };
-
-              const nu = Object.create(RootUTI, properties);
-
-              registry[nu.name] = nu;
+            } catch (error) {
+              reject(error);
             }
-
             resolve(uti);
           });
         });
