@@ -58,9 +58,7 @@ describe('uti', function () {
           done();
         });
       });
-
     });
-
   });
 
   describe('load additional UTIs', function () {
