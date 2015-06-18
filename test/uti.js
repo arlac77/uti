@@ -20,6 +20,18 @@ describe('uti', function () {
         const u1 = uti.getUTI('public.json');
         should.exist(u1);
         assert(u1.toJSON().name === 'public.json');
+        assert(uti.getUTIsforFileName('a.txt')[0] === 'public.plain-text');
+        assert(uti.getUTIsforFileName('a') === undefined);
+        done();
+      }, function (error) {
+        console.log(`${error}`);
+        assert(false);
+        done();
+      });
+    });
+
+    it('conformsTo', function (done) {
+      uti.initialize().then(function (uti) {
         assert(uti.conformsTo('public.image', 'public.data'));
         assert(uti.conformsTo('public.image', 'public.content'));
 
@@ -31,18 +43,13 @@ describe('uti', function () {
 
         assert(!uti.conformsTo('public.image', 'public.xml'));
         assert(!uti.conformsTo('undefined.uti', 'public.xml'));
-        assert(uti.getUTIsforFileName('a.txt')[0] === 'public.plain-text');
-        assert(uti.getUTIsforFileName('a') === undefined);
-        done();
-      }, function (error) {
-        console.log(`${error}`);
-        assert(false);
+
         done();
       });
     });
   });
 
-  describe('additional UTIs', function () {
+  describe('load additional UTIs', function () {
     it('should be present', function (done) {
       uti.initialize({
         definitionFileName: path.join(__dirname, 'fixtures', 'uti.json')
@@ -60,7 +67,7 @@ describe('uti', function () {
     });
   });
 
-  describe('additional UTIs', function () {
+  describe('loading errors', function () {
     it('should fail on missing file', function (done) {
       uti.initialize({
         definitionFileName: path.join(__dirname, 'fixtures', 'missing_file.json')
