@@ -37,6 +37,32 @@ exports.initialize = function (options) {
     });
   }
 
+  /*
+    function conformsTo(a, b) {
+      console.log(`${a} <> ${b}`);
+
+      const r = _conformsTo(a, b);
+
+      console.log(`${a} <> ${b} -> ${r}`);
+      return r;
+    }
+  */
+
+  function conformsTo(a, b) {
+    for (let i in a.conformsTo) {
+      const u = a.conformsTo[i];
+
+      if (u === b) {
+        return true;
+      }
+
+      if (conformsTo(u, b)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   const uti = {
     getUTI(name) {
         return registry[name];
@@ -51,27 +77,12 @@ exports.initialize = function (options) {
         return undefined;
       },
       conformsTo(a, b) {
-        const utiA = registry[a];
-        if (!utiA) {
+        a = registry[a];
+        if (!a) {
           return false;
         }
-        if (utiA.conformsTo[b]) {
-          return true;
-        }
 
-        for (let i in utiA.conformsTo) {
-          const u = utiA.conformsTo[i];
-          //console.log(`${u} <> ${b}`);
-          if (u.conformsTo[b]) {
-            return true;
-          }
-          /*
-                    if (uti.conformsTo(u, i)) {
-                      return true;
-                    }*/
-        }
-
-        return false;
+        return conformsTo(a, registry[b]);
       },
       loadDefinitions(fileName) {
         return new Promise(function (resolve, reject) {
