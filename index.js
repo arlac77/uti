@@ -126,7 +126,7 @@ exports.initialize = function (options) {
   }
 
   return new Promise(function (resolve, reject) {
-    Promise.all(fileNames.map(function (f) {
+    return Promise.all(fileNames.map(function (f) {
       return uti.loadDefinitions(f);
     })).then(function () {
       resolve(uti);
