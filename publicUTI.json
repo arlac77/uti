@@ -3,6 +3,10 @@
 }, {
   "name": "public.content"
 }, {
+  "name": "public.message"
+}, {
+  "name": "public.contact"
+}, {
   "name": "public.composite-content",
   "conformsTo": "public.content"
 }, {
@@ -12,6 +16,26 @@
   "name": "public.database"
 }, {
   "name": "public.archive"
+}, {
+  "name": "public.directory",
+  "conformsTo": "public.item"
+}, {
+  "name": "public.folder",
+  "conformsTo": "public.directory"
+}, {
+  "name": "public.volume",
+  "conformsTo": "public.folder"
+}, {
+  "name": "com.apple.resolvable"
+}, {
+  "name": "public.symlink",
+  "conformsTo": ["public.item", "com.apple.resolvable"]
+}, {
+  "name": "public.url",
+  "conformsTo": "public.data"
+}, {
+  "name": "public.file-url",
+  "conformsTo": "public.url"
 }, {
   "name": "public.text",
   "conformsTo": ["public.data", "public.content"]
