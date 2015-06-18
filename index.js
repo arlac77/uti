@@ -2,7 +2,8 @@
 
 "use strict";
 
-const fs = require("fs");
+const promisify = require("promisify-node");
+const fs = promisify("fs");
 const path = require("path");
 
 const RootUTI = {
@@ -59,7 +60,6 @@ exports.initialize = function (options) {
       getUTIsforFileName(fileName) {
         const m = fileName.match(/(\.[a-zA-Z_0-9]+)$/);
 
-        //console.log(`${fileName} -> ${m[1]}`);
         if (m) {
           return utiByFileNameExtension[m[1]];
         }
@@ -74,59 +74,47 @@ exports.initialize = function (options) {
         return conformsTo(a, registry[b]);
       },
       loadDefinitions(fileName) {
-        return new Promise(function (resolve, reject) {
-          fs.readFile(fileName, {
-            encoding: "utf8"
-          }, function (error, data) {
-            if (error) {
-              reject(error);
-              return;
-            }
-
-            try {
-              for (let u of JSON.parse(data)) {
-                const properties = {
-                  name: {
-                    value: u.name
-                  }
-                };
-
-                if (u.fileNameExtension) {
-                  assignExtensions(Array.isArray(u.fileNameExtension) ? u.fileNameExtension : [u.fileNameExtension],
-                    u.name);
-                }
-
-                const conformsTo = {};
-
-                if (u.conformsTo) {
-                  if (Array.isArray(u.conformsTo)) {
-                    u.conformsTo.forEach(function (name) {
-                      const aUTI = registry[name];
-                      if (aUTI) {
-                        conformsTo[name] = aUTI;
-                      } else {
-                        //reject(`unknown uti: ${name}`);
-                      }
-                    });
-                  } else {
-                    const name = u.conformsTo;
-                    conformsTo[name] = registry[name];
-                  }
-                }
-
-                properties.conformsTo = {
-                  value: conformsTo
-                };
-
-                const nu = Object.create(RootUTI, properties);
-
-                registry[nu.name] = nu;
+        return fs.readFile(fileName, {
+          encoding: "utf-8"
+        }).then(function (data) {
+          for (let u of JSON.parse(data)) {
+            const properties = {
+              name: {
+                value: u.name
               }
-            } catch (error) {
-              reject(error);
+            };
+
+            if (u.fileNameExtension) {
+              assignExtensions(Array.isArray(u.fileNameExtension) ? u.fileNameExtension : [u.fileNameExtension],
+                u.name);
             }
-            resolve(uti);
-          });
+
+            const conformsTo = {};
+
+            if (u.conformsTo) {
+              if (Array.isArray(u.conformsTo)) {
+                u.conformsTo.forEach(function (name) {
+                  const aUTI = registry[name];
+                  if (aUTI) {
+                    conformsTo[name] = aUTI;
+                  } else {
+                    //reject(`unknown uti: ${name}`);
+                  }
+                });
+              } else {
+                const name = u.conformsTo;
+                conformsTo[name] = registry[name];
+              }
+            }
+
+            properties.conformsTo = {
+              value: conformsTo
+            };
+
+            const nu = Object.create(RootUTI, properties);
+
+            registry[nu.name] = nu;
+          }
         });
       }
   };
