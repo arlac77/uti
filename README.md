@@ -16,6 +16,8 @@ var uti = require('uti');
 uti.initialize().then(function(uti) {
   doesConformTo = uti.conformsTo('public.image', 'public.data')
   console.log('doesConformTo: ' + doesConformTo);
+
+  console.log(uti.getUTIsForFileName('a.txt')[0]);
 })
 ```
 
@@ -23,6 +25,7 @@ Output
 
 ```
 true
+public.plain-text
 ```
 
 # methods
@@ -38,7 +41,7 @@ if options.definitionFileName is given then additional UTIs will be loaded from 
 ## conformsTo(a,b)
 returns true if UTI a conforms to UTI b
 
-## getUTIsforFileName(aFileName)
+## getUTIsForFileName(aFileName)
 
 returns array of UTIs matching a file name (based on its extension)
 

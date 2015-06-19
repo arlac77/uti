@@ -57,7 +57,7 @@ exports.initialize = function (options) {
     getUTI(name) {
         return registry[name];
       },
-      getUTIsforFileName(fileName) {
+      getUTIsForFileName(fileName) {
         const m = fileName.match(/(\.[a-zA-Z_0-9]+)$/);
 
         if (m) {

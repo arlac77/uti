@@ -31,8 +31,8 @@ describe('uti', function () {
     describe('getUTIsforFileName', function () {
       it('simple', function (done) {
         uti.initialize().then(function (uti) {
-          assert(uti.getUTIsforFileName('a.txt')[0] === 'public.plain-text');
-          assert(uti.getUTIsforFileName('a') === undefined);
+          assert(uti.getUTIsForFileName('a.txt')[0] === 'public.plain-text');
+          assert(uti.getUTIsForFileName('a') === undefined);
           done();
         });
       });
