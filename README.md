@@ -1,6 +1,8 @@
-
+# uti
 [![Build Status](https://secure.travis-ci.org/arlac77/uti.png)](http://travis-ci.org/arlac77/uti)
 [![Coverage Status](https://coveralls.io/repos/arlac77/uti/badge.svg)](https://coveralls.io/r/arlac77/uti)
+[![Dependency Status](https://david-dm.org/arlac77/uti.svg)](https://david-dm.org/arlac77/uti)
+[![devDependency Status](https://david-dm.org/arlac77/uti/dev-status.svg)](https://david-dm.org/arlac77/uti#info=devDependencies)
 
 Uniform Type Identifier
 -----------------------
