@@ -53,6 +53,10 @@ exports.initialize = function (options) {
     return false;
   }
 
+  /**
+   * Check whenever to UTI are conformant.
+   * @return true if UTI a conforms to UTI b.
+   */
   exports.conformsTo = function (a, b) {
     a = registry[a];
     if (!a) {
@@ -62,10 +66,20 @@ exports.initialize = function (options) {
     return _conformsTo(a, registry[b]);
   };
 
+  /**
+   * Lookup a given UTI.
+   * @return UTI for the given name or undefined if UTI is not present.
+   */
   exports.getUTI = function (name) {
     return registry[name];
   };
 
+  /**
+   * Lookup a UTI by a file name.
+   * First the file name extension is extracted.
+   * Then a lookup in the reistered UTIs for file name extions is executed.
+   * @return UTI for the given fileName or undefined if no UTI is registerd for the file names extension
+   */
   exports.getUTIsForFileName = function (fileName) {
     const m = fileName.match(/(\.[a-zA-Z_0-9]+)$/);
 
@@ -75,6 +89,10 @@ exports.initialize = function (options) {
     return undefined;
   };
 
+  /**
+   * Load additional UTIs form a file.
+   * @return a promise that resolves after the UTIs have been registered.
+   */
   exports.loadDefinitionsFromFile = function (fileName) {
     return fs.readFile(fileName, {
       encoding: "utf-8"
@@ -120,15 +138,15 @@ exports.initialize = function (options) {
     });
   };
 
-/*
-    let p = exports.loadDefinitionsFromFile(path.join(__dirname, 'publicUTI.json'));
+  /*
+      let p = exports.loadDefinitionsFromFile(path.join(__dirname, 'publicUTI.json'));
 
-    if (options.definitionFileName) {
-      p = p.then(exports.loadDefinitionsFromFile(options.definitionFileName));
-    }
+      if (options.definitionFileName) {
+        p = p.then(exports.loadDefinitionsFromFile(options.definitionFileName));
+      }
 
-    return p;
-*/
+      return p;
+  */
 
   const fileNames = [path.join(__dirname, 'publicUTI.json')];
 
