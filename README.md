@@ -4,6 +4,7 @@
 
 Uniform Type Identifier
 -----------------------
+Fro a list of known UTIs please see [(http://www.escape.gr/manuals/qdrop/UTI.html)]
 
 
 # example
@@ -13,7 +14,7 @@ Uniform Type Identifier
 ```js
 var uti = require('uti');
 
-uti.initialize().then(function(uti) {
+uti.initialize().then(function() {
   doesConformTo = uti.conformsTo('public.image', 'public.data')
   console.log('doesConformTo: ' + doesConformTo);
 
@@ -35,15 +36,21 @@ var uti = require('uti');
 ```
 
 ## initialize(options)
-returns a promise that fullfilles to the api providing object
-if options.definitionFileName is given then additional UTIs will be loaded from the given file name
+Returns a promise that is fullfilled if the initialization is done.
+If options.definitionFileName is given then additional UTIs will be loaded from the given file name
 
 ## conformsTo(a,b)
-returns true if UTI a conforms to UTI b
+Returns true if UTI a conforms to UTI b
 
 ## getUTIsForFileName(aFileName)
+Returns array of UTIs matching a file name (based on its extension)
 
-returns array of UTIs matching a file name (based on its extension)
+## loadDefinitionsFromFile(aDefinitionFileName)
+Loads additional UTIs form the given file name and returns promise
+
+## getUTI(name)
+Returns the UTI for the given name.
+Returns undefined if no such UTI is known.
 
 # json structure
 ```json
@@ -64,5 +71,3 @@ npm install uti
 # license
 
 BSD-2-Clause
-
-Fro a list of known UTIs please see [(http://www.escape.gr/manuals/qdrop/UTI.html)]
