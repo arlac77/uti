@@ -54,7 +54,7 @@ exports.initialize = function (options) {
   }
 
   /**
-   * Check whenever to UTI are conformant.
+   * Check whenever two UTI are conformant.
    * @return true if UTI a conforms to UTI b.
    */
   exports.conformsTo = function (a, b) {
