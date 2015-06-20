@@ -1,10 +1,18 @@
 language: node_js
 node_js:
-  - "iojs"
+- iojs
+
+sudo: false
+cache:
+  directories:
+  - node_modules
 
 notifications:
   email:
     - markus.felten@gmx.de
+
+before_deploy:
+- npm config set spin false --global
 
 script: "npm run-script cover"
 
