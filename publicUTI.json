@@ -90,10 +90,19 @@
   "fileNameExtension": ".tar",
   "mimeType": ["application/x-tar", "application/tar"]
 }, {
+  "name": "org.gnu.gnu-zip-tar-archive",
+  "conformsTo": "org.gnu.gnu-zip-archive",
+  "fileNameExtension": [".tar.gz", ".tgz"]
+}, {
   "name": "org.gnu.gnu-zip-archive",
   "conformsTo": ["public.data", "public.archive"],
   "fileNameExtension": [".gz", ".gzip"],
   "mimeType": "application/gzip"
+}, {
+  "name": "public.zip-archive",
+  "conformsTo": ["public.data", "public.archive"],
+  "fileNameExtension": ".zip",
+  "mimeType": "application/zip"
 }, {
   "name": "public.disk-image",
   "conformsTo": "public.archive"
