@@ -1,6 +1,6 @@
 {
   "name": "uti",
-  "version": "0.0.0-semantically-released",
+  "version": "1.0.0",
   "description": "javascript implementation of a \"Uniform Type Identifier\" (UTI)",
   "main": "index.js",
   "scripts": {
