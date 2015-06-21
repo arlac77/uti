@@ -75,7 +75,7 @@ exports.initialize = function (options) {
   };
 
   /**
-   * Lookup a UTI by a file name.
+   * Lookup a UTI for a file name.
    * First the file name extension is extracted.
    * Then a lookup in the reistered UTIs for file name extions is executed.
    * @return UTI for the given fileName or undefined if no UTI is registerd for the file names extension
@@ -154,11 +154,6 @@ exports.initialize = function (options) {
     fileNames.push(options.definitionFileName);
   }
 
-  return new Promise(function (resolve, reject) {
-    return Promise.all(fileNames.map(function (f) {
-      return exports.loadDefinitionsFromFile(f);
-    })).then(function () {
-      resolve(exports);
-    }, reject);
-  });
+  return Promise.all(fileNames.map(function (f) {
+    return exports.loadDefinitionsFromFile(f); }));
 };

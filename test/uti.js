@@ -78,17 +78,21 @@ describe('uti', function () {
       });
     });
 
+
 /*
     it('chained request should work', function (done) {
       uti.initialize({definitionFileName: path.join(__dirname, 'fixtures', 'uti.json') })
-      .then(uti.loadDefinitions(path.join(__dirname, 'fixtures', 'uti2.json')))
+      .then(uti.loadDefinitionsFromFile(path.join(__dirname, 'fixtures', 'uti2.json')))
       .then(function () {
         const json = uti.getUTI('public.json');
         should.exist(json);
-        const myUTI = uti.getUTI('com.mydomain.sample2');
-        console.log(`${myUTI}`);
-        should.exist(myUTI, `is present ${myUTI}`);
-        done();
+
+        setTimeout(function() {
+          const myUTI = uti.getUTI('com.mydomain.sample2');
+          console.log(`XXX: ${myUTI}`);
+          should.exist(myUTI, `is present ${myUTI}`);
+          done();
+        }, 50);
       }, function (error) {
         console.log(`${error}`);
         assert(false);
@@ -96,7 +100,6 @@ describe('uti', function () {
       });
     });
 */
-
   });
 
   describe('loading errors', function () {
