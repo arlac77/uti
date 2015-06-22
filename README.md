@@ -43,6 +43,7 @@ If options.definitionFileName is given then additional UTIs will be loaded from 
 
 ## conformsTo(a,b)
 Returns true if UTI a conforms to UTI b
+This is transitive: If a conforms to b and b conforms to c then a also conforms to c.
 
 ## getUTIsForFileName(aFileName)
 Returns array of UTIs matching a file name (based on its extension)
