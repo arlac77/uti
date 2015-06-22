@@ -20,6 +20,24 @@
   "name": "public.directory",
   "conformsTo": "public.item"
 }, {
+  "name": "public.executable",
+  "conformsTo": "public.item"
+}, {
+  "name": "com.microsoft.windows-executable",
+  "conformsTo": ["public.executable", "public.data"],
+  "fileNameExtension": ".exe"
+}, {
+  "name": "public.unix-executable",
+  "conformsTo": ["public.executable", "public.data"]
+}, {
+  "name": "com.sun.java-class",
+  "conformsTo": ["public.executable", "public.data"],
+  "fileNameExtension": ".class"
+}, {
+  "name": "com.sun.java-archive",
+  "conformsTo": ["public.executable", "public.zip-archive"],
+  "fileNameExtension": ".jar"
+}, {
   "name": "public.folder",
   "conformsTo": "public.directory"
 }, {
