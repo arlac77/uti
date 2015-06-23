@@ -6,6 +6,7 @@
 
 Uniform Type Identifier
 -----------------------
+Please see "ars technica" article for a description about the principles of UTIs [(http://arstechnica.com/apple/2005/04/macosx-10-4/11/)].
 For a list of known UTIs please see [(http://www.escape.gr/manuals/qdrop/UTI.html)]
 
 

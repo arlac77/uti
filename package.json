@@ -27,7 +27,8 @@
   },
   "keywords": [
     "UTI",
-    "mime"
+    "MIME",
+    "file type"
   ],
   "author": "Markus Felten",
   "license": "BSD-2-Clause",
