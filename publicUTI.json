@@ -23,9 +23,19 @@
   "name": "public.executable",
   "conformsTo": "public.item"
 }, {
+  "name": "com.microsoft.windows-​dynamic-link-library",
+  "conformsTo": ["public.executable", "public.data"],
+  "mimeType": "application/x-msdownload",
+  "fileNameExtension": ".dll"
+}, {
   "name": "com.microsoft.windows-executable",
   "conformsTo": ["public.executable", "public.data"],
+  "mimeType": "application/x-msdownload",
   "fileNameExtension": ".exe"
+}, {
+  "name": "public.object-code",
+  "conformsTo": ["public.executable", "public.data"],
+  "fileNameExtension": ".o"
 }, {
   "name": "public.unix-executable",
   "conformsTo": ["public.executable", "public.data"]
@@ -37,6 +47,24 @@
   "name": "com.sun.java-archive",
   "conformsTo": ["public.executable", "public.zip-archive"],
   "fileNameExtension": ".jar"
+}, {
+  "name": "public.source-code",
+  "conformsTo": "public.plain-text"
+}, {
+  "name": "public.script",
+  "conformsTo": "public.source-code"
+}, {
+  "name": "public.shell-script",
+  "conformsTo": "public.script",
+  "fileNameExtension": [".sh", ".command"]
+}, {
+  "name": "public.assembly-source",
+  "conformsTo": "public.source-code",
+  "fileNameExtension": ".s"
+}, {
+  "name": "com.netscape.javascript-source",
+  "conformsTo": ["public.source-code", "public.executable"],
+  "fileNameExtension": [".js", ".jscript", ".javascript"]
 }, {
   "name": "public.folder",
   "conformsTo": "public.directory"
