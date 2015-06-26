@@ -1,4 +1,5 @@
 # uti
+[![npm](https://img.shields.io/npm/v/uti.svg)](https://www.npmjs.com/package/uti)
 [![Build Status](https://secure.travis-ci.org/arlac77/uti.png)](http://travis-ci.org/arlac77/uti)
 [![Coverage Status](https://coveralls.io/repos/arlac77/uti/badge.svg)](https://coveralls.io/r/arlac77/uti)
 [![GitHub Issues](https://img.shields.io/github/issues/arlac77/uti.svg?style=flat-square)](https://github.com/arlac77/uti/issues)
@@ -8,6 +9,7 @@
 Uniform Type Identifier
 -----------------------
 Please see "ars technica" article for a description about the principles of UTIs [(http://arstechnica.com/apple/2005/04/macosx-10-4/11/)].
+
 For a list of known UTIs please see [(http://www.escape.gr/manuals/qdrop/UTI.html)]
 
 
