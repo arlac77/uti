@@ -4,10 +4,11 @@
   "description": "javascript implementation of a \"Uniform Type Identifier\" (UTI)",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --harmony_shipping test/*.js",
     "cover": "node --harmony ./node_modules/istanbul-harmony/lib/cli.js cover --hook-run-in-context ./node_modules/mocha/bin/_mocha -- --R spec --U exports test",
+    "doc": "./node_modules/.bin/jsdoc index.js",
+    "postpublish": "semantic-release post",
     "prepublish": "semantic-release pre",
-    "postpublish": "semantic-release post"
+    "test": "mocha --harmony_shipping test/*.js"
   },
   "repository": {
     "type": "git",
@@ -19,6 +20,7 @@
     "conventional-changelog-generator": "0.0.3",
     "coveralls": "2.11.2",
     "istanbul-harmony": "0.3.16",
+    "jsdoc": "^3.3.2",
     "mocha": "2.2.5",
     "semantic-release": "3.3.2"
   },
@@ -26,8 +28,8 @@
     "promisify-node": "^0.1.5"
   },
   "keywords": [
-    "UTI",
     "MIME",
+    "UTI",
     "file type"
   ],
   "author": "Markus Felten",

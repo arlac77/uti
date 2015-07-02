@@ -18,6 +18,11 @@ const RootUTI = {
     }
 };
 
+/**
+ * Initialized the uti api.
+ * @param options {object} options.definitionFileName is given then additional UTIs will be loaded from the given file name
+ * @return a promise that is fullfilled if the initialization is done
+ */
 exports.initialize = function (options) {
   if (!options) { 
     options = {};
@@ -56,6 +61,8 @@ exports.initialize = function (options) {
   /**
    * Check whenever two UTI are conformant.
    * If a conforms to b and b conforms to c then a also conforms to c.
+   * @param a {string} first UTI
+   * @param a {string} second UTI
    * @return true if UTI a conforms to UTI b.
    */
   exports.conformsTo = function (a, b) {
@@ -67,8 +74,25 @@ exports.initialize = function (options) {
     return _conformsTo(a, registry[b]);
   };
 
+/*
+  TODO find a better name
+  exports.allConformingTo = function *(a) {
+    a = registry[a];
+    if (!a) {
+      return;
+    }
+
+    for (let i in a.conformsTo) {
+      yield i;
+
+      const u = a.conformsTo[i];
+    }
+  };
+*/
+
   /**
    * Lookup a given UTI.
+   * @param name {string} UTI
    * @return UTI for the given name or undefined if UTI is not present.
    */
   exports.getUTI = function (name) {
@@ -79,6 +103,7 @@ exports.initialize = function (options) {
    * Lookup a UTI for a file name.
    * First the file name extension is extracted.
    * Then a lookup in the reistered UTIs for file name extions is executed.
+   * @param fileName {string} file to thetect UTI for
    * @return UTI for the given fileName or undefined if no UTI is registerd for the file names extension
    */
   exports.getUTIsForFileName = function (fileName) {
@@ -92,6 +117,7 @@ exports.initialize = function (options) {
 
   /**
    * Load additional UTIs form a file.
+   * @param fileName {string} file containing UTI definitions
    * @return a promise that resolves after the UTIs have been registered.
    */
   exports.loadDefinitionsFromFile = function (fileName) {
