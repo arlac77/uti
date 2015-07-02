@@ -163,4 +163,19 @@
 }, {
   "name": "public.mime-type",
   "conformsTo": "public.case-insensitive-text"
+}, {
+  "name": "public.presentation",
+  "conformsTo": "public.composite-content"
+}, {
+  "name": "com.microsoft.word.doc",
+  "conformsTo": ["public.data", "public.composite-content"]
+}, {
+  "name": "com.microsoft.excel.xls",
+  "conformsTo": ["public.data", "public.composite-content"]
+}, {
+  "name": "com.microsoft.powerpoint.ppt",
+  "conformsTo": ["public.data", "public.presentation"]
+}, {
+  "name": "com.microsoft.word.wordml",
+  "conformsTo": ["public.data", "public.composite-content"]
 }]
