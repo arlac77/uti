@@ -67,6 +67,8 @@ Returns undefined if no such UTI is known.
 ]
 ```
 
+jsdoc can be found [here](http://arlac77.github.io/modules/uti/doc/).
+
 # install
 
 With [npm](http://npmjs.org) do:
