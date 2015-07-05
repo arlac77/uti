@@ -30,6 +30,7 @@ exports.initialize = function (options) {
 
   const registry = {};
   const utiByFileNameExtension = {};
+  const utiByMimeType = {};
 
   function assignExtensions(extensions, name) {
     extensions.forEach(function (ext) {
@@ -39,6 +40,16 @@ exports.initialize = function (options) {
         //console.log(`${ext} : ${name}`);
 
         utiByFileNameExtension[ext] = [name];
+      }
+    });
+  }
+
+  function assignMimeTypes(mimTypes, name) {
+    mimTypes.forEach(function (type) {
+      if (utiByMimeType[type]) {
+        utiByMimeType[type].push(name);
+      } else {
+        utiByMimeType[type] = [name];
       }
     });
   }
@@ -115,6 +126,10 @@ exports.initialize = function (options) {
     return undefined;
   };
 
+  exports.getUTIsForMimeType = function (mimeType) {
+    return utiByMimeType[mimeType];
+  };
+
   /**
    * Load additional UTIs form a file.
    * @param fileName {string} file containing UTI definitions
@@ -133,6 +148,11 @@ exports.initialize = function (options) {
 
         if (u.fileNameExtension) {
           assignExtensions(Array.isArray(u.fileNameExtension) ? u.fileNameExtension : [u.fileNameExtension],
+            u.name);
+        }
+
+        if (u.mimeType) {
+          assignMimeTypes(Array.isArray(u.mimeType) ? u.mimeType : [u.mimeType],
             u.name);
         }
 

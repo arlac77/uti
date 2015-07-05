@@ -38,6 +38,15 @@ describe('uti', function () {
       });
     });
 
+    describe('getUTIsMimeType', function () {
+      it('simple', function (done) {
+        uti.initialize().then(function () {
+          assert(uti.getUTIsForMimeType('text/plain')[0] === 'public.plain-text');
+          done();
+        });
+      });
+    });
+
     describe('conformsTo', function () {
       it('positive', function (done) {
         uti.initialize().then(function () {
@@ -78,7 +87,6 @@ describe('uti', function () {
       });
     });
 
-
 /*
     it('chained request should work', function (done) {
       uti.initialize({definitionFileName: path.join(__dirname, 'fixtures', 'uti.json') })
@@ -89,7 +97,6 @@ describe('uti', function () {
 
         setTimeout(function() {
           const myUTI = uti.getUTI('com.mydomain.sample2');
-          console.log(`XXX: ${myUTI}`);
           should.exist(myUTI, `is present ${myUTI}`);
           done();
         }, 50);
@@ -99,7 +106,7 @@ describe('uti', function () {
         done();
       });
     });
-*/
+  */
   });
 
   describe('loading errors', function () {
