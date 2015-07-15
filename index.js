@@ -135,6 +135,8 @@ exports.initialize = function (options) {
    * @return a promise that resolves after the UTIs have been registered.
    */
   exports.loadDefinitionsFromFile = function (fileName) {
+
+    // not using promisify-node any longer since it has some side-effects into the plain fs module
     return new Promise(function (resolve, reject) {
       fs.readFile(fileName, {
         encoding: "utf-8"
