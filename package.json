@@ -24,9 +24,7 @@
     "mocha": "2.2.5",
     "semantic-release": "3.3.2"
   },
-  "dependencies": {
-    "promisify-node": "^0.1.5"
-  },
+  "dependencies": {},
   "keywords": [
     "MIME",
     "UTI",

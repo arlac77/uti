@@ -2,8 +2,7 @@
 
 "use strict";
 
-const promisify = require("promisify-node");
-const fs = promisify("fs");
+const fs = require("fs");
 const path = require("path");
 
 const RootUTI = {
@@ -85,21 +84,21 @@ exports.initialize = function (options) {
     return _conformsTo(a, registry[b]);
   };
 
-/*
-  TODO find a better name
-  exports.allConformingTo = function *(a) {
-    a = registry[a];
-    if (!a) {
-      return;
-    }
+  /*
+    TODO find a better name
+    exports.allConformingTo = function *(a) {
+      a = registry[a];
+      if (!a) {
+        return;
+      }
 
-    for (let i in a.conformsTo) {
-      yield i;
+      for (let i in a.conformsTo) {
+        yield i;
 
-      const u = a.conformsTo[i];
-    }
-  };
-*/
+        const u = a.conformsTo[i];
+      }
+    };
+  */
 
   /**
    * Lookup a given UTI.
@@ -136,8 +135,16 @@ exports.initialize = function (options) {
    * @return a promise that resolves after the UTIs have been registered.
    */
   exports.loadDefinitionsFromFile = function (fileName) {
-    return fs.readFile(fileName, {
-      encoding: "utf-8"
+    return new Promise(function (resolve, reject) {
+      fs.readFile(fileName, {
+        encoding: "utf-8"
+      }, function (error, data) {
+        if (error) {
+          reject(error);
+          return;
+        }
+        resolve(data);
+      });
     }).then(function (data) {
       for (let u of JSON.parse(data)) {
         const properties = {
@@ -202,5 +209,6 @@ exports.initialize = function (options) {
   }
 
   return Promise.all(fileNames.map(function (f) {
-    return exports.loadDefinitionsFromFile(f); }));
+    return exports.loadDefinitionsFromFile(f);
+  }));
 };
