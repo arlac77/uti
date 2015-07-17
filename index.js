@@ -9,6 +9,16 @@ const RootUTI = {
   toString() {
       return this.name;
     },
+
+    /**
+     * Deliver JSON representation of the UTI.
+     * Sample result
+     * {
+     *   "name": "myUTI",
+     *   "conformsTo": [ "uti1", "uti2"]
+     * }
+     * @return json representation of the UTI
+     */
     toJSON() {
       return {
         name: this.name,
@@ -113,7 +123,7 @@ exports.initialize = function (options) {
    * Lookup a UTI for a file name.
    * First the file name extension is extracted.
    * Then a lookup in the reistered UTIs for file name extions is executed.
-   * @param fileName {string} file to thetect UTI for
+   * @param fileName {string} file to detect UTI for
    * @return UTI for the given fileName or undefined if no UTI is registerd for the file names extension
    */
   exports.getUTIsForFileName = function (fileName) {
@@ -125,6 +135,11 @@ exports.initialize = function (options) {
     return undefined;
   };
 
+  /**
+   * Lookup a UTIs for a mime type.
+   * @param mimeType {string} mime type to get UTIs for
+   * @return UTI for the given mime type or undefined if no UTI is registerd for the mime type
+   */
   exports.getUTIsForMimeType = function (mimeType) {
     return utiByMimeType[mimeType];
   };
