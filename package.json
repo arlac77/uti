@@ -15,7 +15,7 @@
     "url": "git+https://github.com/arlac77/uti.git"
   },
   "devDependencies": {
-    "chai": "3.0.0",
+    "chai": "3.1.0",
     "chai-as-promised": "5.1.0",
     "conventional-changelog-generator": "0.0.3",
     "coveralls": "2.11.2",
