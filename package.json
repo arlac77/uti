@@ -15,10 +15,10 @@
     "url": "git+https://github.com/arlac77/uti.git"
   },
   "devDependencies": {
-    "chai": "3.1.0",
+    "chai": "3.2.0",
     "chai-as-promised": "5.1.0",
     "conventional-changelog-generator": "0.0.3",
-    "coveralls": "2.11.2",
+    "coveralls": "2.11.3",
     "istanbul-harmony": "0.3.16",
     "jsdoc": "^3.3.2",
     "mocha": "2.2.5",
