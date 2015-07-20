@@ -43,7 +43,7 @@ var uti = require('uti');
 ```
 
 ## initialize(options)
-Returns a promise that is fullfilled if the initialization is done.
+Returns a promise that is fulfilled if the initialization is done.
 If options.definitionFileName is given then additional UTIs will be loaded from the given file name
 
 ## conformsTo(a,b)
@@ -60,7 +60,7 @@ Loads additional UTIs form the given file name and returns promise
 Returns the UTI for the given name.
 Returns undefined if no such UTI is known.
 
-# json structure
+# json structure used by loadDefinitionsFromFile()
 ```json
 [
 { "name" : "org.mydomain.type1", "conformsTo" : ["public.image","public.xml"], "fileNameExtension": ".type1" },
