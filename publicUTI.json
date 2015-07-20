@@ -54,6 +54,10 @@
   "name": "public.script",
   "conformsTo": "public.source-code"
 }, {
+  "name": "com.sun.java-source",
+  "conformsTo": "public.source-code",
+  "fileNameExtension": [".java", ".jav"]
+}, {
   "name": "public.shell-script",
   "conformsTo": "public.script",
   "fileNameExtension": [".sh", ".command"]
