@@ -87,26 +87,26 @@ describe('uti', function () {
       });
     });
 
-/*
-    it('chained request should work', function (done) {
-      uti.initialize({definitionFileName: path.join(__dirname, 'fixtures', 'uti.json') })
-      .then(uti.loadDefinitionsFromFile(path.join(__dirname, 'fixtures', 'uti2.json')))
-      .then(function () {
-        const json = uti.getUTI('public.json');
-        should.exist(json);
+    /*
+        it('chained request should work', function (done) {
+          uti.initialize({definitionFileName: path.join(__dirname, 'fixtures', 'uti.json') })
+          .then(uti.loadDefinitionsFromFile(path.join(__dirname, 'fixtures', 'uti2.json')))
+          .then(function () {
+            const json = uti.getUTI('public.json');
+            should.exist(json);
 
-        setTimeout(function() {
-          const myUTI = uti.getUTI('com.mydomain.sample2');
-          should.exist(myUTI, `is present ${myUTI}`);
-          done();
-        }, 50);
-      }, function (error) {
-        console.log(`${error}`);
-        assert(false);
-        done();
-      });
-    });
-  */
+            setTimeout(function() {
+              const myUTI = uti.getUTI('com.mydomain.sample2');
+              should.exist(myUTI, `is present ${myUTI}`);
+              done();
+            }, 50);
+          }, function (error) {
+            console.log(`${error}`);
+            assert(false);
+            done();
+          });
+        });
+      */
   });
 
   describe('loading errors', function () {
@@ -120,8 +120,8 @@ describe('uti', function () {
         assert(error.toString().match(/ENOENT/));
         done();
       });
-
     });
+
     it('should fail with json syntax error', function (done) {
       uti.initialize({
         definitionFileName: path.join(__dirname, 'fixtures', 'invalid.json')
@@ -134,6 +134,17 @@ describe('uti', function () {
       });
     });
 
+    it('should fail with referene error', function (done) {
+      uti.initialize({
+        definitionFileName: path.join(__dirname, 'fixtures', 'missing_reference.json')
+      }).then(function () {
+        assert(false);
+        done();
+      }, function (error) {
+        assert(error.toString().match(/Referenced/));
+        done();
+      });
+    });
   });
 
 });
