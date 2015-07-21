@@ -44,31 +44,14 @@
   "conformsTo": ["public.executable", "public.data"],
   "fileNameExtension": ".class"
 }, {
+  "name": "public.zip-archive",
+  "conformsTo": ["public.data", "public.archive"],
+  "fileNameExtension": ".zip",
+  "mimeType": "application/zip"
+}, {
   "name": "com.sun.java-archive",
   "conformsTo": ["public.executable", "public.zip-archive"],
   "fileNameExtension": ".jar"
-}, {
-  "name": "public.source-code",
-  "conformsTo": "public.plain-text"
-}, {
-  "name": "public.script",
-  "conformsTo": "public.source-code"
-}, {
-  "name": "com.sun.java-source",
-  "conformsTo": "public.source-code",
-  "fileNameExtension": [".java", ".jav"]
-}, {
-  "name": "public.shell-script",
-  "conformsTo": "public.script",
-  "fileNameExtension": [".sh", ".command"]
-}, {
-  "name": "public.assembly-source",
-  "conformsTo": "public.source-code",
-  "fileNameExtension": ".s"
-}, {
-  "name": "com.netscape.javascript-source",
-  "conformsTo": ["public.source-code", "public.executable"],
-  "fileNameExtension": [".js", ".jscript", ".javascript"]
 }, {
   "name": "public.folder",
   "conformsTo": "public.directory"
@@ -94,9 +77,6 @@
   "conformsTo": "public.text",
   "fileNameExtension": ".txt",
   "mimeType": "text/plain"
-}, {
-  "name": "public.plain-text",
-  "conformsTo": "public.text"
 }, {
   "name": "public.utf8-plain-text",
   "conformsTo": "public.plain-text"
@@ -130,6 +110,25 @@
   "name": "public.source-code",
   "conformsTo": "public.plain-text"
 }, {
+  "name": "public.script",
+  "conformsTo": "public.source-code"
+}, {
+  "name": "com.sun.java-source",
+  "conformsTo": "public.source-code",
+  "fileNameExtension": [".java", ".jav"]
+}, {
+  "name": "public.shell-script",
+  "conformsTo": "public.script",
+  "fileNameExtension": [".sh", ".command"]
+}, {
+  "name": "public.assembly-source",
+  "conformsTo": "public.source-code",
+  "fileNameExtension": ".s"
+}, {
+  "name": "com.netscape.javascript-source",
+  "conformsTo": ["public.source-code", "public.executable"],
+  "fileNameExtension": [".js", ".jscript", ".javascript"]
+}, {
   "name": "org.gnu.gnu-tar-archive",
   "conformsTo": ["public.data", "public.archive"],
   "fileNameExtension": ".tar",
@@ -140,19 +139,14 @@
   "fileNameExtension": ".tar",
   "mimeType": ["application/x-tar", "application/tar"]
 }, {
-  "name": "org.gnu.gnu-zip-tar-archive",
-  "conformsTo": "org.gnu.gnu-zip-archive",
-  "fileNameExtension": [".tar.gz", ".tgz"]
-}, {
   "name": "org.gnu.gnu-zip-archive",
   "conformsTo": ["public.data", "public.archive"],
   "fileNameExtension": [".gz", ".gzip"],
   "mimeType": "application/gzip"
 }, {
-  "name": "public.zip-archive",
-  "conformsTo": ["public.data", "public.archive"],
-  "fileNameExtension": ".zip",
-  "mimeType": "application/zip"
+  "name": "org.gnu.gnu-zip-tar-archive",
+  "conformsTo": "org.gnu.gnu-zip-archive",
+  "fileNameExtension": [".tar.gz", ".tgz"]
 }, {
   "name": "public.disk-image",
   "conformsTo": "public.archive"
