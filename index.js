@@ -160,63 +160,75 @@ exports.initialize = function (options) {
           reject(error);
           return;
         }
-        resolve(data);
+        try {
+          resolve(registerUTIs(data));
+        } catch (error) {
+          reject(error);
+        }
       });
-    }).then(function (data) {
-      for (let u of JSON.parse(data)) {
-        const properties = {
-          name: {
-            value: u.name
-          }
-        };
-
-        if (u.fileNameExtension) {
-          assignExtensions(Array.isArray(u.fileNameExtension) ? u.fileNameExtension : [u.fileNameExtension],
-            u.name);
-        }
-
-        if (u.mimeType) {
-          assignMimeTypes(Array.isArray(u.mimeType) ? u.mimeType : [u.mimeType],
-            u.name);
-        }
-
-        const conformsTo = {};
-
-        if (u.conformsTo) {
-          if (Array.isArray(u.conformsTo)) {
-            u.conformsTo.forEach(function (name) {
-              const aUTI = registry[name];
-              if (aUTI) {
-                conformsTo[name] = aUTI;
-              } else {
-                //reject(`unknown uti: ${name}`);
-              }
-            });
-          } else {
-            const name = u.conformsTo;
-            conformsTo[name] = registry[name];
-          }
-        }
-
-        properties.conformsTo = {
-          value: conformsTo
-        };
-
-        const nu = Object.create(RootUTI, properties);
-
-        registry[nu.name] = nu;
-      }
     });
   };
 
-  /*
-      let p = exports.loadDefinitionsFromFile(path.join(__dirname, 'publicUTI.json'));
+  function registerUTIs(data) {
+    for (let u of JSON.parse(data)) {
+      const properties = {
+        name: {
+          value: u.name
+        }
+      };
 
-      if (options.definitionFileName) {
-        p = p.then(exports.loadDefinitionsFromFile(options.definitionFileName));
+      if (u.fileNameExtension) {
+        assignExtensions(Array.isArray(u.fileNameExtension) ? u.fileNameExtension : [u.fileNameExtension],
+          u.name);
       }
 
-      return p;
+      if (u.mimeType) {
+        assignMimeTypes(Array.isArray(u.mimeType) ? u.mimeType : [u.mimeType],
+          u.name);
+      }
+
+      const conformsTo = {};
+
+      if (u.conformsTo) {
+        if (Array.isArray(u.conformsTo)) {
+          u.conformsTo.forEach(function (name) {
+            const aUTI = registry[name];
+            if (aUTI) {
+              conformsTo[name] = aUTI;
+            } else {
+              console.log(`unknown uti: ${name}`);
+              throw new Error(`Referenced UTI not known: ${name}`);
+            }
+          });
+        } else {
+          const name = u.conformsTo;
+          const aUTI = registry[name];
+          if (!aUTI) {
+            throw new Error(`Referenced UTI not known: ${name}`);
+          }
+
+          conformsTo[name] = aUTI;
+        }
+      }
+
+      properties.conformsTo = {
+        value: conformsTo
+      };
+
+      const nu = Object.create(RootUTI, properties);
+
+      registry[nu.name] = nu;
+    }
+  };
+
+  /*
+    let p = exports.loadDefinitionsFromFile(path.join(__dirname, 'publicUTI.json'));
+
+    if (options.definitionFileName) {
+      p = p.then(exports.loadDefinitionsFromFile(options.definitionFileName));
+    }
+
+    return p;
   */
 
   const fileNames = [path.join(__dirname, 'publicUTI.json')];
@@ -228,4 +240,5 @@ exports.initialize = function (options) {
   return Promise.all(fileNames.map(function (f) {
     return exports.loadDefinitionsFromFile(f);
   }));
+
 };
