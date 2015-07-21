@@ -1,4 +1,4 @@
-### 0.0.0-semantically-released (2015-06-20)
+### v1.0.0 (2015-06-20)
 
 
 #### Bug Fixes
@@ -26,4 +26,3 @@ uti.initialize().then(function() {
 });
 
  ([56255a99](git+https://github.com/arlac77/uti/commit/56255a99b431c182db10a797ebc3a3fcedf76c83))
-
