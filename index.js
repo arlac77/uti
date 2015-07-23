@@ -190,25 +190,16 @@ exports.initialize = function (options) {
       const conformsTo = {};
 
       if (u.conformsTo) {
-        if (Array.isArray(u.conformsTo)) {
-          u.conformsTo.forEach(function (name) {
-            const aUTI = registry[name];
-            if (aUTI) {
-              conformsTo[name] = aUTI;
-            } else {
-              console.log(`unknown uti: ${name}`);
-              throw new Error(`Referenced UTI not known: ${name}`);
-            }
-          });
-        } else {
-          const name = u.conformsTo;
+        const ct = Array.isArray(u.conformsTo) ? u.conformsTo : [u.conformsTo];
+
+        ct.forEach(function (name) {
           const aUTI = registry[name];
-          if (!aUTI) {
+          if (aUTI) {
+            conformsTo[name] = aUTI;
+          } else {
             throw new Error(`Referenced UTI not known: ${name}`);
           }
-
-          conformsTo[name] = aUTI;
-        }
+        });
       }
 
       properties.conformsTo = {
