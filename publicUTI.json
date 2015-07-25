@@ -129,6 +129,10 @@
   "conformsTo": ["public.source-code", "public.executable"],
   "fileNameExtension": [".js", ".jscript", ".javascript"]
 }, {
+  "name": "public.bzip2-archive",
+  "conformsTo": ["public.data", "public.archive"],
+  "fileNameExtension": ".bzip2"
+}, {
   "name": "org.gnu.gnu-tar-archive",
   "conformsTo": ["public.data", "public.archive"],
   "fileNameExtension": ".tar",

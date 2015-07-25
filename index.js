@@ -213,10 +213,27 @@ exports.initialize = function (options) {
   };
 
   /*
-    let p = exports.loadDefinitionsFromFile(path.join(__dirname, 'publicUTI.json'));
+    const array = [exports.loadDefinitionsFromFile(path.join(__dirname, 'publicUTI.json'))];
+    if (options.definitionFileName) {
+      array.push(exports.loadDefinitionsFromFile(options.definitionFileName));
+    }
+
+    function processArray(array, fn) {
+      return array.reduce(function (p, item) {
+        return p.then(fn);
+      }, Promise.resolve());
+    }
+
+    return processArray(array, function () {
+      console.log('done loading');
+    });
+  */
+
+  /*
+    const p = exports.loadDefinitionsFromFile(path.join(__dirname, 'publicUTI.json'));
 
     if (options.definitionFileName) {
-      p = p.then(exports.loadDefinitionsFromFile(options.definitionFileName));
+      return p.then(exports.loadDefinitionsFromFile(options.definitionFileName));
     }
 
     return p;
