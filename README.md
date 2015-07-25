@@ -64,7 +64,7 @@ Returns undefined if no such UTI is known.
 ```json
 [
 { "name" : "org.mydomain.type1", "conformsTo" : ["public.image","public.xml"], "fileNameExtension": ".type1" },
-{ "name" : "org.mydomain.type2", "conformsTo" : "public.image" }
+{ "name" : "org.mydomain.type2", "conformsTo" : "public.image", "fileNameExtension" : [".type2", ".type3"] }
 ]
 ```
 
