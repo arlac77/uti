@@ -1,5 +1,6 @@
 {
   "name": "uti",
+  "version": "v1.8.1",
   "description": "javascript implementation of a \"Uniform Type Identifier\" (UTI)",
   "main": "index.js",
   "scripts": {

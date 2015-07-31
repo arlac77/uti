@@ -1,3 +1,11 @@
+### v1.8.1 (2015-07-31)
+
+
+#### Bug Fixes
+
+* **loading:** execute initial loadDefinitionsFromFile() calls in a sequence (not parallel) ([fc9e4105](git+https://github.com/arlac77/uti/commit/fc9e410575f04b880c0e23bf732728fbef7f2cca))
+
+
 ### v1.0.0 (2015-06-20)
 
 
