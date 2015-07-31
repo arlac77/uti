@@ -150,7 +150,6 @@ exports.initialize = function (options) {
    * @return a promise that resolves after the UTIs have been registered.
    */
   exports.loadDefinitionsFromFile = function (fileName) {
-
     // not using promisify-node any longer since it has some side-effects into the plain fs module
     return new Promise(function (resolve, reject) {
       fs.readFile(fileName, {
@@ -210,35 +209,21 @@ exports.initialize = function (options) {
 
       registry[nu.name] = nu;
     }
-  };
 
-  /*
-    const array = [exports.loadDefinitionsFromFile(path.join(__dirname, 'publicUTI.json'))];
-    if (options.definitionFileName) {
-      array.push(exports.loadDefinitionsFromFile(options.definitionFileName));
-    }
+    return "ok";
+  }
 
-    function processArray(array, fn) {
-      return array.reduce(function (p, item) {
-        return p.then(fn);
-      }, Promise.resolve());
-    }
-
-    return processArray(array, function () {
-      console.log('done loading');
-    });
-  */
-
-  /*
-    const p = exports.loadDefinitionsFromFile(path.join(__dirname, 'publicUTI.json'));
+    const loadPromise = exports.loadDefinitionsFromFile(path.join(__dirname, 'publicUTI.json'));
 
     if (options.definitionFileName) {
-      return p.then(exports.loadDefinitionsFromFile(options.definitionFileName));
+      return loadPromise.then(function(resolved) {
+          return exports.loadDefinitionsFromFile(options.definitionFileName); });
     }
 
-    return p;
-  */
+    return loadPromise;
 
+
+/*
   const fileNames = [path.join(__dirname, 'publicUTI.json')];
 
   if (options.definitionFileName) {
@@ -248,5 +233,5 @@ exports.initialize = function (options) {
   return Promise.all(fileNames.map(function (f) {
     return exports.loadDefinitionsFromFile(f);
   }));
-
+*/
 };

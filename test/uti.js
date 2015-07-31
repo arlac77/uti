@@ -87,22 +87,26 @@ describe('uti', function () {
       }, done);
     });
 
-    /*
-        it('chained request should work', function (done) {
-          uti.initialize({definitionFileName: path.join(__dirname, 'fixtures', 'uti.json') })
-          .then(uti.loadDefinitionsFromFile(path.join(__dirname, 'fixtures', 'uti2.json')))
-          .then(function () {
+    it('chained request should work', function (done) {
+      uti.initialize({
+          definitionFileName: path.join(__dirname, 'fixtures', 'uti.json')
+        })
+        .then(function () {
+          return uti.loadDefinitionsFromFile(path.join(__dirname, 'fixtures', 'uti2.json'));
+        })
+        .then(function () {
+          try {
             const json = uti.getUTI('public.json');
             should.exist(json);
 
-            setTimeout(function() {
-              const myUTI = uti.getUTI('com.mydomain.sample2');
-              should.exist(myUTI, `is present ${myUTI}`);
-              done();
-            }, 50);
-          }, done);
-        });
-      */
+            const myUTI = uti.getUTI('com.mydomain.sample2');
+            should.exist(myUTI, 'com.mydomain.sample2');
+            done();
+          } catch (e) {
+            done(e);
+          }
+        }, done);
+    });
   });
 
   describe('loading errors', function () {
@@ -139,5 +143,4 @@ describe('uti', function () {
       });
     });
   });
-
 });
