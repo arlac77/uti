@@ -21,11 +21,7 @@ describe('uti', function () {
         should.exist(u1);
         assert(u1.toJSON().name === 'public.json');
         done();
-      }, function (error) {
-        console.log(`${error}`);
-        assert(false);
-        done();
-      });
+      }, done);
     });
 
     describe('getUTIsForFileName', function () {
@@ -34,7 +30,7 @@ describe('uti', function () {
           assert(uti.getUTIsForFileName('a.txt')[0] === 'public.plain-text');
           assert(uti.getUTIsForFileName('a') === undefined);
           done();
-        });
+        }, done);
       });
     });
 
@@ -43,29 +39,37 @@ describe('uti', function () {
         uti.initialize().then(function () {
           assert(uti.getUTIsForMimeType('text/plain')[0] === 'public.plain-text');
           done();
-        });
+        }, done);
       });
     });
 
     describe('conformsTo', function () {
       it('positive', function (done) {
         uti.initialize().then(function () {
-          assert(uti.conformsTo('public.image', 'public.data'));
-          assert(uti.conformsTo('public.image', 'public.content'));
-          assert(uti.conformsTo('public.plain-text', 'public.data'));
-          assert(uti.conformsTo('public.tar-archive', 'public.data'));
-          assert(uti.conformsTo('public.volume', 'public.folder'));
-          assert(uti.conformsTo('public.volume', 'public.directory'));
-          assert(uti.conformsTo('public.volume', 'public.item'));
-          done();
-        });
+          try {
+            assert(uti.conformsTo('public.image', 'public.data'));
+            assert(uti.conformsTo('public.image', 'public.content'));
+            assert(uti.conformsTo('public.plain-text', 'public.data'));
+            assert(uti.conformsTo('public.tar-archive', 'public.data'));
+            assert(uti.conformsTo('public.volume', 'public.folder'));
+            assert(uti.conformsTo('public.volume', 'public.directory'));
+            assert(uti.conformsTo('public.volume', 'public.item'));
+            done();
+          } catch (e) {
+            done(e);
+          }
+        }, done);
       });
       it('negative', function (done) {
         uti.initialize().then(function () {
-          assert(!uti.conformsTo('undefined.uti', 'public.xml'));
-          assert(!uti.conformsTo('public.image', 'public.xml'));
-          done();
-        });
+          try {
+            assert(!uti.conformsTo('undefined.uti', 'public.xml'));
+            assert(!uti.conformsTo('public.image', 'public.xml'));
+            done();
+          } catch (e) {
+            done(e);
+          }
+        }, done);
       });
     });
   });
@@ -80,11 +84,7 @@ describe('uti', function () {
         const myUTI = uti.getUTI('com.mydomain.sample');
         should.exist(myUTI, `is present ${myUTI}`);
         done();
-      }, function (error) {
-        console.log(`${error}`);
-        assert(false);
-        done();
-      });
+      }, done);
     });
 
     /*
@@ -100,11 +100,7 @@ describe('uti', function () {
               should.exist(myUTI, `is present ${myUTI}`);
               done();
             }, 50);
-          }, function (error) {
-            console.log(`${error}`);
-            assert(false);
-            done();
-          });
+          }, done);
         });
       */
   });
@@ -114,8 +110,7 @@ describe('uti', function () {
       uti.initialize({
         definitionFileName: path.join(__dirname, 'fixtures', 'missing_file.json')
       }).then(function () {
-        assert(false);
-        done();
+        done(new Error('should have failed with missing file'));
       }, function (error) {
         assert(error.toString().match(/ENOENT/));
         done();
@@ -126,8 +121,7 @@ describe('uti', function () {
       uti.initialize({
         definitionFileName: path.join(__dirname, 'fixtures', 'invalid.json')
       }).then(function () {
-        assert(false);
-        done();
+        done(new Error('should have failed with SyntaxError'));
       }, function (error) {
         assert(error.toString().match(/SyntaxError/));
         done();
@@ -138,8 +132,7 @@ describe('uti', function () {
       uti.initialize({
         definitionFileName: path.join(__dirname, 'fixtures', 'missing_reference.json')
       }).then(function () {
-        assert(false);
-        done();
+        done(new Error('should have failed with reference error'));
       }, function (error) {
         assert(error.toString().match(/Referenced/));
         done();
