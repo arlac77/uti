@@ -19,7 +19,7 @@ describe('uti', function () {
       uti.initialize().then(function () {
         const u1 = uti.getUTI('public.json');
         should.exist(u1);
-        assert(u1.toJSON().name === 'public.json');
+        assert.equal(u1.toJSON().name, 'public.json');
         done();
       }, done);
     });
@@ -27,8 +27,8 @@ describe('uti', function () {
     describe('getUTIsForFileName', function () {
       it('simple', function (done) {
         uti.initialize().then(function () {
-          assert(uti.getUTIsForFileName('a.txt')[0] === 'public.plain-text');
-          assert(uti.getUTIsForFileName('a') === undefined);
+          assert.equal(uti.getUTIsForFileName('a.txt')[0], 'public.plain-text');
+          assert.isUndefined(uti.getUTIsForFileName('a'));
           done();
         }, done);
       });
@@ -37,7 +37,7 @@ describe('uti', function () {
     describe('getUTIsMimeType', function () {
       it('simple', function (done) {
         uti.initialize().then(function () {
-          assert(uti.getUTIsForMimeType('text/plain')[0] === 'public.plain-text');
+          assert.equal(uti.getUTIsForMimeType('text/plain')[0], 'public.plain-text');
           done();
         }, done);
       });
@@ -47,13 +47,13 @@ describe('uti', function () {
       it('positive', function (done) {
         uti.initialize().then(function () {
           try {
-            assert(uti.conformsTo('public.image', 'public.data'));
-            assert(uti.conformsTo('public.image', 'public.content'));
-            assert(uti.conformsTo('public.plain-text', 'public.data'));
-            assert(uti.conformsTo('public.tar-archive', 'public.data'));
-            assert(uti.conformsTo('public.volume', 'public.folder'));
-            assert(uti.conformsTo('public.volume', 'public.directory'));
-            assert(uti.conformsTo('public.volume', 'public.item'));
+            assert.isTrue(uti.conformsTo('public.image', 'public.data'));
+            assert.isTrue(uti.conformsTo('public.image', 'public.content'));
+            assert.isTrue(uti.conformsTo('public.plain-text', 'public.data'));
+            assert.isTrue(uti.conformsTo('public.tar-archive', 'public.data'));
+            assert.isTrue(uti.conformsTo('public.volume', 'public.folder'));
+            assert.isTrue(uti.conformsTo('public.volume', 'public.directory'));
+            assert.isTrue(uti.conformsTo('public.volume', 'public.item'));
             done();
           } catch (e) {
             done(e);
@@ -63,8 +63,8 @@ describe('uti', function () {
       it('negative', function (done) {
         uti.initialize().then(function () {
           try {
-            assert(!uti.conformsTo('undefined.uti', 'public.xml'));
-            assert(!uti.conformsTo('public.image', 'public.xml'));
+            assert.isFalse(uti.conformsTo('undefined.uti', 'public.xml'));
+            assert.isFalse(uti.conformsTo('public.image', 'public.xml'));
             done();
           } catch (e) {
             done(e);
