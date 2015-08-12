@@ -25,7 +25,7 @@
     "istanbul-harmony": "0.3.16",
     "jsdoc": "^3.3.2",
     "mocha": "2.2.5",
-    "semantic-release": "^4.0.1"
+    "semantic-release": "^4.0.3"
   },
   "dependencies": {},
   "keywords": [
