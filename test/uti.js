@@ -9,8 +9,8 @@ const assert = chai.assert;
 const expect = chai.expect;
 const should = chai.should();
 
-let path = require('path');
-let uti = require('../index.js');
+const path = require('path');
+const uti = require('../index.js');
 
 describe('uti', function () {
 
