@@ -1,2 +1,10 @@
-node_modules
 coverage
+node_modules
+dist
+*.log
+*.dump
+.DS_Store
+.nyc_output
+.test
+.tmp
+
