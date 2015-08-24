@@ -15,17 +15,18 @@
     "url": "https://github.com/arlac77/uti.git"
   },
   "release": {
-    "debug": false
+    "verifyRelease": "cracks"
   },
   "devDependencies": {
     "chai": "3.2.0",
     "chai-as-promised": "5.1.0",
     "conventional-changelog-generator": "0.0.3",
-    "coveralls": "2.11.3",
+    "coveralls": "^2.11.4",
+    "cracks": "^3.0.2",
     "istanbul-harmony": "0.3.16",
     "jsdoc": "^3.3.2",
     "mocha": "2.2.5",
-    "semantic-release": "^4.1.1"
+    "semantic-release": "^4.3.4"
   },
   "dependencies": {},
   "keywords": [
