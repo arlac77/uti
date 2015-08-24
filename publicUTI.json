@@ -170,14 +170,24 @@
   "conformsTo": "public.composite-content"
 }, {
   "name": "com.microsoft.word.doc",
-  "conformsTo": ["public.data", "public.composite-content"]
+  "conformsTo": ["public.data", "public.composite-content"],
+  "fileNameExtension": ".docx"
 }, {
   "name": "com.microsoft.excel.xls",
-  "conformsTo": ["public.data", "public.composite-content"]
+  "conformsTo": ["public.data", "public.composite-content"],
+  "fileNameExtension": ".xlsx"
 }, {
   "name": "com.microsoft.powerpoint.ppt",
-  "conformsTo": ["public.data", "public.presentation"]
+  "conformsTo": ["public.data", "public.presentation"],
+  "fileNameExtension": ".ppt"
 }, {
   "name": "com.microsoft.word.wordml",
   "conformsTo": ["public.data", "public.composite-content"]
+}, {
+  "name": "public.image",
+  "conformsTo": ["public.data", "public.content"]
+}, {
+  "name": "public.jpeg",
+  "conformsTo": "public.image",
+  "fileNameExtension": [".jpg", ".jpeg"]
 }]
