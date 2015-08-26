@@ -132,7 +132,7 @@ describe('uti', function () {
       });
     });
 
-    it('should fail with referene error', function (done) {
+    it('should fail with reference error', function (done) {
       uti.initialize({
         definitionFileName: path.join(__dirname, 'fixtures', 'missing_reference.json')
       }).then(function () {
