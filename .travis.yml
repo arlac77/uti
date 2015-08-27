@@ -12,21 +12,9 @@ before_install:
   - npm i -g npm@^2.0.0
 before_script:
   - npm prune
-after_success:
-  - npm run semantic-release
 script:
   - npm run-script cover
 after_script:
   - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
-env:
-  global:
-    secure: RxbnJ1Urw5Y0AhpJ/MvlU3jeTndCanmFGLjac0ODCI3jaRbnsZZowytksXuoKYgeQjL4D68rtdcgZeGvft3aSzls2JK36d1xYkniHXr2AmuHPANBTiL0RCYIZJM0CtggRdIIFwEnhXvcsmfP79FsyquDh+7M6NC6uUE0R2YXKE6ewjnI4Ih+T1PS8/0Y85vjRSIq2WVSiHeQDC7gyHXO1CRzsYLZaZkkkEoXxFZmHX5pTzO2By64PunAhzQf5zQlefgKT/BiTtKNkfWbN1n2Z/+yl0m2ZLav7Ur3temq+GW+hfj6OmLlbdnH6fdSkCvUT8wONQcUk8uZn3zTuQy2JFnKiJw4avc6Lr0odH3Pl3puy2d9Rf9fGnKXJ/x8kO68fmJT0rq/1ca0Uj9rgI/88JajTbV6t/5LVA7jEG9EZVTwvLNeAgcvl3QJWLsao8sIryGXMSJjBa3Wk2DjWwAcsrXU359B493uXrlfbYRZdBzBBKp8dOhgjwNaqUMrW7NHtUovwGft6ZNkNOTzqRXGMcR5qNhEOmqB/sG7doTyTNYE2Xbrb/aphH9PvBMCQ2KaBLl2Dwti6z+Q056aEfIF+oeI0iqOhL3/6FoXtvEr/tjYc913r3RMJyyV+8znlQ0cny2BMpTLtzhRgHZ3US3OGGBelaM8+dxhs7ICu63mfp8=
-deploy:
-  provider: npm
-  email: markus.felten@gmx.de
-  skip_cleanup: true
-  api_key:
-    secure: v3B7SwEgBujn0FAAcYzN9gwsQN266R3RSUdyg5t9+jlhpwGSzLRTjtcJ/dAn6ybkUyJP2CirzwTsD4RG8hdY1x/gpYeicgSlKfH70uBdcfAt2TKh+C0JGFnyjmY9/yNN1xY8vd/jaTH3fS/ZpMFnSz4Xd5nRsiRKbnm7swWwWdfW7zX+GoZagTxrxwCjjbwwwlWFAhWPcINdregO3L/GqQOb4WFiz7NRw5pl+9URN/t/HlN/8gyEOdYJc1/amnsqy0E045+INxUxTYC6jlOQh8cWVIU36bKrSUTlYZX42zSPmYFBwCg2kyOZ1Ifg87NHu3NzYaJhwozJZhSK9uuq2reWSwGUF7OzDE8I4m38TsvYsSioALgkTzFGg12+6tONjnyPpqRJLR0e3ltZxNIeN5Q7tj2ZbF50kiinPNkbeI1fU9W29Sksmk428AlDhvutLNp1DOp/rSpBI3aNtdkLuvMfwz8nphOW8ppgyreZKZdWbCXMHm+SWKYT+etOglnBO+6LSGC3GtfwIv15bXq2U4EFgwqZMOeQEQOPqtER0fd0s7FZ2j0x08cSL4OIy5mkjhlJBjmwsPk0ne5IPIcgeX8U/OtBMEzfYUCwmoV5qPOht3XHUEEcmr+rmiYd16iYD6XOT8hQYECy4wk5FjkTCbUbBMzowWdeG+dWH7XMeOQ=
-  on:
-    branch: master
-    repo: arlac77/uti
+after_success:
+  - npm run semantic-release
