@@ -7,16 +7,17 @@
     "cover": "node --harmony ./node_modules/istanbul-harmony/lib/cli.js cover --hook-run-in-context ./node_modules/mocha/bin/_mocha -- --R spec --U exports test",
     "doc": "./node_modules/.bin/jsdoc index.js",
     "test": "mocha --harmony_shipping test/*.js",
-    "postpublish-disabled": "semantic-release post",
-    "prepublish-disabled": "semantic-release pre",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/arlac77/uti.git"
   },
+  "engines": {
+    "iojs": ">=2.0.0"
+  },
   "release": {
-    "verifyRelease": "cracks"
+    "debug": false
   },
   "devDependencies": {
     "chai": "3.2.0",
