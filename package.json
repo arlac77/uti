@@ -1,6 +1,5 @@
 {
   "name": "uti",
-  "version": "0.0.0-semantically-released",
   "description": "javascript implementation of a \"Uniform Type Identifier\" (UTI)",
   "main": "index.js",
   "scripts": {
@@ -14,7 +13,7 @@
     "url": "https://github.com/arlac77/uti.git"
   },
   "engines": {
-    "iojs": ">=2.0.0"
+    "iojs": ">=2.5.0"
   },
   "release": {
     "debug": false
@@ -35,7 +34,7 @@
     "UTI",
     "file type"
   ],
-  "author": "Markus Felten",
+  "author": "Markus Felten <markus.felten@gmx.de>",
   "license": "BSD-2-Clause",
   "bugs": {
     "url": "https://github.com/arlac77/uti/issues"
