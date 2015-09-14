@@ -30,7 +30,7 @@ const RootUTI = {
 /**
  * Initialized the uti api.
  * @param options {object} options.definitionFileName is given then additional UTIs will be loaded from the given file name
- * @return a promise that is fullfilled if the initialization is done
+ * @return a promise that is fullfilled when the initialization is done
  */
 exports.initialize = function (options) {
   if (!options) { 
@@ -42,7 +42,7 @@ exports.initialize = function (options) {
   const utiByMimeType = {};
 
   function assignExtensions(extensions, name) {
-    extensions.forEach(function (ext) {
+    extensions.forEach(ext => {
       if (utiByFileNameExtension[ext]) {
         utiByFileNameExtension[ext].push(name);
       } else {
@@ -54,7 +54,7 @@ exports.initialize = function (options) {
   }
 
   function assignMimeTypes(mimTypes, name) {
-    mimTypes.forEach(function (type) {
+    mimTypes.forEach(type => {
       if (utiByMimeType[type]) {
         utiByMimeType[type].push(name);
       } else {
@@ -82,7 +82,7 @@ exports.initialize = function (options) {
    * Check whenever two UTI are conformant.
    * If a conforms to b and b conforms to c then a also conforms to c.
    * @param a {string} first UTI
-   * @param a {string} second UTI
+   * @param b {string} second UTI
    * @return true if UTI a conforms to UTI b.
    */
   exports.conformsTo = function (a, b) {
@@ -191,7 +191,7 @@ exports.initialize = function (options) {
       if (u.conformsTo) {
         const ct = Array.isArray(u.conformsTo) ? u.conformsTo : [u.conformsTo];
 
-        ct.forEach(function (name) {
+        ct.forEach(name => {
           const aUTI = registry[name];
           if (aUTI) {
             conformsTo[name] = aUTI;
@@ -213,25 +213,25 @@ exports.initialize = function (options) {
     return "ok";
   }
 
-    const loadPromise = exports.loadDefinitionsFromFile(path.join(__dirname, 'publicUTI.json'));
-
-    if (options.definitionFileName) {
-      return loadPromise.then(function(resolved) {
-          return exports.loadDefinitionsFromFile(options.definitionFileName); });
-    }
-
-    return loadPromise;
-
-
-/*
-  const fileNames = [path.join(__dirname, 'publicUTI.json')];
+  const loadPromise = exports.loadDefinitionsFromFile(path.join(__dirname, 'publicUTI.json'));
 
   if (options.definitionFileName) {
-    fileNames.push(options.definitionFileName);
+    return loadPromise.then(resolved => {
+      return exports.loadDefinitionsFromFile(options.definitionFileName);
+    });
   }
 
-  return Promise.all(fileNames.map(function (f) {
-    return exports.loadDefinitionsFromFile(f);
-  }));
-*/
+  return loadPromise;
+
+  /*
+    const fileNames = [path.join(__dirname, 'publicUTI.json')];
+
+    if (options.definitionFileName) {
+      fileNames.push(options.definitionFileName);
+    }
+
+    return Promise.all(fileNames.map(function (f) {
+      return exports.loadDefinitionsFromFile(f);
+    }));
+  */
 };

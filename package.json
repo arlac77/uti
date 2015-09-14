@@ -13,7 +13,6 @@
     "url": "https://github.com/arlac77/uti.git"
   },
   "engines": {
-    "iojs": ">=2.0.0",
     "node": ">=4.0.0"
   },
   "release": {
@@ -29,7 +28,9 @@
     "mocha": "^2.3.2",
     "semantic-release": "^6.0.1"
   },
-  "dependencies": {},
+  "dependencies": {
+    "node-launchd": "0.0.3"
+  },
   "keywords": [
     "MIME",
     "UTI",
