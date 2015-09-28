@@ -30,7 +30,7 @@ const RootUTI = {
 /**
  * Initialized the uti api.
  * @param options {object} options.definitionFileName is given then additional UTIs will be loaded from the given file name
- * @return a promise that is fullfilled when the initialization is done
+ * @return {Promise} a promise that is fullfilled when the initialization is done
  */
 exports.initialize = function (options) {
   if (!options) { 
@@ -83,7 +83,7 @@ exports.initialize = function (options) {
    * If a conforms to b and b conforms to c then a also conforms to c.
    * @param a {string} first UTI
    * @param b {string} second UTI
-   * @return true if UTI a conforms to UTI b.
+   * @return {boolean} true if UTI a conforms to UTI b.
    */
   exports.conformsTo = function (a, b) {
     a = registry[a];
@@ -113,7 +113,7 @@ exports.initialize = function (options) {
   /**
    * Lookup a given UTI.
    * @param name {string} UTI
-   * @return UTI for the given name or undefined if UTI is not present.
+   * @return {string} UTI for the given name or undefined if UTI is not present.
    */
   exports.getUTI = function (name) {
     return registry[name];
@@ -124,7 +124,7 @@ exports.initialize = function (options) {
    * First the file name extension is extracted.
    * Then a lookup in the reistered UTIs for file name extions is executed.
    * @param fileName {string} file to detect UTI for
-   * @return UTI for the given fileName or undefined if no UTI is registerd for the file names extension
+   * @return {string} UTI for the given fileName or undefined if no UTI is registerd for the file names extension
    */
   exports.getUTIsForFileName = function (fileName) {
     const m = fileName.match(/(\.[a-zA-Z_0-9]+)$/);
@@ -138,7 +138,7 @@ exports.initialize = function (options) {
   /**
    * Lookup a UTIs for a mime type.
    * @param mimeType {string} mime type to get UTIs for
-   * @return UTI for the given mime type or undefined if no UTI is registerd for the mime type
+   * @return {string} UTI for the given mime type or undefined if no UTI is registerd for the mime type
    */
   exports.getUTIsForMimeType = function (mimeType) {
     return utiByMimeType[mimeType];
@@ -147,7 +147,7 @@ exports.initialize = function (options) {
   /**
    * Load additional UTIs form a file.
    * @param fileName {string} file containing UTI definitions
-   * @return a promise that resolves after the UTIs have been registered.
+   * @return {Promise} a promise that resolves after the UTIs have been registered.
    */
   exports.loadDefinitionsFromFile = function (fileName) {
     // not using promisify-node any longer since it has some side-effects into the plain fs module
