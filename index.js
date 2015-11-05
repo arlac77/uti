@@ -168,6 +168,10 @@ exports.initialize = function (options) {
     });
   };
 
+  /**
+   * Loads additionnal uti defintions from a (json) string
+   * @param {String} data
+   */
   function loadDefinitions(data) {
     for (let u of JSON.parse(data)) {
       const properties = {
