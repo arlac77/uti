@@ -2,8 +2,8 @@
 
 "use strict";
 
-const fs = require("fs");
-const path = require("path");
+const fs = require("fs"),
+  path = require("path");
 
 const RootUTI = {
   toString() {
@@ -160,7 +160,7 @@ exports.initialize = function (options) {
           return;
         }
         try {
-          resolve(registerUTIs(data));
+          resolve(loadDefinitions(data));
         } catch (error) {
           reject(error);
         }
@@ -168,7 +168,7 @@ exports.initialize = function (options) {
     });
   };
 
-  function registerUTIs(data) {
+  function loadDefinitions(data) {
     for (let u of JSON.parse(data)) {
       const properties = {
         name: {
@@ -212,6 +212,8 @@ exports.initialize = function (options) {
 
     return "ok";
   }
+
+  exports.loadDefinitions = loadDefinitions;
 
   const loadPromise = exports.loadDefinitionsFromFile(path.join(__dirname, 'publicUTI.json'));
 
