@@ -73,8 +73,31 @@ describe('uti', function () {
       });
     });
   });
+});
 
-  describe('load additional UTIs', function () {
+describe('load additional UTIs', function () {
+  describe('from json', function () {
+    it('should be present', function (done) {
+      uti.initialize().then(function () {
+        try {
+          uti.loadDefinitions(
+            `[{
+            "name": "com.mydomain.sample2",
+            "conformsTo": "public.json",
+            "fileNameExtension": ".myext"
+          }]`
+          );
+          const myUTI = uti.getUTI('com.mydomain.sample2');
+          should.exist(myUTI, `is present ${myUTI}`);
+        } catch (e) {
+          done(e);
+        }
+        done();
+      }, done);
+    });
+  });
+
+  describe('from a file', function () {
     it('should be present', function (done) {
       uti.initialize({
         definitionFileName: path.join(__dirname, 'fixtures', 'uti.json')
@@ -108,39 +131,39 @@ describe('uti', function () {
         }, done);
     });
   });
+});
 
-  describe('loading errors', function () {
-    it('should fail on missing file', function (done) {
-      uti.initialize({
-        definitionFileName: path.join(__dirname, 'fixtures', 'missing_file.json')
-      }).then(function () {
-        done(new Error('should have failed with missing file'));
-      }, function (error) {
-        assert(error.toString().match(/ENOENT/));
-        done();
-      });
+describe('loading errors', function () {
+  it('should fail on missing file', function (done) {
+    uti.initialize({
+      definitionFileName: path.join(__dirname, 'fixtures', 'missing_file.json')
+    }).then(function () {
+      done(new Error('should have failed with missing file'));
+    }, function (error) {
+      assert(error.toString().match(/ENOENT/));
+      done();
     });
+  });
 
-    it('should fail with json syntax error', function (done) {
-      uti.initialize({
-        definitionFileName: path.join(__dirname, 'fixtures', 'invalid.json')
-      }).then(function () {
-        done(new Error('should have failed with SyntaxError'));
-      }, function (error) {
-        assert(error.toString().match(/SyntaxError/));
-        done();
-      });
+  it('should fail with json syntax error', function (done) {
+    uti.initialize({
+      definitionFileName: path.join(__dirname, 'fixtures', 'invalid.json')
+    }).then(function () {
+      done(new Error('should have failed with SyntaxError'));
+    }, function (error) {
+      assert(error.toString().match(/SyntaxError/));
+      done();
     });
+  });
 
-    it('should fail with reference error', function (done) {
-      uti.initialize({
-        definitionFileName: path.join(__dirname, 'fixtures', 'missing_reference.json')
-      }).then(function () {
-        done(new Error('should have failed with reference error'));
-      }, function (error) {
-        assert(error.toString().match(/Referenced/));
-        done();
-      });
+  it('should fail with reference error', function (done) {
+    uti.initialize({
+      definitionFileName: path.join(__dirname, 'fixtures', 'missing_reference.json')
+    }).then(function () {
+      done(new Error('should have failed with reference error'));
+    }, function (error) {
+      assert(error.toString().match(/Referenced/));
+      done();
     });
   });
 });
