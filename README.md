@@ -12,6 +12,7 @@ uti
 [![devDependency Status](https://david-dm.org/arlac77/uti/dev-status.svg)](https://david-dm.org/arlac77/uti#info=devDependencies)
 [![docs](http://inch-ci.org/github/arlac77/uti.svg?branch=master)](http://inch-ci.org/github/arlac77/uti)
 [![downloads](http://img.shields.io/npm/dm/uti.svg?style=flat-square)](https://npmjs.org/package/uti)
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
 Uniform Type Identifier
 -----------------------
