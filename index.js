@@ -64,7 +64,7 @@ exports.initialize = function (options) {
   }
 
   function _conformsTo(a, b) {
-    for (let i in a.conformsTo) {
+    for (const i in a.conformsTo) {
       const u = a.conformsTo[i];
 
       if (u === b) {
@@ -154,7 +154,7 @@ exports.initialize = function (options) {
     return new Promise(function (resolve, reject) {
       fs.readFile(fileName, {
         encoding: "utf-8"
-      }, function (error, data) {
+      }, (error, data) => {
         if (error) {
           reject(error);
           return;
@@ -173,7 +173,7 @@ exports.initialize = function (options) {
    * @param {String} data
    */
   function loadDefinitions(data) {
-    for (let u of JSON.parse(data)) {
+    for (const u of JSON.parse(data)) {
       const properties = {
         name: {
           value: u.name
