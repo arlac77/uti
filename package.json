@@ -3,9 +3,9 @@
   "description": "javascript implementation of a \"Uniform Type Identifier\" (UTI)",
   "main": "index.js",
   "scripts": {
-    "cover": "node --harmony ./node_modules/istanbul/lib/cli.js cover --hook-run-in-context ./node_modules/mocha/bin/_mocha -- --R spec --U exports tests",
-    "doc": "./node_modules/.bin/jsdoc index.js",
-    "test": "mocha --harmony_shipping tests/*.js",
+    "cover": "node ./node_modules/istanbul/lib/cli.js cover --hook-run-in-context ./node_modules/mocha/bin/_mocha -- --R spec --U exports tests/*_test.js",
+    "doc": "jsdoc lib/*.js",
+    "test": "mocha tests/*_test.js",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
@@ -13,7 +13,7 @@
     "url": "https://github.com/arlac77/uti.git"
   },
   "engines": {
-    "node": ">=4.2"
+    "node": ">=5"
   },
   "devDependencies": {
     "chai": "3.5.0",
