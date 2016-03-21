@@ -3,20 +3,17 @@
 
 "use strict";
 
-const chai = require('chai');
-chai.use(require("chai-as-promised"));
-const assert = chai.assert;
-const expect = chai.expect;
-const should = chai.should();
+const chai = require('chai'),
+  assert = chai.assert,
+  expect = chai.expect,
+  should = chai.should(),
+  path = require('path'),
+  uti = require('../index.js');
 
-const path = require('path');
-const uti = require('../index.js');
-
-describe('uti', function () {
-
-  describe('buildin UTIs', function () {
-    it('should be present', function (done) {
-      uti.initialize().then(function () {
+describe('uti', () => {
+  describe('buildin UTIs', () => {
+    it('should be present', done => {
+      uti.initialize().then(() => {
         const u1 = uti.getUTI('public.json');
         should.exist(u1);
         assert.equal(u1.toJSON().name, 'public.json');
@@ -24,9 +21,9 @@ describe('uti', function () {
       }, done);
     });
 
-    describe('getUTIsForFileName', function () {
-      it('simple', function (done) {
-        uti.initialize().then(function () {
+    describe('getUTIsForFileName', () => {
+      it('simple', done => {
+        uti.initialize().then(() => {
           assert.equal(uti.getUTIsForFileName('a.txt')[0], 'public.plain-text');
           assert.isUndefined(uti.getUTIsForFileName('a'));
           done();
@@ -34,18 +31,18 @@ describe('uti', function () {
       });
     });
 
-    describe('getUTIsMimeType', function () {
-      it('simple', function (done) {
-        uti.initialize().then(function () {
+    describe('getUTIsMimeType', () => {
+      it('simple', done => {
+        uti.initialize().then(() => {
           assert.equal(uti.getUTIsForMimeType('text/plain')[0], 'public.plain-text');
           done();
         }, done);
       });
     });
 
-    describe('conformsTo', function () {
-      it('positive', function (done) {
-        uti.initialize().then(function () {
+    describe('conformsTo', () => {
+      it('positive', done => {
+        uti.initialize().then(() => {
           try {
             assert.isTrue(uti.conformsTo('public.image', 'public.data'));
             assert.isTrue(uti.conformsTo('public.image', 'public.content'));
@@ -60,8 +57,8 @@ describe('uti', function () {
           }
         }, done);
       });
-      it('negative', function (done) {
-        uti.initialize().then(function () {
+      it('negative', done => {
+        uti.initialize().then(() => {
           try {
             assert.isFalse(uti.conformsTo('undefined.uti', 'public.xml'));
             assert.isFalse(uti.conformsTo('public.image', 'public.xml'));
@@ -75,10 +72,10 @@ describe('uti', function () {
   });
 });
 
-describe('load additional UTIs', function () {
-  describe('from json', function () {
-    it('should be present', function (done) {
-      uti.initialize().then(function () {
+describe('load additional UTIs', () => {
+  describe('from json', () => {
+    it('should be present', done => {
+      uti.initialize().then(() => {
         try {
           uti.loadDefinitions(
             `[{
@@ -97,8 +94,8 @@ describe('load additional UTIs', function () {
     });
   });
 
-  describe('from a file', function () {
-    it('should be present', function (done) {
+  describe('from a file', () => {
+    it('should be present', done => {
       uti.initialize({
         definitionFileName: path.join(__dirname, 'fixtures', 'uti.json')
       }).then(function () {
@@ -110,14 +107,14 @@ describe('load additional UTIs', function () {
       }, done);
     });
 
-    it('chained request should work', function (done) {
+    it('chained request should work', done => {
       uti.initialize({
           definitionFileName: path.join(__dirname, 'fixtures', 'uti.json')
         })
-        .then(function () {
-          return uti.loadDefinitionsFromFile(path.join(__dirname, 'fixtures', 'uti2.json'));
-        })
-        .then(function () {
+        .then(() =>
+          uti.loadDefinitionsFromFile(path.join(__dirname, 'fixtures', 'uti2.json'))
+        )
+        .then(() => {
           try {
             const json = uti.getUTI('public.json');
             should.exist(json);
@@ -133,37 +130,34 @@ describe('load additional UTIs', function () {
   });
 });
 
-describe('loading errors', function () {
-  it('should fail on missing file', function (done) {
+describe('loading errors', () => {
+  it('should fail on missing file', done => {
     uti.initialize({
       definitionFileName: path.join(__dirname, 'fixtures', 'missing_file.json')
-    }).then(function () {
-      done(new Error('should have failed with missing file'));
-    }, function (error) {
-      assert(error.toString().match(/ENOENT/));
-      done();
-    });
+    }).then(() =>
+      done(new Error('should have failed with missing file')), (error) => {
+        assert(error.toString().match(/ENOENT/));
+        done();
+      });
   });
 
-  it('should fail with json syntax error', function (done) {
+  it('should fail with json syntax error', done => {
     uti.initialize({
       definitionFileName: path.join(__dirname, 'fixtures', 'invalid.json')
-    }).then(function () {
-      done(new Error('should have failed with SyntaxError'));
-    }, function (error) {
-      assert(error.toString().match(/SyntaxError/));
-      done();
-    });
+    }).then(() =>
+      done(new Error('should have failed with SyntaxError')), error => {
+        assert(error.toString().match(/SyntaxError/));
+        done();
+      });
   });
 
-  it('should fail with reference error', function (done) {
+  it('should fail with reference error', done => {
     uti.initialize({
       definitionFileName: path.join(__dirname, 'fixtures', 'missing_reference.json')
-    }).then(function () {
-      done(new Error('should have failed with reference error'));
-    }, function (error) {
-      assert(error.toString().match(/Referenced/));
-      done();
-    });
+    }).then(() =>
+      done(new Error('should have failed with reference error')), error => {
+        assert(error.toString().match(/Referenced/));
+        done();
+      });
   });
 });
