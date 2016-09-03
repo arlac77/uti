@@ -1,10 +1,7 @@
 language: node_js
 node_js:
-  - 4.2
+  - 6.5
 sudo: false
-branches:
-  only:
-    - master
 cache:
   directories:
     - node_modules

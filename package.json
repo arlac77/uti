@@ -13,7 +13,7 @@
     "url": "https://github.com/arlac77/uti.git"
   },
   "engines": {
-    "node": ">=4.2"
+    "node": ">=6.5"
   },
   "devDependencies": {
     "chai": "3.5.0",
