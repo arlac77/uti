@@ -1,9 +1,9 @@
 /* jslint node: true, esnext: true */
 
-"use strict";
+'use strict';
 
-const fs = require("fs"),
-  path = require("path");
+const fs = require('fs'),
+  path = require('path');
 
 const RootUTI = {
   toString() {
@@ -153,7 +153,7 @@ exports.initialize = function (options) {
     // not using promisify-node any longer since it has some side-effects into the plain fs module
     return new Promise(function (resolve, reject) {
       fs.readFile(fileName, {
-        encoding: "utf-8"
+        encoding: 'utf-8'
       }, (error, data) => {
         if (error) {
           reject(error);
@@ -214,7 +214,7 @@ exports.initialize = function (options) {
       registry[nu.name] = nu;
     }
 
-    return "ok";
+    return 'ok';
   }
 
   exports.loadDefinitions = loadDefinitions;

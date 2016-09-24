@@ -28,10 +28,10 @@ myuti.js
 --------
 
 ```javascript
-var uti = require('uti');
+const uti = require('uti');
 
 uti.initialize().then(function() {
-  doesConformTo = uti.conformsTo('public.image', 'public.data')
+  const doesConformTo = uti.conformsTo('public.image', 'public.data');
   console.log('doesConformTo: ' + doesConformTo);
 
   console.log(uti.getUTIsForFileName('a.txt')[0]);
