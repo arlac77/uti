@@ -5,6 +5,7 @@ sudo: false
 cache:
   directories:
     - node_modules
+    - /^greenkeeper-.*$/
 notifications:
   email:
     - torstenlink@gmx.de
