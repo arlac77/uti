@@ -24,7 +24,7 @@
     "jsdoc": "3.4.1",
     "markdown-doctest": "^0.8.1",
     "mocha": "3.1.0",
-    "semantic-release": "6.3.0"
+    "semantic-release": "^6.3.1"
   },
   "keywords": [
     "MIME",
