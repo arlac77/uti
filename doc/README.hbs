@@ -7,6 +7,7 @@
 [![Code Climate](https://codeclimate.com/github/arlac77/uti/badges/gpa.svg)](https://codeclimate.com/github/arlac77/uti)
 [![Known Vulnerabilities](https://snyk.io/test/github/arlac77/uti/badge.svg)](https://snyk.io/test/github/arlac77/uti)
 [![GitHub Issues](https://img.shields.io/github/issues/arlac77/uti.svg?style=flat-square)](https://github.com/arlac77/uti/issues)
+[![Stories in Ready](https://badge.waffle.io/arlac77/uti.svg?label=ready&title=Ready)](http://waffle.io/arlac77/uti)
 [![Dependency Status](https://david-dm.org/arlac77/uti.svg)](https://david-dm.org/arlac77/uti)
 [![devDependency Status](https://david-dm.org/arlac77/uti/dev-status.svg)](https://david-dm.org/arlac77/uti#info=devDependencies)
 [![docs](http://inch-ci.org/github/arlac77/uti.svg?branch=master)](http://inch-ci.org/github/arlac77/uti)
