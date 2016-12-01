@@ -4,10 +4,10 @@
   "main": "dist/uti.js",
   "module": "src/uti.js",
   "scripts": {
-    "cover": "npm run build && ./node_modules/istanbul/lib/cli.js cover --hook-run-in-context ./node_modules/mocha/bin/_mocha -- --R spec --U exports tests/*_test.js",
-    "test": "npm run build && mocha tests/*_test.js && markdown-doctest",
-    "build": "./node_modules/rollup/bin/rollup --output=index.js -c -- src/uti.js",
-    "docs": "jsdoc2md -l off -t doc/README.hbs -f src/uti.js > README.md",
+    "cover": "npm run build && node_modules/.bin/istanbul cover node_modules/.bin/_mocha -- -u exports tests/*_test.js",
+    "test": "npm run build && node_modules/.bin/mocha tests/*_test.js && markdown-doctest",
+    "build": "node_modules/rollup/bin/rollup --output=index.js -c -- src/uti.js",
+    "docs": "jsdoc2md -l off -t doc/README.hbs -f src/*.js > README.md",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
   "repository": {
@@ -25,9 +25,9 @@
     "istanbul": "^0.4.5",
     "markdown-doctest": "^0.9.1",
     "mocha": "^3.2.0",
-    "semantic-release": "^6.3.2",
+    "semantic-release": "^6.3.3",
     "jsdoc-to-markdown": "^2.0.1",
-    "rollup": "0.36.4",
+    "rollup": "^0.36.4",
     "rollup-plugin-commonjs": "^5.0.5",
     "rollup-plugin-node-resolve": "^2.0.0"
   },
@@ -48,8 +48,10 @@
   },
   "version": "0.0.0-semantic-release",
   "dependencies": {},
-  "contributors": [{
-    "name": "Markus Felten",
-    "email": "markus.felten@gmx.de"
-  }]
+  "contributors": [
+    {
+      "name": "Markus Felten",
+      "email": "markus.felten@gmx.de"
+    }
+  ]
 }
