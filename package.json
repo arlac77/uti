@@ -25,11 +25,9 @@
     "istanbul": "^0.4.5",
     "markdown-doctest": "^0.9.1",
     "mocha": "^3.2.0",
-    "semantic-release": "^6.3.3",
+    "semantic-release": "^6.3.5",
     "jsdoc-to-markdown": "^2.0.1",
-    "rollup": "^0.36.4",
-    "rollup-plugin-commonjs": "^5.0.5",
-    "rollup-plugin-node-resolve": "^2.0.0"
+    "rollup": "^0.36.4"
   },
   "keywords": [
     "MIME",
