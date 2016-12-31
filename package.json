@@ -1,12 +1,12 @@
 {
   "name": "uti",
   "description": "javascript implementation of a \"Uniform Type Identifier\" (UTI)",
-  "main": "dist/uti.js",
+  "main": "dist/module.js",
   "module": "src/uti.js",
   "scripts": {
     "cover": "npm run build && node_modules/.bin/istanbul cover node_modules/.bin/_mocha -- -u exports tests/*_test.js",
     "test": "npm run build && node_modules/.bin/mocha tests/*_test.js && markdown-doctest",
-    "build": "node_modules/rollup/bin/rollup --output=index.js -c -- src/uti.js",
+    "build": "node_modules/rollup/bin/rollup --output=dist/module.js -c -- src/uti.js",
     "docs": "jsdoc2md -l off -t doc/README.hbs -f src/*.js > README.md",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post"
   },
@@ -46,10 +46,8 @@
   },
   "version": "0.0.0-semantic-release",
   "dependencies": {},
-  "contributors": [
-    {
-      "name": "Markus Felten",
-      "email": "markus.felten@gmx.de"
-    }
-  ]
+  "contributors": [{
+    "name": "Markus Felten",
+    "email": "markus.felten@gmx.de"
+  }]
 }

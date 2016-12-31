@@ -1,5 +1,5 @@
 module.exports = {
   require: {
-    'uti': require('./index')
+    'uti': require('./dist/module.js')
   }
 };

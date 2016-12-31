@@ -198,7 +198,7 @@ function loadDefinitionsFromFile(fileName) {
  */
 function initialize(options = {}) {
 
-  const loadPromise = loadDefinitionsFromFile(path.join(__dirname, 'publicUTI.json'));
+  const loadPromise = loadDefinitionsFromFile(path.join(__dirname, '..', 'publicUTI.json'));
 
   if (options.definitionFileName) {
     return loadPromise.then(resolved => loadDefinitionsFromFile(options.definitionFileName));
