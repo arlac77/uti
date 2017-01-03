@@ -29,7 +29,7 @@
     "mocha": "^3.2.0",
     "semantic-release": "^6.3.5",
     "jsdoc-to-markdown": "^2.0.1",
-    "rollup": "^0.39.2"
+    "rollup": "^0.40.0"
   },
   "keywords": [
     "MIME",
