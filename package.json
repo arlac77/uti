@@ -4,32 +4,33 @@
   "main": "dist/module.js",
   "module": "src/uti.js",
   "scripts": {
-    "cover": "npm run prepublish && istanbul cover node_modules/.bin/_mocha -- -u exports tests/*_test.js",
+    "cover": "nyc npm test",
     "test": "mocha tests/*_test.js",
     "docs": "jsdoc2md -l off -t doc/README.hbs -f src/*.js >README.md",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
     "prepublish": "rollup --output=dist/module.js -c -- src/uti.js",
     "pretest": "npm run prepublish",
-    "posttest": "markdown-doctest"
+    "posttest": "markdown-doctest",
+    "precover": "npm run prepublish"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/arlac77/uti.git"
   },
   "engines": {
-    "node": ">=6.9.3"
+    "node": ">=6.9.4"
   },
   "devDependencies": {
     "chai": "^3.5.0",
     "coveralls": "2.11.15",
     "cracks": "^3.1.2",
     "cz-conventional-changelog": "^1.2.0",
-    "istanbul": "^0.4.5",
     "markdown-doctest": "^0.9.1",
     "mocha": "^3.2.0",
-    "semantic-release": "^6.3.5",
+    "semantic-release": "^6.3.6",
     "jsdoc-to-markdown": "^2.0.1",
-    "rollup": "^0.41.4"
+    "rollup": "^0.41.4",
+    "nyc": "^10.0.0"
   },
   "keywords": [
     "MIME",
@@ -53,5 +54,14 @@
       "name": "Markus Felten",
       "email": "markus.felten@gmx.de"
     }
-  ]
+  ],
+  "nyc": {
+    "include": [
+      "dist/**/*.js"
+    ],
+    "reporter": [
+      "lcov"
+    ],
+    "report-dir": "./coverage"
+  }
 }
