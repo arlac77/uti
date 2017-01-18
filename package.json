@@ -30,7 +30,7 @@
     "semantic-release": "^6.3.6",
     "jsdoc-to-markdown": "^2.0.1",
     "rollup": "^0.41.4",
-    "nyc": "^10.0.0"
+    "nyc": "^10.1.2"
   },
   "keywords": [
     "MIME",
