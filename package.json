@@ -22,7 +22,7 @@
   },
   "devDependencies": {
     "chai": "^3.5.0",
-    "coveralls": "2.11.15",
+    "coveralls": "2.11.16",
     "cracks": "^3.1.2",
     "cz-conventional-changelog": "^1.2.0",
     "markdown-doctest": "^0.9.1",
