@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - 6.9.4
+  - 6.10.0
 sudo: false
 cache:
   directories:
@@ -25,4 +25,4 @@ after_success:
 branches:
   only:
     - master
-    - /^greenkeeper-.*$/
+    - /^greenkeeper/.*$/
