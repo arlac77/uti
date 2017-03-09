@@ -28,7 +28,7 @@
     "mocha": "^3.2.0",
     "semantic-release": "^6.3.6",
     "jsdoc-to-markdown": "^3.0.0",
-    "rollup": "^0.41.4",
+    "rollup": "^0.41.5",
     "nyc": "^10.1.2"
   },
   "keywords": [
