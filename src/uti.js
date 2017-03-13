@@ -163,8 +163,6 @@ function loadDefinitions(data) {
 
     registry[nu.name] = nu;
   }
-
-  return 'ok';
 }
 
 /**
