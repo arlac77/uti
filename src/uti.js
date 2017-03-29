@@ -36,8 +36,6 @@ function assignExtensions(extensions, name) {
     if (utiByFileNameExtension[ext]) {
       utiByFileNameExtension[ext].push(name);
     } else {
-      //console.log(`${ext} : ${name}`);
-
       utiByFileNameExtension[ext] = [name];
     }
   });
@@ -76,12 +74,8 @@ function _conformsTo(a, b) {
  * @return {boolean} true if UTI a conforms to UTI b.
  */
 function conformsTo(a, b) {
-  a = registry[a];
-  if (!a) {
-    return false;
-  }
-
-  return _conformsTo(a, registry[b]);
+  const ra = registry[a];
+  return ra === undefined ? false : _conformsTo(ra, registry[b]);
 }
 
 /**
@@ -111,11 +105,7 @@ function getUTIsForMimeType(mimeType) {
  */
 function getUTIsForFileName(fileName) {
   const m = fileName.match(/(\.[a-zA-Z_0-9]+)$/);
-
-  if (m) {
-    return utiByFileNameExtension[m[1]];
-  }
-  return undefined;
+  return m ? utiByFileNameExtension[m[1]] : undefined;
 }
 
 /**
@@ -130,19 +120,19 @@ function loadDefinitions(data) {
       }
     };
 
-    if (u.fileNameExtension) {
+    if (u.fileNameExtension !== undefined) {
       assignExtensions(Array.isArray(u.fileNameExtension) ? u.fileNameExtension : [u.fileNameExtension],
         u.name);
     }
 
-    if (u.mimeType) {
+    if (u.mimeType !== undefined) {
       assignMimeTypes(Array.isArray(u.mimeType) ? u.mimeType : [u.mimeType],
         u.name);
     }
 
     const conformsTo = {};
 
-    if (u.conformsTo) {
+    if (u.conformsTo !== undefined) {
       const ct = Array.isArray(u.conformsTo) ? u.conformsTo : [u.conformsTo];
 
       ct.forEach(name => {
@@ -166,7 +156,7 @@ function loadDefinitions(data) {
 }
 
 /**
- * Load additional UTIs form a file.
+ * Load UTIs form a file.
  * @param fileName {string} file containing UTI definitions
  * @return {Promise} a promise that resolves after the UTIs have been registered.
  */
@@ -198,7 +188,7 @@ function initialize(options = {}) {
 
   const loadPromise = loadDefinitionsFromFile(path.join(__dirname, '..', 'publicUTI.json'));
 
-  if (options.definitionFileName) {
+  if (options.definitionFileName !== undefined) {
     return loadPromise.then(resolved => loadDefinitionsFromFile(options.definitionFileName));
   }
 
