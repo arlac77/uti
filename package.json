@@ -62,5 +62,6 @@
       "lcov"
     ],
     "report-dir": "./coverage"
-  }
+  },
+  "template": "Kronos-Tools/npm-package-template"
 }
