@@ -331,4 +331,15 @@
   "mimeType": [
     "text/markdown"
   ]
+}, {
+  "name": "com.apple.disk-image",
+  "conformsTo": "public.disk-image",
+  "fileNameExtension": [
+    ".dmg",
+    ".smi",
+    ".img"
+  ],
+  "mimeType": [
+    "application/x-apple-diskimage"
+  ]
 }]
