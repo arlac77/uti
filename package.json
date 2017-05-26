@@ -21,7 +21,7 @@
     "node": ">=7.10.0"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
+    "chai": "^4.0.0",
     "cracks": "^3.1.2",
     "cz-conventional-changelog": "^2.0.0",
     "markdown-doctest": "^0.9.1",
