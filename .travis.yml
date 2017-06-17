@@ -1,5 +1,6 @@
 language: node_js
 node_js:
+  - 8.1.2
   - 7.10.0
 sudo: false
 cache:
@@ -18,7 +19,7 @@ script:
   - npm run cover
 after_script:
   - codecov
-  - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+  - cat ./build/coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
   - npm run docs
 after_success:
   - npm run semantic-release

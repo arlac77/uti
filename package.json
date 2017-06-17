@@ -4,32 +4,35 @@
   "main": "dist/module.js",
   "module": "src/uti.js",
   "scripts": {
-    "cover": "nyc npm test",
-    "test": "mocha tests/*_test.js",
-    "docs": "jsdoc2md -l off -t doc/README.hbs -f src/*.js >README.md",
+    "cover": "nyc ava",
+    "test": "ava",
+    "docs": "jsdoc2md --configure doc/jsdoc.json -l off -t doc/README.hbs -f src/*.js >README.md",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "prepublish": "rollup --output=dist/module.js -c -- src/uti.js",
-    "pretest": "npm run prepublish",
-    "posttest": "markdown-doctest",
-    "precover": "npm run prepublish"
+    "prepublish": "rollup -c -- src/uti.js",
+    "pretest": "rollup -c tests/rollup.config.js",
+    "posttest": "npm run prepublish && markdown-doctest",
+    "precover": "rollup -c tests/rollup.config.js"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/arlac77/uti.git"
   },
   "engines": {
-    "node": ">=7.10.0"
+    "node": ">=8.1.2"
   },
   "devDependencies": {
-    "chai": "^4.0.2",
     "cracks": "^3.1.2",
-    "cz-conventional-changelog": "^2.0.0",
     "markdown-doctest": "^0.9.1",
-    "mocha": "^3.4.2",
     "semantic-release": "^6.3.6",
     "jsdoc-to-markdown": "^3.0.0",
-    "rollup": "^0.42.0",
-    "nyc": "^11.0.2"
+    "rollup": "^0.43.0",
+    "nyc": "^11.0.2",
+    "jsdoc-babel": "^0.3.0",
+    "ava": "^0.19.1",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-multi-entry": "^2.0.1",
+    "babel-preset-stage-3": "^6.24.1",
+    "xo": "^0.19.0"
   },
   "keywords": [
     "MIME",
@@ -41,11 +44,6 @@
     "url": "https://github.com/arlac77/uti/issues"
   },
   "homepage": "https://github.com/arlac77/uti#readme",
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
   "version": "0.0.0-semantic-release",
   "dependencies": {},
   "contributors": [
@@ -65,7 +63,21 @@
   },
   "template": {
     "repository": {
-      "url": "https://github.com/Kronos-Tools/npm-package-template.git"
+      "url": "https://github.com/arlac77/npm-package-template.git"
     }
+  },
+  "xo": {
+    "space": true
+  },
+  "ava": {
+    "files": [
+      "build/test-bundle.js"
+    ],
+    "presets": [
+      "stage-3"
+    ],
+    "require": [
+      "babel-register"
+    ]
   }
 }
