@@ -1,23 +1,20 @@
 import test from 'ava';
 
 import {
-  UTI
+  UTIHandler
 }
 from '../src/uti';
 
-const path = require('path');
+//const path = require('path');
 
 test('buildin uti', async t => {
-  new UTI
-  initialize().then(() => {
-    const u1 = getUTI('public.json');
-    should.exist(u1);
-    assert.equal(u1.toJSON().name, 'public.json');
-    done();
-  }, done);
+  const h = new UTIHandler();
 
+  await h.initializeBuildin();
 
-  t.deepEqual(scheme.name, 'file');
+  const u1 = h.getUTI('public.json');
+
+  t.is(u1.name, 'public.json');
 });
 
 
