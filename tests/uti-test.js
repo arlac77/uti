@@ -1,17 +1,27 @@
-/* global describe, it, xit */
-/* jslint node: true, esnext: true */
+import test from 'ava';
 
-'use strict';
+import {
+  UTI
+}
+from '../src/uti';
 
-const chai = require('chai'),
-  assert = chai.assert,
-  expect = chai.expect,
-  should = chai.should(),
-  path = require('path'),
-  {
-    loadDefinitionsFromFile, loadDefinitions, conformsTo, initialize, getUTI, getUTIsForFileName, getUTIsForMimeType
-  } = require('../dist/module.js');
+const path = require('path');
 
+test('buildin uti', async t => {
+  new UTI
+  initialize().then(() => {
+    const u1 = getUTI('public.json');
+    should.exist(u1);
+    assert.equal(u1.toJSON().name, 'public.json');
+    done();
+  }, done);
+
+
+  t.deepEqual(scheme.name, 'file');
+});
+
+
+/*
 describe('uti', () => {
   describe('buildin UTIs', () => {
     it('should be present', done => {
@@ -163,3 +173,5 @@ describe('loading errors', () => {
       });
   });
 });
+
+*/
