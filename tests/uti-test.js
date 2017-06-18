@@ -1,54 +1,58 @@
 import test from 'ava';
 
 import {
-  UTIHandler
+  UTIController
 }
 from '../src/uti';
 
-//const path = require('path');
-
 test('buildin uti', async t => {
-  const h = new UTIHandler();
+  const ctl = new UTIController();
+  await ctl.initializeBuildin();
 
-  await h.initializeBuildin();
-
-  const u1 = h.getUTI('public.json');
+  const u1 = ctl.getUTI('public.json');
 
   t.is(u1.name, 'public.json');
 });
 
+test('getUTIsForFileName', async t => {
+  const ctl = new UTIController();
+  await ctl.initializeBuildin();
+
+  t.is(ctl.getUTIsForFileName('a'), undefined);
+
+  const us = ctl.getUTIsForFileName('a.txt');
+
+  console.log(us);
+  t.is(us[0].name, 'public.plain-text');
+});
+
+test('getUTIsForMimeType', async t => {
+  const ctl = new UTIController();
+  await ctl.initializeBuildin();
+
+  const us = ctl.getUTIsForMimeType('text/plain');
+
+  console.log(us);
+  t.is(us[0].name, 'public.plain-text');
+});
+
+test('additinal UTIs', async t => {
+  const ctl = new UTIController();
+  await ctl.initializeBuildin();
+
+  await ctl.loadDefinitions(
+    `[{
+      "name": "com.mydomain.sample2",
+      "conformsTo": "public.json",
+      "fileNameExtension": ".myext"
+    }]`
+  );
+  const u1 = ctl.getUTI('com.mydomain.sample2');
+
+  t.is(u1.name, 'com.mydomain.sample2');
+});
 
 /*
-describe('uti', () => {
-  describe('buildin UTIs', () => {
-    it('should be present', done => {
-      initialize().then(() => {
-        const u1 = getUTI('public.json');
-        should.exist(u1);
-        assert.equal(u1.toJSON().name, 'public.json');
-        done();
-      }, done);
-    });
-
-    describe('getUTIsForFileName', () => {
-      it('simple', done => {
-        initialize().then(() => {
-          assert.equal(getUTIsForFileName('a.txt')[0], 'public.plain-text');
-          assert.isUndefined(getUTIsForFileName('a'));
-          done();
-        }, done);
-      });
-    });
-
-    describe('getUTIsMimeType', () => {
-      it('simple', done => {
-        initialize().then(() => {
-          assert.equal(getUTIsForMimeType('text/plain')[0], 'public.plain-text');
-          done();
-        }, done);
-      });
-    });
-
     describe('conformsTo', () => {
       it('positive', done => {
         initialize().then(() => {
@@ -80,28 +84,6 @@ describe('uti', () => {
     });
   });
 });
-
-describe('load additional UTIs', () => {
-  describe('from json', () => {
-    it('should be present', done => {
-      initialize().then(() => {
-        try {
-          loadDefinitions(
-            `[{
-            "name": "com.mydomain.sample2",
-            "conformsTo": "public.json",
-            "fileNameExtension": ".myext"
-          }]`
-          );
-          const myUTI = getUTI('com.mydomain.sample2');
-          should.exist(myUTI, `is present ${myUTI}`);
-        } catch (e) {
-          done(e);
-        }
-        done();
-      }, done);
-    });
-  });
 
   describe('from a file', () => {
     it('should be present', done => {

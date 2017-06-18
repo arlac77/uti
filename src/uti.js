@@ -23,7 +23,7 @@ const RootUTI = {
     }
 };
 
-export class UTIHandler {
+export class UTIController {
   constructor() {
     Object.defineProperty(this, 'registry', {
       value: new Map()
