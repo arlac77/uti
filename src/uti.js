@@ -81,13 +81,11 @@ export class UTIController {
       };
 
       if (u.fileNameExtension !== undefined) {
-        this.assignExtensions(Array.isArray(u.fileNameExtension) ? u.fileNameExtension : [u.fileNameExtension],
-          u.name);
+        this.assignExtensions(u.name, Array.isArray(u.fileNameExtension) ? u.fileNameExtension : [u.fileNameExtension]);
       }
 
       if (u.mimeType !== undefined) {
-        this.assignMimeTypes(Array.isArray(u.mimeType) ? u.mimeType : [u.mimeType],
-          u.name);
+        this.assignMimeTypes(u.name, Array.isArray(u.mimeType) ? u.mimeType : [u.mimeType]);
       }
 
       const conformsTo = {};
@@ -157,7 +155,7 @@ export class UTIController {
     return ra === undefined ? false : _conformsTo(ra, this.registry.get(b));
   }
 
-  assignMimeTypes(mimTypes, name) {
+  assignMimeTypes(name, mimTypes) {
     mimTypes.forEach(type => {
       const u = this.utiByMimeType.get(type);
       if (u === undefined) {
@@ -168,7 +166,7 @@ export class UTIController {
     });
   }
 
-  assignExtensions(extensions, name) {
+  assignExtensions(name, extensions) {
     extensions.forEach(ext => {
       const e = this.utiByFileNameExtension.get(ext);
       if (e === undefined) {
