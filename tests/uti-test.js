@@ -5,6 +5,8 @@ import {
 }
 from '../src/uti';
 
+const path = require('path');
+
 test('buildin uti', async t => {
   const ctl = new UTIController();
   await ctl.initializeBuildin();
@@ -30,7 +32,6 @@ test('getUTIsForMimeType', async t => {
 
   const us = ctl.getUTIsForMimeType('text/plain');
 
-  console.log(us);
   t.is(us[0], 'public.plain-text');
 });
 
@@ -48,6 +49,25 @@ test('additinal UTIs', async t => {
   const u1 = ctl.getUTI('com.mydomain.sample2');
 
   t.is(u1.name, 'com.mydomain.sample2');
+});
+
+test('from file should be present', async t => {
+  const ctl = new UTIController();
+  await ctl.initializeBuildin();
+  await ctl.loadDefinitionsFromFile(path.join(__dirname, '..', 'tests', 'fixtures', 'uti.json'));
+
+  t.is(ctl.getUTI('public.json').name, 'public.json');
+  t.is(ctl.getUTI('com.mydomain.sample').name, 'com.mydomain.sample');
+});
+
+test('from missing file should fail', async t => {
+  const ctl = new UTIController();
+  await ctl.initializeBuildin();
+  try {
+    await ctl.loadDefinitionsFromFile(path.join(__dirname, '..', 'tests', 'fixtures', 'missing_file.json'));
+  } catch (err) {
+    t.pass(err.toString().match(/ENOENT/));
+  }
 });
 
 /*
@@ -84,17 +104,6 @@ test('additinal UTIs', async t => {
 });
 
   describe('from a file', () => {
-    it('should be present', done => {
-      initialize({
-        definitionFileName: path.join(__dirname, 'fixtures', 'uti.json')
-      }).then(function () {
-        const json = getUTI('public.json');
-        should.exist(json);
-        const myUTI = getUTI('com.mydomain.sample');
-        should.exist(myUTI, `is present ${myUTI}`);
-        done();
-      }, done);
-    });
 
     it('chained request should work', done => {
       initialize({
@@ -120,15 +129,6 @@ test('additinal UTIs', async t => {
 });
 
 describe('loading errors', () => {
-  it('should fail on missing file', done => {
-    initialize({
-      definitionFileName: path.join(__dirname, 'fixtures', 'missing_file.json')
-    }).then(() =>
-      done(new Error('should have failed with missing file')), (error) => {
-        assert(error.toString().match(/ENOENT/));
-        done();
-      });
-  });
 
   it('should fail with json syntax error', done => {
     initialize({
