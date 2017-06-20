@@ -21,9 +21,7 @@ test('getUTIsForFileName', async t => {
   t.is(ctl.getUTIsForFileName('a'), undefined);
 
   const us = ctl.getUTIsForFileName('a.txt');
-
-  console.log(us);
-  t.is(us[0].name, 'public.plain-text');
+  t.is(us[0], 'public.plain-text');
 });
 
 test('getUTIsForMimeType', async t => {
@@ -33,7 +31,7 @@ test('getUTIsForMimeType', async t => {
   const us = ctl.getUTIsForMimeType('text/plain');
 
   console.log(us);
-  t.is(us[0].name, 'public.plain-text');
+  t.is(us[0], 'public.plain-text');
 });
 
 test('additinal UTIs', async t => {

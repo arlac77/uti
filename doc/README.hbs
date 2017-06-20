@@ -31,13 +31,14 @@ myuti.js
 --------
 
 ```javascript
-const uti = require('uti');
+const { UTIController } = require('uti');
 
-uti.initialize().then(function() {
-  const doesConformTo = uti.conformsTo('public.image', 'public.data');
+const uc = new  UTIController();
+uc.initializeBuildin().then(() => {
+  const doesConformTo = uc.conformsTo('public.image', 'public.data');
   console.log('doesConformTo: ' + doesConformTo);
 
-  console.log(uti.getUTIsForFileName('a.txt')[0]);
+  console.log(uc.getUTIsForFileName('a.txt')[0]);
 })
 ```
 
