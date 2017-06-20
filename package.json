@@ -45,15 +45,13 @@
   "homepage": "https://github.com/arlac77/uti#readme",
   "version": "0.0.0-semantic-release",
   "dependencies": {},
-  "contributors": [
-    {
-      "name": "Markus Felten",
-      "email": "markus.felten@gmx.de"
-    }
-  ],
+  "contributors": [{
+    "name": "Markus Felten",
+    "email": "markus.felten@gmx.de"
+  }],
   "nyc": {
     "include": [
-      "dist/**/*.js"
+      "build/test-bundle.js"
     ],
     "reporter": [
       "lcov"
