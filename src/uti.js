@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
+const _emptyMap = new Map();
+
 const RootUTI = {
   toString() {
       return this.name;
@@ -18,9 +20,27 @@ const RootUTI = {
     toJSON() {
       return {
         name: this.name,
-        conformsTo: this.conformsTo
+        conforms: this.conforms
       };
+    },
+
+    get conforms() {
+      return _emptyMap;
+    },
+
+    conformsTo(other) {
+      for (const u of this.conforms) {
+        if (u === other) {
+          return true;
+        }
+
+        if (u.conformsTo(other)) {
+          return true;
+        }
+      }
+      return false;
     }
+
 };
 
 export class UTIController {
@@ -88,7 +108,7 @@ export class UTIController {
         this.assignMimeTypes(u.name, Array.isArray(u.mimeType) ? u.mimeType : [u.mimeType]);
       }
 
-      const conformsTo = {};
+      const conforms = new Map();
 
       if (u.conformsTo !== undefined) {
         const ct = Array.isArray(u.conformsTo) ? u.conformsTo : [u.conformsTo];
@@ -98,13 +118,13 @@ export class UTIController {
           if (aUTI === undefined) {
             throw new Error(`Referenced UTI not known: ${name}`);
           } else {
-            conformsTo[name] = aUTI;
+            conforms.set(name, aUTI);
           }
         });
       }
 
-      properties.conformsTo = {
-        value: conformsTo
+      properties.conforms = {
+        value: conforms
       };
 
       const nu = Object.create(RootUTI, properties);
@@ -152,7 +172,7 @@ export class UTIController {
    */
   conformsTo(a, b) {
     const ra = this.registry.get(a);
-    return ra === undefined ? false : _conformsTo(ra, this.registry.get(b));
+    return ra === undefined ? false : ra.conformsTo(this.registry.get(b));
   }
 
   assignMimeTypes(name, mimTypes) {
@@ -176,17 +196,4 @@ export class UTIController {
       }
     });
   }
-}
-
-function _conformsTo(a, b) {
-  for (const u of a.conformsTo) {
-    if (u === b) {
-      return true;
-    }
-
-    if (_conformsTo(u, b)) {
-      return true;
-    }
-  }
-  return false;
 }

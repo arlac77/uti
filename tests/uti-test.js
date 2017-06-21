@@ -66,8 +66,35 @@ test('from missing file should fail', async t => {
   try {
     await ctl.loadDefinitionsFromFile(path.join(__dirname, '..', 'tests', 'fixtures', 'missing_file.json'));
   } catch (err) {
-    t.pass(err.toString().match(/ENOENT/));
+    t.deepEqual(err.toString().match(/ENOENT/), ['ENOENT']);
   }
+});
+
+test('should fail with json syntax error', async t => {
+  const ctl = new UTIController();
+  await ctl.initializeBuildin();
+  try {
+    await ctl.loadDefinitionsFromFile(path.join(__dirname, '..', 'tests', 'fixtures', 'invalid.json'));
+  } catch (err) {
+    t.deepEqual(err.toString().match(/SyntaxError/), ['SyntaxError']);
+  }
+});
+
+test('should fail with reference error', async t => {
+  const ctl = new UTIController();
+  await ctl.initializeBuildin();
+  try {
+    await ctl.loadDefinitionsFromFile(path.join(__dirname, '..', 'tests', 'fixtures', 'missing_reference.json'));
+  } catch (err) {
+    t.deepEqual(err.toString().match(/Referenced/), ['Referenced']);
+  }
+});
+
+test('conformsTo', async t => {
+  const ctl = new UTIController();
+  await ctl.initializeBuildin();
+
+  t.isTrue(ctl.conformsTo('public.image', 'public.data'));
 });
 
 /*
@@ -75,7 +102,6 @@ test('from missing file should fail', async t => {
       it('positive', done => {
         initialize().then(() => {
           try {
-            assert.isTrue(conformsTo('public.image', 'public.data'));
             assert.isTrue(conformsTo('public.image', 'public.content'));
             assert.isTrue(conformsTo('public.plain-text', 'public.data'));
             assert.isTrue(conformsTo('public.tar-archive', 'public.data'));
@@ -102,53 +128,4 @@ test('from missing file should fail', async t => {
     });
   });
 });
-
-  describe('from a file', () => {
-
-    it('chained request should work', done => {
-      initialize({
-          definitionFileName: path.join(__dirname, 'fixtures', 'uti.json')
-        })
-        .then(() =>
-          loadDefinitionsFromFile(path.join(__dirname, 'fixtures', 'uti2.json'))
-        )
-        .then(() => {
-          try {
-            const json = getUTI('public.json');
-            should.exist(json);
-
-            const myUTI = getUTI('com.mydomain.sample2');
-            should.exist(myUTI, 'com.mydomain.sample2');
-            done();
-          } catch (e) {
-            done(e);
-          }
-        }, done);
-    });
-  });
-});
-
-describe('loading errors', () => {
-
-  it('should fail with json syntax error', done => {
-    initialize({
-      definitionFileName: path.join(__dirname, 'fixtures', 'invalid.json')
-    }).then(() =>
-      done(new Error('should have failed with SyntaxError')), error => {
-        assert(error.toString().match(/SyntaxError/));
-        done();
-      });
-  });
-
-  it('should fail with reference error', done => {
-    initialize({
-      definitionFileName: path.join(__dirname, 'fixtures', 'missing_reference.json')
-    }).then(() =>
-      done(new Error('should have failed with reference error')), error => {
-        assert(error.toString().match(/Referenced/));
-        done();
-      });
-  });
-});
-
 */
