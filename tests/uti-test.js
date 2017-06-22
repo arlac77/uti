@@ -90,42 +90,22 @@ test('should fail with reference error', async t => {
   }
 });
 
-test('conformsTo', async t => {
+test('conformsTo positive', async t => {
   const ctl = new UTIController();
   await ctl.initializeBuildin();
-
-  t.isTrue(ctl.conformsTo('public.image', 'public.data'));
+  t.is(ctl.conformsTo('public.image', 'public.data'), true);
+  t.is(ctl.conformsTo('public.image', 'public.content'), true);
+  t.is(ctl.conformsTo('public.plain-text', 'public.data'), true);
+  t.is(ctl.conformsTo('public.image', 'public.data'), true);
+  t.is(ctl.conformsTo('public.tar-archive', 'public.data'), true);
+  t.is(ctl.conformsTo('public.volume', 'public.folder'), true);
+  t.is(ctl.conformsTo('public.volume', 'public.directory'), true);
+  t.is(ctl.conformsTo('public.volume', 'public.item'), true);
 });
 
-/*
-    describe('conformsTo', () => {
-      it('positive', done => {
-        initialize().then(() => {
-          try {
-            assert.isTrue(conformsTo('public.image', 'public.content'));
-            assert.isTrue(conformsTo('public.plain-text', 'public.data'));
-            assert.isTrue(conformsTo('public.tar-archive', 'public.data'));
-            assert.isTrue(conformsTo('public.volume', 'public.folder'));
-            assert.isTrue(conformsTo('public.volume', 'public.directory'));
-            assert.isTrue(conformsTo('public.volume', 'public.item'));
-            done();
-          } catch (e) {
-            done(e);
-          }
-        }, done);
-      });
-      it('negative', done => {
-        initialize().then(() => {
-          try {
-            assert.isFalse(conformsTo('undefined.uti', 'public.xml'));
-            assert.isFalse(conformsTo('public.image', 'public.xml'));
-            done();
-          } catch (e) {
-            done(e);
-          }
-        }, done);
-      });
-    });
-  });
+test('conformsTo negative', async t => {
+  const ctl = new UTIController();
+  await ctl.initializeBuildin();
+  t.is(ctl.conformsTo('undefined.uti', 'public.xml'), false);
+  t.is(ctl.conformsTo('public.image', 'public.xml'), false);
 });
-*/

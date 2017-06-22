@@ -1,47 +1,51 @@
 const fs = require('fs');
 const path = require('path');
 
-const _emptyMap = new Map();
+class UTI {
+  constructor(name, conforms) {
+    Object.defineProperty(this, 'name', {
+      value: name
+    });
 
-const RootUTI = {
-  toString() {
-      return this.name;
-    },
+    Object.defineProperty(this, 'conforms', {
+      value: conforms
+    });
+  }
 
-    /**
-     * Deliver JSON representation of the UTI.
-     * Sample result
-     * {
-     *   "name": "myUTI",
-     *   "conformsTo": [ "uti1", "uti2"]
-     * }
-     * @return json representation of the UTI
-     */
-    toJSON() {
-      return {
-        name: this.name,
-        conforms: this.conforms
-      };
-    },
-
-    get conforms() {
-      return _emptyMap;
-    },
-
-    conformsTo(other) {
-      for (const u of this.conforms) {
-        if (u === other) {
-          return true;
-        }
-
-        if (u.conformsTo(other)) {
-          return true;
-        }
-      }
-      return false;
+  conformsTo(other) {
+    if (this === other ||
+      this.conforms.has(other)) {
+      return true;
     }
 
-};
+    for (const u of this.conforms) {
+      if (u.conformsTo(other)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  toString() {
+    return this.name;
+  }
+
+  /**
+   * Deliver JSON representation of the UTI.
+   * Sample result
+   * {
+   *   "name": "myUTI",
+   *   "conformsTo": [ "uti1", "uti2"]
+   * }
+   * @return json representation of the UTI
+   */
+  toJSON() {
+    return {
+      name: this.name,
+      conforms: this.conforms
+    };
+  }
+}
 
 export class UTIController {
   constructor() {
@@ -94,12 +98,6 @@ export class UTIController {
    */
   async loadDefinitions(data) {
     for (const u of JSON.parse(data)) {
-      const properties = {
-        name: {
-          value: u.name
-        }
-      };
-
       if (u.fileNameExtension !== undefined) {
         this.assignExtensions(u.name, Array.isArray(u.fileNameExtension) ? u.fileNameExtension : [u.fileNameExtension]);
       }
@@ -108,7 +106,7 @@ export class UTIController {
         this.assignMimeTypes(u.name, Array.isArray(u.mimeType) ? u.mimeType : [u.mimeType]);
       }
 
-      const conforms = new Map();
+      const conforms = new Set();
 
       if (u.conformsTo !== undefined) {
         const ct = Array.isArray(u.conformsTo) ? u.conformsTo : [u.conformsTo];
@@ -118,16 +116,12 @@ export class UTIController {
           if (aUTI === undefined) {
             throw new Error(`Referenced UTI not known: ${name}`);
           } else {
-            conforms.set(name, aUTI);
+            conforms.add(aUTI);
           }
         });
       }
 
-      properties.conforms = {
-        value: conforms
-      };
-
-      const nu = Object.create(RootUTI, properties);
+      const nu = new UTI(u.name, conforms);
 
       this.registry.set(nu.name, nu);
     }
@@ -171,8 +165,8 @@ export class UTIController {
    * @return {boolean} true if UTI a conforms to UTI b.
    */
   conformsTo(a, b) {
-    const ra = this.registry.get(a);
-    return ra === undefined ? false : ra.conformsTo(this.registry.get(b));
+    const ua = this.registry.get(a);
+    return ua === undefined ? false : ua.conformsTo(this.registry.get(b));
   }
 
   assignMimeTypes(name, mimTypes) {
