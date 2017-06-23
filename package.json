@@ -31,7 +31,8 @@
     "ava": "^0.19.1",
     "rollup-plugin-multi-entry": "^2.0.1",
     "babel-preset-stage-3": "^6.24.1",
-    "xo": "^0.19.0"
+    "xo": "^0.19.0",
+    "rollup-plugin-babel": "^2.7.1"
   },
   "keywords": [
     "MIME",
@@ -45,10 +46,12 @@
   "homepage": "https://github.com/arlac77/uti#readme",
   "version": "0.0.0-semantic-release",
   "dependencies": {},
-  "contributors": [{
-    "name": "Markus Felten",
-    "email": "markus.felten@gmx.de"
-  }],
+  "contributors": [
+    {
+      "name": "Markus Felten",
+      "email": "markus.felten@gmx.de"
+    }
+  ],
   "nyc": {
     "include": [
       "build/test-bundle.js"
