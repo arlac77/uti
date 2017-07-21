@@ -18,7 +18,7 @@
     "url": "https://github.com/arlac77/uti.git"
   },
   "engines": {
-    "node": ">=8.2.0"
+    "node": ">=8.2.1"
   },
   "devDependencies": {
     "cracks": "^3.1.2",
