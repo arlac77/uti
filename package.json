@@ -21,18 +21,18 @@
     "node": ">=8.3.0"
   },
   "devDependencies": {
-    "cracks": "^3.1.2",
-    "markdown-doctest": "^0.9.1",
-    "semantic-release": "^6.3.6",
-    "jsdoc-to-markdown": "^3.0.0",
-    "rollup": "^0.45.2",
-    "nyc": "^11.1.0",
-    "jsdoc-babel": "^0.3.0",
-    "ava": "^0.21.0",
-    "rollup-plugin-multi-entry": "^2.0.1",
+    "ava": "0.21.0",
     "babel-preset-stage-3": "^6.24.1",
-    "xo": "^0.19.0",
-    "rollup-plugin-babel": "^2.7.1"
+    "cracks": "^3.1.2",
+    "jsdoc-babel": "^0.3.0",
+    "jsdoc-to-markdown": "^3.0.0",
+    "markdown-doctest": "^0.9.1",
+    "nyc": "^11.1.0",
+    "rollup": "^0.45.2",
+    "rollup-plugin-babel": "3.0.1",
+    "rollup-plugin-multi-entry": "^2.0.1",
+    "semantic-release": "^6.3.6",
+    "xo": "^0.19.0"
   },
   "keywords": [
     "MIME",
