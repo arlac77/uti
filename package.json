@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/arlac77/uti.git"
+    "url": "git+https://github.com/arlac77/uti.git"
   },
   "engines": {
     "node": ">=8.3.0"
