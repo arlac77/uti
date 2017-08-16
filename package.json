@@ -18,7 +18,7 @@
     "url": "git+https://github.com/arlac77/uti.git"
   },
   "engines": {
-    "node": ">=8.3.0"
+    "node": ">=8.4.0"
   },
   "devDependencies": {
     "ava": "^0.22.0",
