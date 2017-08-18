@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { promisify } = require('util');
 
 class UTI {
   constructor(name, conforms) {
@@ -76,25 +77,11 @@ export class UTIController {
    * @return {Promise} a promise that resolves after the UTIs have been registered.
    */
   async loadDefinitionsFromFile(fileName) {
-    return new Promise((resolve, reject) => {
-      fs.readFile(
-        fileName,
-        {
-          encoding: 'utf-8'
-        },
-        (error, data) => {
-          if (error) {
-            reject(error);
-            return;
-          }
-          try {
-            resolve(this.loadDefinitions(data));
-          } catch (err) {
-            reject(err);
-          }
-        }
-      );
-    });
+    return this.loadDefinitions(
+      await promisify(fs.readFile)(fileName, {
+        encoding: 'utf-8'
+      })
+    );
   }
 
   /**
