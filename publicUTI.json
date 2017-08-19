@@ -176,7 +176,7 @@
     "name": "org.gnu.gnu-tar-archive",
     "conformsTo": ["public.data", "public.archive"],
     "fileNameExtension": ".tar",
-    "mimeType": ["application/x-tar"]
+    "mimeType": "application/x-tar"
   },
   {
     "name": "public.tar-archive",
@@ -199,6 +199,18 @@
     "name": "com.apple.xar-archive",
     "conformsTo": "public.archive",
     "fileNameExtension": ".xar"
+  },
+  {
+    "name": "public.7z-archive",
+    "conformsTo": "public.archive",
+    "fileNameExtension": ".7z",
+    "mimeType": "application/x-7z-compressed"
+  },
+  {
+    "name": "public.rar-archive",
+    "conformsTo": "public.archive",
+    "fileNameExtension": ".rar",
+    "mimeType": ["application/x-rar-compressed", "application/vnd.rar"]
   },
   {
     "name": "public.cpio-archive",
