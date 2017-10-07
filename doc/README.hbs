@@ -33,7 +33,7 @@ myuti.js
 ```javascript
 const { UTIController } = require('uti');
 
-const uc = new  UTIController();
+const uc = new UTIController();
 uc.initializeBuildin().then(() => {
   const doesConformTo = uc.conformsTo('public.image', 'public.data');
   console.log('doesConformTo: ' + doesConformTo);
