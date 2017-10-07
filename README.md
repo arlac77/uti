@@ -12,6 +12,7 @@
 [![Dependency Status](https://david-dm.org/arlac77/uti.svg)](https://david-dm.org/arlac77/uti)
 [![devDependency Status](https://david-dm.org/arlac77/uti/dev-status.svg)](https://david-dm.org/arlac77/uti#info=devDependencies)
 [![docs](http://inch-ci.org/github/arlac77/uti.svg?branch=master)](http://inch-ci.org/github/arlac77/uti)
+[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
 [![downloads](http://img.shields.io/npm/dm/uti.svg?style=flat-square)](https://npmjs.org/package/uti)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
@@ -33,7 +34,7 @@ myuti.js
 ```javascript
 const { UTIController } = require('uti');
 
-const uc = new  UTIController();
+const uc = new UTIController();
 uc.initializeBuildin().then(() => {
   const doesConformTo = uc.conformsTo('public.image', 'public.data');
   console.log('doesConformTo: ' + doesConformTo);
