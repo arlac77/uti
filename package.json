@@ -8,29 +8,27 @@
     "test": "ava",
     "docs": "jsdoc2md --configure doc/jsdoc.json -l off -t doc/README.hbs -f src/*.js >README.md",
     "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "prepublish": "rollup -c -- src/uti.js",
     "pretest": "rollup -c tests/rollup.config.js",
-    "posttest": "npm run prepublish && markdown-doctest",
-    "precover": "rollup -c tests/rollup.config.js"
+    "posttest": "npm run prepare && markdown-doctest",
+    "precover": "rollup -c tests/rollup.config.js",
+    "prepare": "rollup -c"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/arlac77/uti.git"
+    "url": "git+https://github.com/arlac77/uti.git"
   },
   "engines": {
-    "node": ">=8.1.2"
+    "node": ">=8.6.0"
   },
   "devDependencies": {
-    "cracks": "^3.1.2",
-    "markdown-doctest": "^0.9.1",
-    "semantic-release": "^6.3.6",
-    "jsdoc-to-markdown": "^3.0.0",
-    "rollup": "^0.43.0",
-    "nyc": "^11.0.2",
+    "ava": "^0.22.0",
     "jsdoc-babel": "^0.3.0",
-    "ava": "^0.19.1",
+    "jsdoc-to-markdown": "^3.0.0",
+    "markdown-doctest": "^0.9.1",
+    "nyc": "^11.2.1",
+    "rollup": "^0.50.0",
     "rollup-plugin-multi-entry": "^2.0.1",
-    "babel-preset-stage-3": "^6.24.1",
+    "semantic-release": "^8.1.2",
     "xo": "^0.19.0"
   },
   "keywords": [

@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { promisify } = require('util');
 
 class UTI {
   constructor(name, conforms) {
@@ -13,8 +14,7 @@ class UTI {
   }
 
   conformsTo(other) {
-    if (this === other ||
-      this.conforms.has(other)) {
+    if (this === other || this.conforms.has(other)) {
       return true;
     }
 
@@ -66,7 +66,9 @@ export class UTIController {
    * @return {Promise} a promise that is fullfilled when the initialization is done
    */
   async initializeBuildin() {
-    return this.loadDefinitionsFromFile(path.join(__dirname, '..', 'publicUTI.json'));
+    return this.loadDefinitionsFromFile(
+      path.join(__dirname, '..', 'publicUTI.json')
+    );
   }
 
   /**
@@ -75,21 +77,11 @@ export class UTIController {
    * @return {Promise} a promise that resolves after the UTIs have been registered.
    */
   async loadDefinitionsFromFile(fileName) {
-    return new Promise((resolve, reject) => {
-      fs.readFile(fileName, {
+    return this.loadDefinitions(
+      await promisify(fs.readFile)(fileName, {
         encoding: 'utf-8'
-      }, (error, data) => {
-        if (error) {
-          reject(error);
-          return;
-        }
-        try {
-          resolve(this.loadDefinitions(data));
-        } catch (err) {
-          reject(err);
-        }
-      });
-    });
+      })
+    );
   }
 
   /**
@@ -99,11 +91,19 @@ export class UTIController {
   async loadDefinitions(data) {
     for (const u of JSON.parse(data)) {
       if (u.fileNameExtension !== undefined) {
-        this.assignExtensions(u.name, Array.isArray(u.fileNameExtension) ? u.fileNameExtension : [u.fileNameExtension]);
+        this.assignExtensions(
+          u.name,
+          Array.isArray(u.fileNameExtension)
+            ? u.fileNameExtension
+            : [u.fileNameExtension]
+        );
       }
 
       if (u.mimeType !== undefined) {
-        this.assignMimeTypes(u.name, Array.isArray(u.mimeType) ? u.mimeType : [u.mimeType]);
+        this.assignMimeTypes(
+          u.name,
+          Array.isArray(u.mimeType) ? u.mimeType : [u.mimeType]
+        );
       }
 
       const conforms = new Set();

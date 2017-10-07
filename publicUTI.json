@@ -35,60 +35,39 @@
   },
   {
     "name": "com.microsoft.windows-​dynamic-link-library",
-    "conformsTo": [
-      "public.executable",
-      "public.data"
-    ],
+    "conformsTo": ["public.executable", "public.data"],
     "mimeType": "application/x-msdownload",
     "fileNameExtension": ".dll"
   },
   {
     "name": "com.microsoft.windows-executable",
-    "conformsTo": [
-      "public.executable",
-      "public.data"
-    ],
+    "conformsTo": ["public.executable", "public.data"],
     "mimeType": "application/x-msdownload",
     "fileNameExtension": ".exe"
   },
   {
     "name": "public.object-code",
-    "conformsTo": [
-      "public.executable",
-      "public.data"
-    ],
+    "conformsTo": ["public.executable", "public.data"],
     "fileNameExtension": ".o"
   },
   {
     "name": "public.unix-executable",
-    "conformsTo": [
-      "public.executable",
-      "public.data"
-    ]
+    "conformsTo": ["public.executable", "public.data"]
   },
   {
     "name": "com.sun.java-class",
-    "conformsTo": [
-      "public.executable",
-      "public.data"
-    ],
+    "conformsTo": ["public.executable", "public.data"],
     "fileNameExtension": ".class"
   },
   {
     "name": "public.zip-archive",
-    "conformsTo": [
-      "public.data",
-      "public.archive"
-    ],
+    "conformsTo": ["public.data", "public.archive"],
     "fileNameExtension": ".zip",
     "mimeType": "application/zip"
   },
   {
     "name": "com.sun.java-archive",
-    "conformsTo": [
-      "public.executable",
-      "public.zip-archive"
-    ],
+    "conformsTo": ["public.executable", "public.zip-archive"],
     "fileNameExtension": ".jar"
   },
   {
@@ -104,10 +83,7 @@
   },
   {
     "name": "public.symlink",
-    "conformsTo": [
-      "public.item",
-      "com.apple.resolvable"
-    ]
+    "conformsTo": ["public.item", "com.apple.resolvable"]
   },
   {
     "name": "public.url",
@@ -119,10 +95,7 @@
   },
   {
     "name": "public.text",
-    "conformsTo": [
-      "public.data",
-      "public.content"
-    ]
+    "conformsTo": ["public.data", "public.content"]
   },
   {
     "name": "public.plain-text",
@@ -151,10 +124,7 @@
   {
     "name": "public.html",
     "conformsTo": "public.text",
-    "fileNameExtension": [
-      ".html",
-      ".htm"
-    ],
+    "fileNameExtension": [".html", ".htm"],
     "mimeType": "text/html"
   },
   {
@@ -167,10 +137,7 @@
     "name": "public.json",
     "conformsTo": "public.text",
     "fileNameExtension": ".json",
-    "mimeType": [
-      "application/json",
-      "text/json"
-    ]
+    "mimeType": ["application/json", "text/json"]
   },
   {
     "name": "public.source-code",
@@ -183,18 +150,12 @@
   {
     "name": "com.sun.java-source",
     "conformsTo": "public.source-code",
-    "fileNameExtension": [
-      ".java",
-      ".jav"
-    ]
+    "fileNameExtension": [".java", ".jav"]
   },
   {
     "name": "public.shell-script",
     "conformsTo": "public.script",
-    "fileNameExtension": [
-      ".sh",
-      ".command"
-    ]
+    "fileNameExtension": [".sh", ".command"]
   },
   {
     "name": "public.assembly-source",
@@ -203,68 +164,53 @@
   },
   {
     "name": "com.netscape.javascript-source",
-    "conformsTo": [
-      "public.source-code",
-      "public.executable"
-    ],
-    "fileNameExtension": [
-      ".js",
-      ".jscript",
-      ".javascript"
-    ]
+    "conformsTo": ["public.source-code", "public.executable"],
+    "fileNameExtension": [".js", ".jscript", ".javascript"]
   },
   {
     "name": "public.bzip2-archive",
-    "conformsTo": [
-      "public.data",
-      "public.archive"
-    ],
+    "conformsTo": ["public.data", "public.archive"],
     "fileNameExtension": ".bzip2"
   },
   {
     "name": "org.gnu.gnu-tar-archive",
-    "conformsTo": [
-      "public.data",
-      "public.archive"
-    ],
+    "conformsTo": ["public.data", "public.archive"],
     "fileNameExtension": ".tar",
-    "mimeType": [
-      "application/x-tar"
-    ]
+    "mimeType": "application/x-tar"
   },
   {
     "name": "public.tar-archive",
     "conformsTo": "org.gnu.gnu-tar-archive",
     "fileNameExtension": ".tar",
-    "mimeType": [
-      "application/x-tar",
-      "application/tar"
-    ]
+    "mimeType": ["application/x-tar", "application/tar"]
   },
   {
     "name": "org.gnu.gnu-zip-archive",
-    "conformsTo": [
-      "public.data",
-      "public.archive"
-    ],
-    "fileNameExtension": [
-      ".gz",
-      ".gzip"
-    ],
+    "conformsTo": ["public.data", "public.archive"],
+    "fileNameExtension": [".gz", ".gzip"],
     "mimeType": "application/gzip"
   },
   {
     "name": "org.gnu.gnu-zip-tar-archive",
     "conformsTo": "org.gnu.gnu-zip-archive",
-    "fileNameExtension": [
-      ".tar.gz",
-      ".tgz"
-    ]
+    "fileNameExtension": [".tar.gz", ".tgz"]
   },
   {
     "name": "com.apple.xar-archive",
     "conformsTo": "public.archive",
     "fileNameExtension": ".xar"
+  },
+  {
+    "name": "public.7z-archive",
+    "conformsTo": "public.archive",
+    "fileNameExtension": ".7z",
+    "mimeType": "application/x-7z-compressed"
+  },
+  {
+    "name": "public.rar-archive",
+    "conformsTo": "public.archive",
+    "fileNameExtension": ".rar",
+    "mimeType": ["application/x-rar-compressed", "application/vnd.rar"]
   },
   {
     "name": "public.cpio-archive",
@@ -308,10 +254,7 @@
   },
   {
     "name": "public.image",
-    "conformsTo": [
-      "public.data",
-      "public.content"
-    ]
+    "conformsTo": ["public.data", "public.content"]
   },
   {
     "name": "public.case-insensitive-text"
@@ -330,81 +273,48 @@
   },
   {
     "name": "com.microsoft.word.doc",
-    "conformsTo": [
-      "public.data",
-      "public.composite-content"
-    ],
+    "conformsTo": ["public.data", "public.composite-content"],
     "fileNameExtension": ".docx"
   },
   {
     "name": "com.microsoft.excel.xls",
-    "conformsTo": [
-      "public.data",
-      "public.composite-content"
-    ],
+    "conformsTo": ["public.data", "public.composite-content"],
     "fileNameExtension": ".xlsx"
   },
   {
     "name": "com.microsoft.powerpoint.ppt",
-    "conformsTo": [
-      "public.data",
-      "public.presentation"
-    ],
+    "conformsTo": ["public.data", "public.presentation"],
     "fileNameExtension": ".ppt"
   },
   {
     "name": "com.microsoft.word.wordml",
-    "conformsTo": [
-      "public.data",
-      "public.composite-content"
-    ]
+    "conformsTo": ["public.data", "public.composite-content"]
   },
   {
     "name": "public.image",
-    "conformsTo": [
-      "public.data",
-      "public.content"
-    ]
+    "conformsTo": ["public.data", "public.content"]
   },
   {
     "name": "public.jpeg",
     "conformsTo": "public.image",
-    "fileNameExtension": [
-      ".jpg",
-      ".jpeg"
-    ]
+    "fileNameExtension": [".jpg", ".jpeg"]
   },
   {
     "name": "com.adobe.postscript",
     "conformsTo": "public.image",
-    "fileNameExtension": [
-      ".ps"
-    ],
-    "mimeType": [
-      "application/postscript"
-    ]
+    "fileNameExtension": [".ps"],
+    "mimeType": ["application/postscript"]
   },
   {
     "name": "net.daringfireball.markdown",
     "conformsTo": "public.image",
-    "fileNameExtension": [
-      ".md",
-      ".markdown"
-    ],
-    "mimeType": [
-      "text/markdown"
-    ]
+    "fileNameExtension": [".md", ".markdown"],
+    "mimeType": ["text/markdown"]
   },
   {
     "name": "com.apple.disk-image",
     "conformsTo": "public.disk-image",
-    "fileNameExtension": [
-      ".dmg",
-      ".smi",
-      ".img"
-    ],
-    "mimeType": [
-      "application/x-apple-diskimage"
-    ]
+    "fileNameExtension": [".dmg", ".smi", ".img"],
+    "mimeType": ["application/x-apple-diskimage"]
   }
 ]
