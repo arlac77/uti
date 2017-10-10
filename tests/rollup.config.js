@@ -1,9 +1,9 @@
 export default {
-  input: 'tests/**/*-test.js',
+  input: 'tests/uti-test.js',
   external: ['ava'],
 
   output: {
-    file: 'build/bundle-test.js',
+    file: 'build/uti-test.js',
     format: 'cjs',
     sourcemap: true
   }
