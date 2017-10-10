@@ -1,7 +1,10 @@
 export default {
-  entry: 'tests/uti-test.js',
+  input: 'tests/uti-test.js',
   external: ['ava'],
-  format: 'cjs',
-  dest: 'build/uti-test.js',
-  sourceMap: true
+
+  output: {
+    file: 'build/uti-test.js',
+    format: 'cjs',
+    sourcemap: true
+  }
 };
