@@ -201,6 +201,12 @@
     "fileNameExtension": ".xar"
   },
   {
+    "name": "public.xz-archive",
+    "conformsTo": "public.archive",
+    "fileNameExtension": ".xz",
+    "mimeType": "application/x-xz"
+  },
+  {
     "name": "public.7z-archive",
     "conformsTo": "public.archive",
     "fileNameExtension": ".7z",
