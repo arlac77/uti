@@ -62,7 +62,6 @@ export class UTIController {
 
   /**
    * Initialized the uti api.
-   * @param options {object} options.definitionFileName is given then additional UTIs will be loaded from the given file name
    * @return {Promise} a promise that is fullfilled when the initialization is done
    */
   async initializeBuildin() {
@@ -86,7 +85,7 @@ export class UTIController {
 
   /**
    * Loads additionnal uti defintions from a (json) string
-   * @param {String} data
+   * @param {string} data
    */
   async loadDefinitions(data) {
     for (const u of JSON.parse(data)) {
