@@ -2,6 +2,11 @@ const fs = require('fs');
 const path = require('path');
 const { promisify } = require('util');
 
+/**
+ * Object representing a UTI
+ * @param {string} name
+ * @param {string} conforms
+ */
 class UTI {
   constructor(name, conforms) {
     Object.defineProperty(this, 'name', {
@@ -47,6 +52,9 @@ class UTI {
   }
 }
 
+/**
+ * Regestry of UTIs
+ */
 export class UTIController {
   constructor() {
     Object.defineProperty(this, 'registry', {
