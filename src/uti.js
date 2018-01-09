@@ -80,7 +80,7 @@ export class UTIController {
 
   /**
    * Load UTIs form a file.
-   * @param fileName {string} file containing UTI definitions
+   * @param {string} fileName file containing UTI definitions
    * @return {Promise} a promise that resolves after the UTIs have been registered.
    */
   async loadDefinitionsFromFile(fileName) {
@@ -92,7 +92,7 @@ export class UTIController {
   }
 
   /**
-   * Loads additionnal uti defintions from a (json) string
+   * Loads additional uti defintions from a (json) string
    * @param {string} data
    */
   async loadDefinitions(data) {
@@ -136,7 +136,7 @@ export class UTIController {
 
   /**
    * Lookup a given UTI.
-   * @param name {string} UTI
+   * @param {string} name UTI
    * @return {string} UTI for the given name or undefined if UTI is not present.
    */
   getUTI(name) {
@@ -145,18 +145,18 @@ export class UTIController {
 
   /**
    * Lookup a UTIs for a mime type.
-   * @param mimeType {string} mime type to get UTIs for
-   * @return {string}UTI for the given mime type or undefined if no UTI is registerd for the mime type
+   * @param {string} mimeType mime type to get UTIs for
+   * @return {string} UTI for the given mime type or undefined if no UTI is registerd for the mime type
    */
   getUTIsForMimeType(mimeType) {
     return this.utiByMimeType.get(mimeType);
   }
 
-  /*
+  /**
    * Lookup a UTI for a file name.
    * First the file name extension is extracted.
    * Then a lookup in the reistered UTIs for file name extions is executed.
-   * @param fileName {string} file to detect UTI for
+   * @param {string} fileName file to detect UTI for
    * @return {string} UTI for the given fileName or undefined if no UTI is registerd for the file names extension
    */
   getUTIsForFileName(fileName) {
@@ -167,8 +167,8 @@ export class UTIController {
   /**
    * Check whenever two UTI are conformant.
    * If a conforms to b and b conforms to c then a also conforms to c.
-   * @param a {string} first UTI
-   * @param b {string} second UTI
+   * @param {string} a first UTI
+   * @param {string} b second UTI
    * @return {boolean} true if UTI a conforms to UTI b.
    */
   conformsTo(a, b) {
