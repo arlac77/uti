@@ -32,13 +32,12 @@
     "ava": "^0.24.0",
     "markdown-doctest": "^0.9.1",
     "nyc": "^11.4.1",
-    "rollup": "^0.53.1",
+    "rollup": "^0.53.4",
     "semantic-release": "^11.1.0",
-    "xo": "^0.19.0",
     "documentation": "^5.3.5"
   },
   "engines": {
-    "node": ">=8.9.3"
+    "node": ">=8.9.4"
   },
   "repository": {
     "type": "git",

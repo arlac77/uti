@@ -42,8 +42,10 @@ uc.initializeBuildin().then(() => {
 
 Output
 
+```txt
     true
     public.plain-text
+```
 
 # API
 
@@ -52,6 +54,7 @@ Output
 ### Table of Contents
 
 -   [UTI](#uti)
+    -   [conformsTo](#conformsto)
     -   [toJSON](#tojson)
 -   [UTIController](#uticontroller)
     -   [initializeBuildin](#initializebuildin)
@@ -60,7 +63,7 @@ Output
     -   [getUTI](#getuti)
     -   [getUTIsForMimeType](#getutisformimetype)
     -   [getUTIsForFileName](#getutisforfilename)
-    -   [conformsTo](#conformsto)
+    -   [conformsTo](#conformsto-1)
 
 ## UTI
 
@@ -71,16 +74,28 @@ Object representing a UTI
 -   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 -   `conforms` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
+### conformsTo
+
+Check if for conformity
+
+**Parameters**
+
+-   `other` **[UTI](#uti)** 
+
+Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** true if other conforms to the receiver
+
 ### toJSON
 
 Deliver JSON representation of the UTI.
 Sample result
+´´´json
 {
   "name": "myUTI",
   "conformsTo": [ "uti1", "uti2"]
 }
+´´´
 
-Returns **any** json representation of the UTI
+Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** json representation of the UTI
 
 ## UTIController
 
@@ -153,51 +168,6 @@ If a conforms to b and b conforms to c then a also conforms to c.
 -   `b` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** second UTI
 
 Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** true if UTI a conforms to UTI b.
-
-# methods
-
-```js
-var uti = require('uti');
-```
-
-## initialize(options)
-
-Returns a promise that is fulfilled if the initialization is done. If options.definitionFileName is given then additional UTIs will be loaded from the given file name
-
-## conformsTo(a,b)
-
-Returns true if UTI a conforms to UTI b This is transitive: If a conforms to b and b conforms to c then a also conforms to c.
-
-## getUTIsForFileName(aFileName)
-
-Returns array of UTIs matching a file name (based on its extension)
-
-## loadDefinitionsFromFile(aDefinitionFileName)
-
-Loads additional UTIs form the given file name and returns promise
-
-## getUTI(name)
-
-Returns the UTI for the given name. Returns undefined if no such UTI is known.
-
-# json structure used by loadDefinitionsFromFile()
-
-```json
-[
-  {
-    "name": "org.mydomain.type1",
-    "conformsTo": ["public.image", "public.xml"],
-    "fileNameExtension": ".type1"
-  },
-  {
-    "name": "org.mydomain.type2",
-    "conformsTo": "public.image",
-    "fileNameExtension": [".type2", ".type3"]
-  }
-]
-```
-
-jsdoc can be found [here](http://arlac77.github.io/modules/uti/doc/).
 
 # install
 

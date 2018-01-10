@@ -18,6 +18,11 @@ class UTI {
     });
   }
 
+  /**
+   * Check if for conformity
+   * @param {UTI} other
+   * @return {boolean} true if other conforms to the receiver
+   */
   conformsTo(other) {
     if (this === other || this.conforms.has(other)) {
       return true;
@@ -38,11 +43,13 @@ class UTI {
   /**
    * Deliver JSON representation of the UTI.
    * Sample result
+   * ´´´json
    * {
    *   "name": "myUTI",
    *   "conformsTo": [ "uti1", "uti2"]
    * }
-   * @return json representation of the UTI
+   * ´´´
+   * @return {Object} json representation of the UTI
    */
   toJSON() {
     return {
