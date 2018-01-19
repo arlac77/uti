@@ -43,12 +43,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arlac77/uti.git"
+    "url": "git+https://github.com/arlac77/master.git"
   },
   "bugs": {
-    "url": "https://github.com/arlac77/uti/issues"
+    "url": "https://github.com/arlac77/master/issues"
   },
-  "homepage": "https://github.com/arlac77/uti#readme",
+  "homepage": "https://github.com/arlac77/master#readme",
   "ava": {
     "files": [
       "build/*-test.js"
@@ -71,8 +71,6 @@
     "space": true
   },
   "template": {
-    "repository": {
-      "url": "https://github.com/arlac77/npm-package-template.git"
-    }
+    "repository": {}
   }
 }
