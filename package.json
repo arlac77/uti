@@ -43,12 +43,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arlac77/arlac77/uti.git"
+    "url": "git+https://github.com/arlac77/uti.git"
   },
   "bugs": {
-    "url": "https://github.com/arlac77/arlac77/uti/issues"
+    "url": "https://github.com/arlac77/uti/issues"
   },
-  "homepage": "https://github.com/arlac77/arlac77/uti#readme",
+  "homepage": "https://github.com/arlac77/uti#readme",
   "ava": {
     "files": [
       "build/*-test.js"
