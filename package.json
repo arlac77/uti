@@ -43,11 +43,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arlac77/uti.git"
+    "url": "https://github.com/arlac77/uti.git"
   },
-  "bugs": {
-    "url": "https://github.com/arlac77/uti/issues"
-  },
+  "bugs": {},
   "homepage": "https://github.com/arlac77/uti#readme",
   "ava": {
     "files": [
