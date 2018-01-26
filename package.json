@@ -30,7 +30,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "ava": "^0.24.0",
+    "ava": "^0.25.0",
     "markdown-doctest": "^0.9.1",
     "nyc": "^11.4.1",
     "rollup": "^0.55.0",
