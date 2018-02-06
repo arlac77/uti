@@ -1,11 +1,6 @@
 import test from 'ava';
-
-import {
-  UTIController
-}
-from '../src/uti';
-
-const path = require('path');
+import { join } from 'path';
+import { UTIController } from '../src/uti';
 
 test('buildin uti', async t => {
   const ctl = new UTIController();
@@ -54,7 +49,9 @@ test('additinal UTIs', async t => {
 test('from file should be present', async t => {
   const ctl = new UTIController();
   await ctl.initializeBuildin();
-  await ctl.loadDefinitionsFromFile(path.join(__dirname, '..', 'tests', 'fixtures', 'uti.json'));
+  await ctl.loadDefinitionsFromFile(
+    join(__dirname, '..', 'tests', 'fixtures', 'uti.json')
+  );
 
   t.is(ctl.getUTI('public.json').name, 'public.json');
   t.is(ctl.getUTI('com.mydomain.sample').name, 'com.mydomain.sample');
@@ -64,10 +61,19 @@ test('from missing file should fail', async t => {
   const ctl = new UTIController();
   await ctl.initializeBuildin();
   try {
-    await ctl.loadDefinitionsFromFile(path.join(__dirname, '..', 'tests', 'fixtures', 'missing_file.json'));
+    await ctl.loadDefinitionsFromFile(
+      join(__dirname, '..', 'tests', 'fixtures', 'missing_file.json')
+    );
   } catch (err) {
-    t.is(err.toString(),
-      `Error: ENOENT: no such file or directory, open '${path.join(__dirname, '..', 'tests', 'fixtures', 'missing_file.json')}'`
+    t.is(
+      err.toString(),
+      `Error: ENOENT: no such file or directory, open '${join(
+        __dirname,
+        '..',
+        'tests',
+        'fixtures',
+        'missing_file.json'
+      )}'`
     );
   }
 });
@@ -76,9 +82,14 @@ test('should fail with json syntax error', async t => {
   const ctl = new UTIController();
   await ctl.initializeBuildin();
   try {
-    await ctl.loadDefinitionsFromFile(path.join(__dirname, '..', 'tests', 'fixtures', 'invalid.json'));
+    await ctl.loadDefinitionsFromFile(
+      join(__dirname, '..', 'tests', 'fixtures', 'invalid.json')
+    );
   } catch (err) {
-    t.is(err.toString(), 'SyntaxError: Unexpected token } in JSON at position 100');
+    t.is(
+      err.toString(),
+      'SyntaxError: Unexpected token } in JSON at position 100'
+    );
   }
 });
 
@@ -87,8 +98,9 @@ test('should fail with reference error', async t => {
   await ctl.initializeBuildin();
 
   try {
-    await ctl.loadDefinitionsFromFile(path.join(__dirname, '..', 'tests', 'fixtures',
-      'missing_reference.json'));
+    await ctl.loadDefinitionsFromFile(
+      join(__dirname, '..', 'tests', 'fixtures', 'missing_reference.json')
+    );
   } catch (err) {
     t.is(err.toString(), 'Error: Referenced UTI not known: unknown.uti.other');
   }

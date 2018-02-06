@@ -31,11 +31,13 @@
   "dependencies": {},
   "devDependencies": {
     "ava": "^0.25.0",
+    "documentation": "^5.3.5",
     "markdown-doctest": "^0.9.1",
     "nyc": "^11.4.1",
     "rollup": "^0.55.3",
+    "rollup-plugin-commonjs": "^8.3.0",
+    "rollup-plugin-node-resolve": "^3.0.2",
     "semantic-release": "^13.0.2",
-    "documentation": "^5.3.5",
     "travis-deploy-once": "^4.3.4"
   },
   "engines": {

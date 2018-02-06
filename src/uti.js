@@ -1,20 +1,24 @@
-const fs = require('fs');
-const path = require('path');
-const { promisify } = require('util');
+import { join } from 'path';
+import { readFile } from 'fs';
+import { promisify } from 'util';
 
 /**
  * Object representing a UTI
  * @param {string} name
  * @param {string} conforms
+ *
+ * @property {string} name
+ * @property {string} conforms
  */
 class UTI {
   constructor(name, conforms) {
-    Object.defineProperty(this, 'name', {
-      value: name
-    });
-
-    Object.defineProperty(this, 'conforms', {
-      value: conforms
+    Object.defineProperties(this, {
+      name: {
+        value: name
+      },
+      conforms: {
+        value: conforms
+      }
     });
   }
 
@@ -64,14 +68,16 @@ class UTI {
  */
 export class UTIController {
   constructor() {
-    Object.defineProperty(this, 'registry', {
-      value: new Map()
-    });
-    Object.defineProperty(this, 'utiByMimeType', {
-      value: new Map()
-    });
-    Object.defineProperty(this, 'utiByFileNameExtension', {
-      value: new Map()
+    Object.defineProperties(this, {
+      registry: {
+        value: new Map()
+      },
+      utiByMimeType: {
+        value: new Map()
+      },
+      utiByFileNameExtension: {
+        value: new Map()
+      }
     });
   }
 
@@ -81,7 +87,7 @@ export class UTIController {
    */
   async initializeBuildin() {
     return this.loadDefinitionsFromFile(
-      path.join(__dirname, '..', 'publicUTI.json')
+      join(__dirname, '..', 'publicUTI.json')
     );
   }
 
@@ -92,7 +98,7 @@ export class UTIController {
    */
   async loadDefinitionsFromFile(fileName) {
     return this.loadDefinitions(
-      await promisify(fs.readFile)(fileName, {
+      await promisify(readFile)(fileName, {
         encoding: 'utf-8'
       })
     );
