@@ -34,7 +34,7 @@
     "documentation": "^6.1.0",
     "markdown-doctest": "^0.9.1",
     "nyc": "^11.6.0",
-    "rollup": "^0.57.0",
+    "rollup": "^0.57.1",
     "rollup-plugin-commonjs": "^9.1.0",
     "rollup-plugin-node-resolve": "^3.2.0",
     "semantic-release": "^15.1.2",
