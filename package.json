@@ -1,6 +1,9 @@
 {
   "name": "uti",
   "version": "0.0.0-semantic-release",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/module.js",
   "module": "src/uti.js",
   "description": "javascript implementation of a \"Uniform Type Identifier\" (UTI)",
