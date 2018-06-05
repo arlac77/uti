@@ -53,27 +53,36 @@ Output
 ### Table of Contents
 
 -   [UTI](#uti)
+    -   [Parameters](#parameters)
+    -   [Properties](#properties)
     -   [conformsTo](#conformsto)
+        -   [Parameters](#parameters-1)
     -   [toJSON](#tojson)
 -   [UTIController](#uticontroller)
     -   [initializeBuildin](#initializebuildin)
     -   [loadDefinitionsFromFile](#loaddefinitionsfromfile)
+        -   [Parameters](#parameters-2)
     -   [loadDefinitions](#loaddefinitions)
+        -   [Parameters](#parameters-3)
     -   [getUTI](#getuti)
+        -   [Parameters](#parameters-4)
     -   [getUTIsForMimeType](#getutisformimetype)
+        -   [Parameters](#parameters-5)
     -   [getUTIsForFileName](#getutisforfilename)
+        -   [Parameters](#parameters-6)
     -   [conformsTo](#conformsto-1)
+        -   [Parameters](#parameters-7)
 
 ## UTI
 
 Object representing a UTI
 
-**Parameters**
+### Parameters
 
 -   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 -   `conforms` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
-**Properties**
+### Properties
 
 -   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 -   `conforms` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
@@ -82,7 +91,7 @@ Object representing a UTI
 
 Check if for conformity
 
-**Parameters**
+#### Parameters
 
 -   `other` **[UTI](#uti)** 
 
@@ -115,7 +124,7 @@ Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 
 Load UTIs form a file.
 
-**Parameters**
+#### Parameters
 
 -   `fileName` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** file containing UTI definitions
 
@@ -125,7 +134,7 @@ Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 
 Loads additional uti defintions from a (json) string
 
-**Parameters**
+#### Parameters
 
 -   `data` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
 
@@ -133,7 +142,7 @@ Loads additional uti defintions from a (json) string
 
 Lookup a given UTI.
 
-**Parameters**
+#### Parameters
 
 -   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** UTI
 
@@ -143,7 +152,7 @@ Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/G
 
 Lookup a UTIs for a mime type.
 
-**Parameters**
+#### Parameters
 
 -   `mimeType` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** mime type to get UTIs for
 
@@ -155,7 +164,7 @@ Lookup a UTI for a file name.
 First the file name extension is extracted.
 Then a lookup in the reistered UTIs for file name extions is executed.
 
-**Parameters**
+#### Parameters
 
 -   `fileName` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** file to detect UTI for
 
@@ -166,7 +175,7 @@ Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/G
 Check whenever two UTI are conformant.
 If a conforms to b and b conforms to c then a also conforms to c.
 
-**Parameters**
+#### Parameters
 
 -   `a` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** first UTI
 -   `b` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** second UTI
