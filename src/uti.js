@@ -65,6 +65,9 @@ class UTI {
 
 /**
  * Regestry of UTIs
+ * @property {Map<string,UTI>} registry
+ * @property {Map<string,UTI>} utiByMimeType
+ * @property {Map<string,UTI>} utiByFileNameExtension
  */
 export class UTIController {
   constructor() {

@@ -59,6 +59,7 @@ Output
         -   [Parameters](#parameters-1)
     -   [toJSON](#tojson)
 -   [UTIController](#uticontroller)
+    -   [Properties](#properties-1)
     -   [initializeBuildin](#initializebuildin)
     -   [loadDefinitionsFromFile](#loaddefinitionsfromfile)
         -   [Parameters](#parameters-2)
@@ -113,6 +114,12 @@ Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/G
 ## UTIController
 
 Regestry of UTIs
+
+### Properties
+
+-   `registry` **[Map](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Map)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), [UTI](#uti)>** 
+-   `utiByMimeType` **[Map](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Map)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), [UTI](#uti)>** 
+-   `utiByFileNameExtension` **[Map](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Map)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), [UTI](#uti)>** 
 
 ### initializeBuildin
 
