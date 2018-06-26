@@ -9,6 +9,7 @@ export default {
   output: {
     file: 'build/uti-test.js',
     format: 'cjs',
-    sourcemap: true
+    sourcemap: true,
+    interop: flase
   }
 };
