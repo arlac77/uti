@@ -34,7 +34,7 @@
   "dependencies": {},
   "devDependencies": {
     "ava": "^0.25.0",
-    "documentation": "^8.0.1",
+    "documentation": "^8.0.2",
     "markdown-doctest": "^0.9.1",
     "nyc": "^13.0.0",
     "rollup": "^0.63.2",
