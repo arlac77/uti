@@ -113,7 +113,7 @@ Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/G
 
 ## UTIController
 
-Regestry of UTIs
+Registry of UTIs
 
 ### Properties
 
