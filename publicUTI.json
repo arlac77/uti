@@ -313,7 +313,7 @@
   },
   {
     "name": "net.daringfireball.markdown",
-    "conformsTo": "public.image",
+    "conformsTo": "public.text",
     "fileNameExtension": [".md", ".markdown"],
     "mimeType": ["text/markdown"]
   },
