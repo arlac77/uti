@@ -59,6 +59,8 @@
   },
   "homepage": "https://github.com/arlac77/uti#readme",
   "ava": {
+    "babel": false,
+    "compileEnhancements": false,
     "files": [
       "build/*-test.js"
     ],
@@ -69,10 +71,12 @@
   },
   "nyc": {
     "include": [
-      "build/*-test.js"
+      "build/*-test.js",
+      "src/**/*.js"
     ],
     "reporter": [
-      "lcov"
+      "lcov",
+      "text"
     ],
     "report-dir": "./build/coverage"
   },
