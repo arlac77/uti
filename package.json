@@ -33,7 +33,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "ava": "^1.0.0-beta.8",
+    "ava": "^1.0.0-rc.1",
     "documentation": "^8.1.2",
     "markdown-doctest": "^0.9.1",
     "nyc": "^13.1.0",
