@@ -1,6 +1,5 @@
-import { join } from 'path';
-import { readFile } from 'fs';
-import { promisify } from 'util';
+import { join } from "path";
+import { promises } from "fs";
 
 /**
  * Object representing a UTI
@@ -23,7 +22,7 @@ class UTI {
   }
 
   /**
-   * Check if for conformity
+   * Check for conformity
    * @param {UTI} other
    * @return {boolean} true if other conforms to the receiver
    */
@@ -90,7 +89,7 @@ export class UTIController {
    */
   async initializeBuildin() {
     return this.loadDefinitionsFromFile(
-      join(__dirname, '..', 'publicUTI.json')
+      join(__dirname, "..", "publicUTI.json")
     );
   }
 
@@ -101,8 +100,8 @@ export class UTIController {
    */
   async loadDefinitionsFromFile(fileName) {
     return this.loadDefinitions(
-      await promisify(readFile)(fileName, {
-        encoding: 'utf-8'
+      await promises.readFile(fileName, {
+        encoding: "utf-8"
       })
     );
   }
