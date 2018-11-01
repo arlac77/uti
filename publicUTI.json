@@ -60,6 +60,16 @@
     "fileNameExtension": ".class"
   },
   {
+    "name": "public.key-value",
+    "conformsTo": ["public.data"]
+  },
+  {
+    "name": "com.sun.java-properties",
+    "conformsTo": ["public.key-value"],
+    "fileNameExtension": ".properties",
+    "mimeType": "text/x-java-properties"
+  },
+  {
     "name": "public.zip-archive",
     "conformsTo": ["public.data", "public.archive"],
     "fileNameExtension": ".zip",
@@ -155,7 +165,19 @@
   {
     "name": "public.shell-script",
     "conformsTo": "public.script",
-    "fileNameExtension": [".sh", ".command"]
+    "fileNameExtension": [".sh", ".command"],
+    "mimeType": ["text/x-shellscript"]
+  },
+  {
+    "name": "public.bash-script",
+    "conformsTo": "public.shell-script",
+    "fileNameExtension": [".bash"]
+  },
+  {
+    "name": "public.ksh-script",
+    "conformsTo": "public.shell-script",
+    "fileNameExtension": [".ksh"],
+    "mimeType": ["text/x-script.ksh", "application/x-ksh"]
   },
   {
     "name": "public.assembly-source",
