@@ -344,5 +344,79 @@
     "conformsTo": "public.disk-image",
     "fileNameExtension": [".dmg", ".smi", ".img"],
     "mimeType": ["application/x-apple-diskimage"]
+  },
+
+
+  {
+    "name": "public.pkcs8",
+    "conformsTo": "public.data",
+    "fileNameExtension": [".p8", ".key"],
+    "mimeType": "application/pkcs8"
+  },
+  {
+    "name": "public.pkcs10",
+    "conformsTo": "public.data",
+    "fileNameExtension": [".p10", ".csr"],
+    "mimeType": "application/pkcs10"
+  },
+  {
+    "name": "public.pkix-cert",
+    "conformsTo": "public.data",
+    "fileNameExtension": ".cer",
+    "mimeType": "application/pkix-cert"
+  },
+  {
+    "name": "public.pkix-crl",
+    "conformsTo": "public.data",
+    "fileNameExtension": ".crl",
+    "mimeType": "application/pkix-crl"
+  },
+  {
+    "name": "public.pkcs7-mime",
+    "conformsTo": "public.data",
+    "fileNameExtension": ".p7c",
+    "mimeType": "application/pkcs7-mime"
+  },
+  {
+    "name": "public.x-x509-ca-cert",
+    "conformsTo": "public.data",
+    "fileNameExtension": [".crt", ".der" ],
+    "mimeType": "application/x-x509-ca-cert"
+  },
+  {
+    "name": "public.x-x509-user-cert",
+    "conformsTo": "public.data",
+    "fileNameExtension": ".crt",
+    "mimeType": "application/x-x509-user-cert"
+  },
+  {
+    "name": "public.x-pkcs7-crl",
+    "conformsTo": "public.data",
+    "fileNameExtension": ".crl",
+    "mimeType": "application/x-pkcs7-crl"
+  },
+  {
+    "name": "public.x-pkcs12",
+    "conformsTo": "public.data",
+    "fileNameExtension": ".pem",
+    "mimeType": "application/x-pem-file"
+  },
+  {
+    "name": "public.x-pem-file",
+    "conformsTo": "public.data",
+    "fileNameExtension": [".p12", ".pfx" ],
+    "mimeType": "application/x-pkcs12"
+  },
+  {
+    "name": "public.x-pkcs7-certificates",
+    "conformsTo": "public.data",
+    "fileNameExtension": [".p7b", ".spc" ],
+    "mimeType": "application/x-pkcs7-certificates"
+  },
+  {
+    "name": "public.x-pkcs7-certreqresp",
+    "conformsTo": "public.data",
+    "fileNameExtension": ".p7r",
+    "mimeType": "application/x-pkcs7-certreqresp"
   }
 ]
