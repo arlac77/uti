@@ -31,12 +31,10 @@ For a list of known UTIs please see \[(<http://www.escape.gr/manuals/qdrop/UTI.h
 import { UTIController } from 'uti';
 
 const uc = new UTIController();
-uc.initializeBuildin().then(() => {
-  const doesConformTo = uc.conformsTo('public.image', 'public.data');
-  console.log('doesConformTo: ' + doesConformTo);
+const doesConformTo = uc.conformsTo('public.image', 'public.data');
+console.log('doesConformTo: ' + doesConformTo);
 
-  console.log(uc.getUTIsForFileName('a.txt')[0]);
-});
+console.log(uc.getUTIsForFileName('a.txt')[0]);
 ```
 
 Output
@@ -60,19 +58,16 @@ Output
     -   [toJSON](#tojson)
 -   [UTIController](#uticontroller)
     -   [Properties](#properties-1)
-    -   [initializeBuildin](#initializebuildin)
-    -   [loadDefinitionsFromFile](#loaddefinitionsfromfile)
+    -   [register](#register)
         -   [Parameters](#parameters-2)
-    -   [loadDefinitions](#loaddefinitions)
-        -   [Parameters](#parameters-3)
     -   [getUTI](#getuti)
-        -   [Parameters](#parameters-4)
+        -   [Parameters](#parameters-3)
     -   [getUTIsForMimeType](#getutisformimetype)
-        -   [Parameters](#parameters-5)
+        -   [Parameters](#parameters-4)
     -   [getUTIsForFileName](#getutisforfilename)
-        -   [Parameters](#parameters-6)
+        -   [Parameters](#parameters-5)
     -   [conformsTo](#conformsto-1)
-        -   [Parameters](#parameters-7)
+        -   [Parameters](#parameters-6)
 
 ## UTI
 
@@ -90,7 +85,7 @@ Object representing a UTI
 
 ### conformsTo
 
-Check if for conformity
+Check for conformity
 
 #### Parameters
 
@@ -121,29 +116,13 @@ Registry of UTIs
 -   `utiByMimeType` **[Map](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Map)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), [UTI](#uti)>** 
 -   `utiByFileNameExtension` **[Map](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Map)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), [UTI](#uti)>** 
 
-### initializeBuildin
+### register
 
-Initialized the uti api.
-
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)** a promise that is fullfilled when the initialization is done
-
-### loadDefinitionsFromFile
-
-Load UTIs form a file.
+registers additional types
 
 #### Parameters
 
--   `fileName` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** file containing UTI definitions
-
-Returns **[Promise](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise)** a promise that resolves after the UTIs have been registered.
-
-### loadDefinitions
-
-Loads additional uti defintions from a (json) string
-
-#### Parameters
-
--   `data` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+-   `types` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)>** 
 
 ### getUTI
 

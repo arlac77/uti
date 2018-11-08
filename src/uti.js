@@ -1,5 +1,4 @@
-import { join } from "path";
-import { promises } from "fs";
+import { types } from "../publicUTI.json";
 
 /**
  * Object representing a UTI
@@ -81,37 +80,16 @@ export class UTIController {
         value: new Map()
       }
     });
+
+    this.register(types);
   }
 
   /**
-   * Initialized the uti api.
-   * @return {Promise} a promise that is fullfilled when the initialization is done
+   * registers additional types
+   * @param {Object[]} types
    */
-  async initializeBuildin() {
-    return this.loadDefinitionsFromFile(
-      join(__dirname, "..", "publicUTI.json")
-    );
-  }
-
-  /**
-   * Load UTIs form a file.
-   * @param {string} fileName file containing UTI definitions
-   * @return {Promise} a promise that resolves after the UTIs have been registered.
-   */
-  async loadDefinitionsFromFile(fileName) {
-    return this.loadDefinitions(
-      await promises.readFile(fileName, {
-        encoding: "utf-8"
-      })
-    );
-  }
-
-  /**
-   * Loads additional uti defintions from a (json) string
-   * @param {string} data
-   */
-  async loadDefinitions(data) {
-    for (const u of JSON.parse(data)) {
+  register(types) {
+    for (const u of types) {
       if (u.fileNameExtension !== undefined) {
         this.assignExtensions(
           u.name,

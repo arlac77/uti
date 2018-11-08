@@ -6,7 +6,7 @@ import resolve from "rollup-plugin-node-resolve";
 import commonjs from "rollup-plugin-commonjs";
 
 export default {
-  plugins: [resolve(), commonjs(), cleanup()],
+  plugins: [resolve(), commonjs(), json(), cleanup()],
 
   output: {
     file: pkg.main,
