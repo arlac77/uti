@@ -28,7 +28,7 @@ For a list of known UTIs please see \[(<http://www.escape.gr/manuals/qdrop/UTI.h
 ## myuti.js
 
 ```javascript
-const { UTIController } = require('uti');
+import { UTIController } from 'uti';
 
 const uc = new UTIController();
 uc.initializeBuildin().then(() => {
