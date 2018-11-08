@@ -76,9 +76,24 @@
     "mimeType": "application/zip"
   },
   {
+    "name": "com.sun.java-keystore",
+    "conformsTo": ["public.archive"],
+    "fileNameExtension": ".jks"
+  },
+  {
     "name": "com.sun.java-archive",
     "conformsTo": ["public.executable", "public.zip-archive"],
     "fileNameExtension": ".jar"
+  },
+  {
+    "name": "com.sun.java-web-archive",
+    "conformsTo": ["public.executable", "public.zip-archive"],
+    "fileNameExtension": ".war"
+  },
+  {
+    "name": "com.sun.java-enterprise-archive",
+    "conformsTo": ["public.executable", "public.zip-archive"],
+    "fileNameExtension": ".ear"
   },
   {
     "name": "public.folder",
@@ -345,8 +360,6 @@
     "fileNameExtension": [".dmg", ".smi", ".img"],
     "mimeType": ["application/x-apple-diskimage"]
   },
-
-
   {
     "name": "public.pkcs8",
     "conformsTo": "public.data",
