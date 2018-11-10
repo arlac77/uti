@@ -1,7 +1,7 @@
 node_modules
 build
-dist
 coverage
+dist
 *.log
 *.dump
 .DS_Store
