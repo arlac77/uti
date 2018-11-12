@@ -20,7 +20,7 @@
   ],
   "license": "BSD-2-Clause",
   "scripts": {
-    "cover": "c8 --temp-directory build/coverage ava && c8 report -r lcov --temp-directory build/coverage",
+    "cover": "#overwrite c8 --temp-directory build/coverage ava && c8 report -r lcov --temp-directory build/coverage && c8 --temp-directory build/coverage ava",
     "test": "ava",
     "docs": "documentation readme src/uti.js --section=API",
     "semantic-release": "semantic-release",
@@ -31,12 +31,12 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "ava": "^1.0.0-rc.1",
+    "ava": "^1.0.0-rc.2",
     "c8": "^3.2.1",
     "documentation": "^8.1.2",
     "esm": "^3.0.84",
     "markdown-doctest": "^0.9.1",
-    "rollup": "^0.67.0",
+    "rollup": "^0.67.1",
     "rollup-plugin-cleanup": "^3.0.0",
     "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-executable": "^1.3.0",
