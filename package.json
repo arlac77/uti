@@ -67,7 +67,6 @@
     ],
     "presets": []
   },
-  "nyc": "-",
   "xo": {
     "space": true
   },
