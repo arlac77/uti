@@ -226,7 +226,7 @@
       "name": "org.gnu.gnu-zip-archive",
       "conformsTo": ["public.data", "public.archive"],
       "fileNameExtension": [".gz", ".gzip"],
-      "mimeType": "application/gzip"
+      "mimeType": ["application/gzip", "application/x-gzip"]
     },
     {
       "name": "org.gnu.gnu-zip-tar-archive",
