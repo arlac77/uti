@@ -14,9 +14,7 @@ test("getUTIsForFileName", t => {
   const ctl = new UTIController();
 
   t.is(ctl.getUTIsForFileName("a"), undefined);
-
-  const us = ctl.getUTIsForFileName("a.txt");
-  t.is(us[0], "public.plain-text");
+  t.deepEqual(ctl.getUTIsForFileName("a.txt"), ["public.plain-text"]);
 });
 
 test("getUTIsForMimeType", t => {
@@ -75,18 +73,33 @@ test("should fail with reference error", t => {
 
 test("conformsTo positive", t => {
   const ctl = new UTIController();
-  t.is(ctl.conformsTo("public.image", "public.data"), true);
-  t.is(ctl.conformsTo("public.image", "public.content"), true);
-  t.is(ctl.conformsTo("public.plain-text", "public.data"), true);
-  t.is(ctl.conformsTo("public.image", "public.data"), true);
-  t.is(ctl.conformsTo("public.tar-archive", "public.data"), true);
-  t.is(ctl.conformsTo("public.volume", "public.folder"), true);
-  t.is(ctl.conformsTo("public.volume", "public.directory"), true);
-  t.is(ctl.conformsTo("public.volume", "public.item"), true);
+  t.true(ctl.conformsTo("public.image", "public.data"));
+  t.true(ctl.conformsTo("public.image", "public.content"));
+  t.true(ctl.conformsTo("public.plain-text", "public.data"));
+  t.true(ctl.conformsTo("public.image", "public.data"));
+  t.true(ctl.conformsTo("public.tar-archive", "public.data"));
+  t.true(ctl.conformsTo("public.volume", "public.folder"));
+  t.true(ctl.conformsTo("public.volume", "public.directory"));
+  t.true(ctl.conformsTo("public.volume", "public.item"));
 });
 
 test("conformsTo negative", t => {
   const ctl = new UTIController();
-  t.is(ctl.conformsTo("undefined.uti", "public.xml"), false);
-  t.is(ctl.conformsTo("public.image", "public.xml"), false);
+  t.false(ctl.conformsTo("undefined.uti", "public.xml"));
+  t.false(ctl.conformsTo("public.image", "public.xml"));
+});
+
+test("fileNameConformsTo public.archive", t => {
+  const ctl = new UTIController();
+
+  t.true(ctl.fileNameConformsTo("a.rpm","public.archive"));
+  t.true(ctl.fileNameConformsTo("a.rar","public.archive"));
+  t.true(ctl.fileNameConformsTo("a.tar","public.archive"));
+  t.true(ctl.fileNameConformsTo("a.zip","public.archive"));
+  t.true(ctl.fileNameConformsTo("a.jar","public.archive"));
+  t.true(ctl.fileNameConformsTo("a.war","public.archive"));
+  t.true(ctl.fileNameConformsTo("a.ear","public.archive"));
+  t.true(ctl.fileNameConformsTo("a.jks","public.archive"));
+  t.false(ctl.fileNameConformsTo("a.zap","public.archive"));
+  t.false(ctl.fileNameConformsTo("a","public.archive"));
 });

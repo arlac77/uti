@@ -68,6 +68,8 @@ Output
         -   [Parameters](#parameters-5)
     -   [conformsTo](#conformsto-1)
         -   [Parameters](#parameters-6)
+    -   [fileNameConformsTo](#filenameconformsto)
+        -   [Parameters](#parameters-7)
 
 ## UTI
 
@@ -167,6 +169,17 @@ If a conforms to b and b conforms to c then a also conforms to c.
 -   `b` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** second UTI
 
 Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** true if UTI a conforms to UTI b.
+
+### fileNameConformsTo
+
+Lookup a UTI for a file name and check conformance
+
+#### Parameters
+
+-   `fileName` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** file to detect UTI for
+-   `uti` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** to check conformance egainst
+
+Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** ture if utils for file name are conformant
 
 # install
 

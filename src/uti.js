@@ -169,6 +169,25 @@ export class UTIController {
     return ua === undefined ? false : ua.conformsTo(this.registry.get(b));
   }
 
+  /**
+   * Lookup a UTI for a file name and check conformance
+   * @param {string} fileName file to detect UTI for
+   * @param {string} uti to check conformance egainst
+   * @return {boolean} ture if utils for file name are conformant
+   */
+  fileNameConformsTo(fileName, uti) {
+    const utis = this.getUTIsForFileName(fileName);
+    if (utis === undefined) {
+      return false;
+    }
+    for (const u of utis) {
+      if (this.conformsTo(u, uti)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   assignMimeTypes(name, mimTypes) {
     mimTypes.forEach(type => {
       const u = this.utiByMimeType.get(type);
