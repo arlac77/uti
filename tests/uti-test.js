@@ -92,9 +92,12 @@ test("conformsTo negative", t => {
 test("fileNameConformsTo public.archive", t => {
   const ctl = new UTIController();
 
+  t.true(ctl.fileNameConformsTo("a.cpio","public.archive"));
   t.true(ctl.fileNameConformsTo("a.rpm","public.archive"));
   t.true(ctl.fileNameConformsTo("a.rar","public.archive"));
   t.true(ctl.fileNameConformsTo("a.tar","public.archive"));
+  t.true(ctl.fileNameConformsTo("a.tar.gz","public.archive"));
+  t.true(ctl.fileNameConformsTo("a.tgz","public.archive"));
   t.true(ctl.fileNameConformsTo("a.zip","public.archive"));
   t.true(ctl.fileNameConformsTo("a.jar","public.archive"));
   t.true(ctl.fileNameConformsTo("a.war","public.archive"));
