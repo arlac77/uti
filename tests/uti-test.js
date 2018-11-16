@@ -92,17 +92,28 @@ test("conformsTo negative", t => {
 test("fileNameConformsTo public.archive", t => {
   const ctl = new UTIController();
 
-  t.true(ctl.fileNameConformsTo("a.cpio","public.archive"));
-  t.true(ctl.fileNameConformsTo("a.rpm","public.archive"));
-  t.true(ctl.fileNameConformsTo("a.rar","public.archive"));
-  t.true(ctl.fileNameConformsTo("a.tar","public.archive"));
-  t.true(ctl.fileNameConformsTo("a.tar.gz","public.archive"));
-  t.true(ctl.fileNameConformsTo("a.tgz","public.archive"));
-  t.true(ctl.fileNameConformsTo("a.zip","public.archive"));
-  t.true(ctl.fileNameConformsTo("a.jar","public.archive"));
-  t.true(ctl.fileNameConformsTo("a.war","public.archive"));
-  t.true(ctl.fileNameConformsTo("a.ear","public.archive"));
-  t.true(ctl.fileNameConformsTo("a.jks","public.archive"));
-  t.false(ctl.fileNameConformsTo("a.zap","public.archive"));
-  t.false(ctl.fileNameConformsTo("a","public.archive"));
+  t.true(ctl.fileNameConformsTo("a.cpio", "public.archive"));
+  t.true(ctl.fileNameConformsTo("a.rpm", "public.archive"));
+  t.true(ctl.fileNameConformsTo("a.rar", "public.archive"));
+  t.true(ctl.fileNameConformsTo("a.tar", "public.archive"));
+  t.true(ctl.fileNameConformsTo("a.tar.gz", "public.archive"));
+  t.true(ctl.fileNameConformsTo("a.tgz", "public.archive"));
+  t.true(ctl.fileNameConformsTo("a.zip", "public.archive"));
+  t.true(ctl.fileNameConformsTo("a.jar", "public.archive"));
+  t.true(ctl.fileNameConformsTo("a.war", "public.archive"));
+  t.true(ctl.fileNameConformsTo("a.ear", "public.archive"));
+  t.true(ctl.fileNameConformsTo("a.jks", "public.archive"));
+  t.false(ctl.fileNameConformsTo("a.zap", "public.archive"));
+  t.false(ctl.fileNameConformsTo("a", "public.archive"));
+});
+
+test("fileNameConformsTo public.archive with URL like name", t => {
+  const ctl = new UTIController();
+
+  t.true(
+    ctl.fileNameConformsTo(
+      "http://central.maven.org/maven2/log4j/log4j/1.2.7/log4j-1.2.7.jar",
+      "public.archive"
+    )
+  );
 });
