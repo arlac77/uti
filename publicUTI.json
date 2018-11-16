@@ -267,6 +267,10 @@
         ".js",
         ".jscript",
         ".javascript"
+      ],
+      "mimeType": [
+        "application/javascript",
+        "application/ecmascript"
       ]
     },
     {
