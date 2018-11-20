@@ -1,7 +1,7 @@
 language: node_js
 node_js:
   - 10.13
-sudo: 'false'
+sudo: '--delete--'
 cache: npm
 notifications:
   email:
