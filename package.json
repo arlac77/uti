@@ -46,7 +46,7 @@
     "travis-deploy-once": "^5.0.9"
   },
   "engines": {
-    "node": ">=10.13"
+    "node": ">=10.14"
   },
   "repository": {
     "type": "git",
