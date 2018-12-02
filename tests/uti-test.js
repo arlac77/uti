@@ -117,3 +117,9 @@ test("fileNameConformsTo public.archive with URL like name", t => {
     )
   );
 });
+
+test("fileNameConformsTo public.archive glob pattern", t => {
+  const ctl = new UTIController();
+
+  t.true(ctl.fileNameConformsTo("**/log4j-*.tar.gz", "public.archive"));
+});
