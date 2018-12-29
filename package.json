@@ -23,11 +23,9 @@
     "cover": "c8 --temp-directory build/coverage ava && c8 report -r lcov --temp-directory build/coverage",
     "test": "ava",
     "docs": "documentation readme src/uti.js --section=API",
-    "semantic-release": "semantic-release",
     "posttest": "npm run prepare && markdown-doctest",
     "prepare": "rollup -c",
-    "lint": "documentation lint src/uti.js",
-    "travis-deploy-once": "travis-deploy-once"
+    "lint": "documentation lint src/uti.js"
   },
   "dependencies": {},
   "devDependencies": {
@@ -42,8 +40,7 @@
     "rollup-plugin-executable": "^1.3.0",
     "rollup-plugin-json": "^3.1.0",
     "rollup-plugin-node-resolve": "^4.0.0",
-    "semantic-release": "^15.13.2",
-    "travis-deploy-once": "^5.0.11"
+    "semantic-release": "^15.13.2"
   },
   "engines": {
     "node": ">=10.15.0"
