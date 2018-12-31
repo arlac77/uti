@@ -25,7 +25,8 @@ jobs:
         - npm run lint
         - npm run docs
       after_success:
-        - git -c user.name='travis' -c user.email='travis' commit -m 'docs(README): sync API'
+        - git add README.md
+        - git commit -m "docs(README): sync API"
         - git push -q https://arlac77:$GH_TOKEN@github.com/arlac77/uti
     - stage: release
       node_js: lts/*
