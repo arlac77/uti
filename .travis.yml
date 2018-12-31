@@ -16,7 +16,7 @@ jobs:
   include:
     - stage: docs
       node_js: lts/*
-      skip_cleanup: 'true'
+      skip_cleanup: "true"
       script:
         - npm install -g --production coveralls codecov
         - npm run cover
@@ -24,11 +24,14 @@ jobs:
         - cat ./coverage/lcov.info | coveralls
         - npm run lint
         - npm run docs
+      after_success:
+        - git -c user.name='travis' -c user.email='travis' commit -m 'docs(README): sync API'
+        - git push -q https://arlac77:$GH_TOKEN@github.com/arlac77/uti
     - stage: release
       node_js: lts/*
       script: skip
       deploy:
         provider: script
-        skip_cleanup: 'true'
+        skip_cleanup: "true"
         script:
           - npx semantic-release
