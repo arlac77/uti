@@ -1,4 +1,4 @@
-import { types } from "../publicUTI.json";
+import types from "./well-known-utis";
 
 /**
  * Object representing a UTI

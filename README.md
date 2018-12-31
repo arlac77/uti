@@ -27,14 +27,16 @@ For a list of known UTIs please see \[(<http://www.escape.gr/manuals/qdrop/UTI.h
 
 ## myuti.js
 
+<!-- skip-example -->
+
 ```javascript
-import { UTIController } from 'uti';
+import { UTIController } from "uti";
 
 const uc = new UTIController();
-const doesConformTo = uc.conformsTo('public.image', 'public.data');
-console.log('doesConformTo: ' + doesConformTo);
+const doesConformTo = uc.conformsTo("public.image", "public.data");
+console.log("doesConformTo: " + doesConformTo);
 
-console.log(uc.getUTIsForFileName('a.txt')[0]);
+console.log(uc.getUTIsForFileName("a.txt")[0]);
 ```
 
 Output

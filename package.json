@@ -4,8 +4,8 @@
   "publishConfig": {
     "access": "public"
   },
-  "main": "dist/module.js",
-  "module": "src/uti.js",
+  "main": "src/uti.mjs",
+  "module": "src/uti.mjs",
   "description": "javascript implementation of a \"Uniform Type Identifier\" (UTI)",
   "keywords": [
     "MIME",
@@ -22,9 +22,9 @@
   "scripts": {
     "cover": "c8 --temp-directory build/coverage ava && c8 report -r lcov --temp-directory build/coverage",
     "test": "ava",
-    "docs": "documentation readme src/uti.js --section=API",
-    "posttest": "markdown-doctest && npm run prepare",
-    "lint": "documentation lint src/uti.js"
+    "docs": "documentation readme src/uti.mjs --section=API",
+    "posttest": "markdown-doctest",
+    "lint": "documentation lint src/uti.mjs"
   },
   "dependencies": {},
   "devDependencies": {
