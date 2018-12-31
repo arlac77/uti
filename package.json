@@ -21,10 +21,10 @@
   "license": "BSD-2-Clause",
   "scripts": {
     "cover": "c8 --temp-directory build/coverage ava && c8 report -r lcov --temp-directory build/coverage",
-    "test": "ava",
     "docs": "documentation readme src/uti.js --section=API",
+    "lint": "documentation lint src/uti.js",
     "posttest": "markdown-doctest && npm run prepare",
-    "lint": "documentation lint src/uti.js"
+    "test": "ava"
   },
   "dependencies": {},
   "devDependencies": {
