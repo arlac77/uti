@@ -3,9 +3,7 @@ node_js:
   - 10.15.3
   - 11.10.1
 cache: npm
-notifications:
-  email:
-    - markus.felten@gmx.de
+notifications: {}
 script:
   - npm run cover
 branches:
@@ -22,6 +20,25 @@ jobs:
         - npm run cover
         - codecov
         - cat ./coverage/lcov.info | coveralls
+        - npm run lint
+        - npm run docs
+    - stage: release
+      node_js: lts/*
+      script: skip
+      deploy:
+        provider: script
+        skip_cleanup: 'true'
+        script:
+          - npx semantic-release
+    - stage: docs
+      node_js: lts/*
+      skip_cleanup: 'true'
+      script:
+        - '-npm install -g --production coveralls codecov'
+        - '-cat ./coverage/lcov.info | coveralls'
+        - npm install -g --production codecov
+        - npm run cover
+        - codecov
         - npm run lint
         - npm run docs
     - stage: release
