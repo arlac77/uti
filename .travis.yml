@@ -1,11 +1,9 @@
 language: node_js
 node_js:
   - 10.15.3
-  - 11.10.1
+  - 11.11.0
 cache: npm
-notifications:
-  email:
-    - markus.felten@gmx.de
+notifications: {}
 script:
   - npm run cover
 branches:
