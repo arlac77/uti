@@ -3,9 +3,6 @@ node_js:
   - 10.15.3
   - 11.11.0
 cache: npm
-notifications:
-  email:
-    - '-markus.felten@gmx.de'
 script:
   - npm run cover
 branches:
