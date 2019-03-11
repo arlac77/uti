@@ -272,6 +272,18 @@ const types = [
     mimeType: "application/x-rpm"
   },
   {
+    name: "public.ar-archive",
+    conformsTo: "public.archive",
+    fileNameExtension: [".a",".lib"]
+  },
+  {
+    name: "public.deb-archive",
+    conformsTo: "public.ar-archive",
+    fileNameExtension: ".deb",
+    mimeType: "application/vnd.debian.binary-package"
+  },
+
+  {
     name: "com.apple.package",
     conformsTo: "public.directory"
   },
