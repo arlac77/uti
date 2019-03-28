@@ -1,11 +1,11 @@
 {
-  "name": "uti",
+  "name": "uti1",
   "version": "0.0.0-semantic-release",
   "publishConfig": {
     "access": "public"
   },
-  "main": "src/uti.mjs",
-  "module": "src/uti.mjs",
+  "main": "src/uti1.mjs",
+  "module": "src/uti1.mjs",
   "description": "javascript implementation of a \"Uniform Type Identifier\" (UTI)",
   "keywords": [
     "MIME",
@@ -21,8 +21,8 @@
   "license": "BSD-2-Clause",
   "scripts": {
     "cover": "c8 --temp-directory build/coverage ava && c8 report -r lcov --temp-directory build/coverage",
-    "docs": "documentation readme src/uti.mjs --section=API",
-    "lint": "documentation lint src/uti.mjs",
+    "docs": "documentation readme src/uti1.mjs --section=API",
+    "lint": "documentation lint src/uti1.mjs",
     "posttest": "markdown-doctest",
     "test": "ava"
   },
@@ -40,12 +40,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/arlac77/uti.git"
+    "url": "https://github.com/arlac77/uti1.git"
   },
   "bugs": {
-    "url": "https://github.com/arlac77/uti/issues"
+    "url": "https://github.com/arlac77/uti1/issues"
   },
-  "homepage": "https://github.com/arlac77/uti#readme",
+  "homepage": "https://github.com/arlac77/uti1#readme",
   "ava": {
     "require": [
       "esm"
