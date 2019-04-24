@@ -1,7 +1,10 @@
 import test from "ava";
-import { join } from "path";
+import { join, dirname } from "path";
 import { readFileSync } from "fs";
-import { UTIController } from "../src/uti";
+import { UTIController } from "../src/uti.mjs";
+import { fileURLToPath } from "url";
+
+const here = dirname(fileURLToPath(import.meta.url));
 
 test("buildin uti", t => {
   const ctl = new UTIController();
@@ -44,7 +47,7 @@ test("from file should be present", t => {
 
   ctl.register(
     JSON.parse(
-      readFileSync(join(__dirname, "..", "tests", "fixtures", "uti.json"), {
+      readFileSync(join(here, "..", "tests", "fixtures", "uti.json"), {
         encoding: "utf-8"
       })
     )
@@ -61,7 +64,7 @@ test("should fail with reference error", t => {
     ctl.register(
       JSON.parse(
         readFileSync(
-          join(__dirname, "..", "tests", "fixtures", "missing_reference.json"),
+          join(here, "..", "tests", "fixtures", "missing_reference.json"),
           { encoding: "utf-8" }
         )
       )
