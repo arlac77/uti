@@ -1,4 +1,4 @@
-import types from "./well-known-utis";
+import types from "./well-known-utis.mjs";
 
 /**
  * Object representing a UTI
