@@ -3,22 +3,15 @@ node_js:
   - 10.15.3
   - 12.1.0
 cache: npm
-script:
-  - npm run cover
-branches:
-  only:
-    - master
-    - /^greenkeeper/.*$/
 jobs:
   include:
-    - stage: docs
-      node_js: lts/*
-      skip_cleanup: 'true'
+    - stage: test
+      skip_cleanup: "true"
       script:
-        - npm install -g --production coveralls codecov
+        - npm install -g --production coveralls
         - npm run cover
-        - codecov
-        - cat ./coverage/lcov.info | coveralls
+        - npx codecov
+        - cat ./build/coverage/lcov.info | coveralls
         - npm run lint
         - npm run docs
     - stage: release
@@ -26,6 +19,6 @@ jobs:
       script: skip
       deploy:
         provider: script
-        skip_cleanup: 'true'
+        skip_cleanup: "true"
         script:
           - npx semantic-release
