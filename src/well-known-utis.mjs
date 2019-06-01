@@ -282,7 +282,11 @@ const types = [
     fileNameExtension: ".deb",
     mimeType: "application/vnd.debian.binary-package"
   },
-
+  {
+    name: "public.arch-linux-archive",
+    conformsTo: "public.archive",
+    fileNameExtension: ".pkg.tar.xz"
+  },
   {
     name: "com.apple.package",
     conformsTo: "public.directory"
