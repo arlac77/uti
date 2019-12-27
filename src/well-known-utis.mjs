@@ -167,6 +167,18 @@ const types = [
     mimeType: ["application/json", "text/json"]
   },
   {
+    name: "public.toml",
+    conformsTo: "public.text",
+    fileNameExtension: ".toml",
+    mimeType: "application/toml"
+  },
+  {
+    name: "public.ini",
+    conformsTo: "public.text",
+    fileNameExtension: ".ini",
+    mimeType: "zz-application/zz-winassoc-ini"
+  },
+  {
     name: "public.source-code",
     conformsTo: "public.plain-text"
   },
