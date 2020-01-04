@@ -48,16 +48,16 @@
   },
   "homepage": "https://github.com/arlac77/uti#readme",
   "ava": {
-    "require": [
-      "esm"
-    ],
-    "babel": false,
-    "compileEnhancements": false,
     "files": [
       "tests/*-test.mjs"
     ],
+    "babel": false,
+    "compileEnhancements": false,
     "extensions": [
       "mjs"
+    ],
+    "require": [
+      "esm"
     ]
   },
   "template": {
