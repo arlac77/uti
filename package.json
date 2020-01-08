@@ -26,7 +26,8 @@
     "docs": "documentation readme src/uti.mjs --section=API",
     "lint": "documentation lint src/uti.mjs",
     "posttest": "markdown-doctest",
-    "test": "ava"
+    "test": "ava",
+    "prepare": "rollup -c"
   },
   "devDependencies": {
     "ava": "^2.4.0",
@@ -37,7 +38,7 @@
     "semantic-release": "^15.14.0"
   },
   "engines": {
-    "node": ">=12.14.0"
+    "node": ">=12.14.1"
   },
   "repository": {
     "type": "git",
