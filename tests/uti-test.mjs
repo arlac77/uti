@@ -1,8 +1,8 @@
 import test from "ava";
 import { join, dirname } from "path";
 import { readFileSync } from "fs";
-import { UTIController } from "../src/uti.mjs";
 import { fileURLToPath } from "url";
+import { UTIController } from "../src/uti.mjs";
 
 const here = dirname(fileURLToPath(import.meta.url));
 
