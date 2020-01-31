@@ -1,0 +1,10 @@
+{
+  "name": "uti",
+  "description": "javascript implementation of a "Uniform Type Identifier" (UTI)",
+  "icons": [
+    {
+      "src": "facicon.ico",
+      "sizes": "16x16"
+    }
+  ]
+}
