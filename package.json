@@ -31,7 +31,8 @@
     "ava": "git+https://github.com/arlac77/ava.git",
     "c8": "^7.0.1",
     "documentation": "^12.1.4",
-    "semantic-release": "^17.0.0"
+    "esm": "^3.2.25",
+    "semantic-release": "^17.0.2"
   },
   "engines": {
     "node": ">=12.14.1"
@@ -44,6 +45,19 @@
     "url": "https://github.com/arlac77/uti/issues"
   },
   "homepage": "https://github.com/arlac77/uti#readme",
+  "ava": {
+    "require": [
+      "esm"
+    ],
+    "extensions": [
+      "mjs"
+    ],
+    "babel": false,
+    "compileEnhancements": false,
+    "files": [
+      "tests/*-test.mjs"
+    ]
+  },
   "template": {
     "repository": {
       "url": "https://github.com/arlac77/npm-package-template-esm-only.git"
