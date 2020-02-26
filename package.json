@@ -46,7 +46,7 @@
   "homepage": "https://github.com/arlac77/uti#readme",
   "template": {
     "repository": {
-      "url": "https://github.com/arlac77/npm-package-template-esm-only.git"
+      "url": "arlac77/npm-package-template-esm-only"
     }
   }
 }
