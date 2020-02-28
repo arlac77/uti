@@ -45,8 +45,6 @@
   },
   "homepage": "https://github.com/arlac77/uti#readme",
   "template": {
-    "repository": {
-      "url": "arlac77/npm-package-template-esm-only"
-    }
+    "inheritFrom": "arlac77/template-esm-only"
   }
 }
