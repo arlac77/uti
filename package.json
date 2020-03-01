@@ -28,7 +28,7 @@
     "lint": "documentation lint src/uti.mjs"
   },
   "devDependencies": {
-    "ava": "^3.4.0",
+    "ava": "^3.5.0",
     "c8": "^7.1.0",
     "documentation": "^12.1.4",
     "semantic-release": "^17.0.4"
@@ -45,6 +45,9 @@
   },
   "homepage": "https://github.com/arlac77/uti#readme",
   "template": {
-    "inheritFrom": ["arlac77/template-esm-only","arlac77/template-github"]
+    "inheritFrom": [
+      "arlac77/template-esm-only",
+      "arlac77/template-github"
+    ]
   }
 }
