@@ -28,7 +28,7 @@
     "lint": "documentation lint src/uti.mjs"
   },
   "devDependencies": {
-    "ava": "^3.5.1",
+    "ava": "^3.5.2",
     "c8": "^7.1.0",
     "documentation": "^12.1.4",
     "semantic-release": "^17.0.4"
