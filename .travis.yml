@@ -10,7 +10,7 @@ jobs:
         - cat ./build/coverage/lcov.info | npx coveralls
     - stage: doc
       node_js: lts/*
-      skip_cleanup: 'true'
+      skip_cleanup: 'false'
       script:
         - npm run lint
         - npm run docs
@@ -19,9 +19,9 @@ jobs:
       script: skip
       deploy:
         provider: script
-        skip_cleanup: 'true'
         script:
           - npx semantic-release
+        cleanup: 'false'
 branches:
   only:
     - master
