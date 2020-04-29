@@ -7,7 +7,6 @@
   "sideEffects": false,
   "type": "module",
   "main": "src/uti.mjs",
-  "module": "src/uti.mjs",
   "description": "javascript implementation of a \"Uniform Type Identifier\" (UTI)",
   "keywords": [
     "MIME",
