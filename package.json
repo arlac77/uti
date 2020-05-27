@@ -8,8 +8,7 @@
   "type": "module",
   "main": "./src/uti.mjs",
   "exports": {
-    ".": "./src/uti.mjs",
-    "./": "./"
+    ".": "./src/uti.mjs"
   },
   "description": "javascript implementation of a \"Uniform Type Identifier\" (UTI)",
   "keywords": [
