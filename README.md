@@ -16,7 +16,7 @@
 
 Please see [ars technica](http://arstechnica.com/apple/2005/04/macosx-10-4/11/) article for a description about the principles of UTIs.
 
-For a list of known UTIs please see [here](<http://www.escape.gr/manuals/qdrop/UTI.html>)
+For a list of known UTIs please see [here](http://www.escape.gr/manuals/qdrop/UTI.html)
 
 # example
 
