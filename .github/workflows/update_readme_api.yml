@@ -20,3 +20,4 @@ jobs:
           title: Sync API into README
           branch: readme-api
           commit-message: 'docs(README): sync API'
+      - ses: actions/checkout@v2
