@@ -10,6 +10,11 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: 14.4.0
+      - name: doc
+        uses: actions/setup-node@v1
+        with:
+          node-version:
+            - 14.4.0
       - run: npm install
       - run: npm run docs
       - uses: gr2m/create-or-update-pull-request-action@v1.x
@@ -20,3 +25,5 @@ jobs:
           title: Sync API into README
           branch: readme-api
           commit-message: 'docs(README): sync API'
+      - name: checkout
+        uses: actions/checkout@v2
