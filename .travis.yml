@@ -1,7 +1,5 @@
-os: linux
 dist: focal
-group: edge
-arch: arm64-graviton2
+os: linux
 language: node_js
 jobs:
   include:
@@ -13,7 +11,6 @@ jobs:
         - cat ./build/coverage/lcov.info | npx coveralls
     - stage: doc
       node_js: lts/*
-      skip_cleanup: 'true'
       script:
         - npm run lint
         - npm run docs
@@ -30,3 +27,5 @@ branches:
     - master
     - /^mkpr/.*$/
     - /^npm-template-sync/.*$/
+arch: arm64-graviton2
+group: edge
