@@ -1,4 +1,6 @@
 dist: focal
+arch: arm64-graviton2
+group: edge
 os: linux
 language: node_js
 jobs:
@@ -27,5 +29,3 @@ branches:
     - master
     - /^mkpr/.*$/
     - /^npm-template-sync/.*$/
-arch: arm64-graviton2
-group: edge
