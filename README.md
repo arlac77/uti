@@ -37,8 +37,8 @@ console.log(uc.getUTIsForFileName("a.txt")[0]);
 Output
 
 ```txt
-    true
-    public.plain-text
+doesConformTo: true
+public.plain-text
 ```
 
 # API
