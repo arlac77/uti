@@ -8,10 +8,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: 2
+          fetch-depth: '2'
       - uses: actions/setup-node@v1
         with:
-          node-version: 14.13.0
+          node-version: 14.13.1
       - run: npm install
       - run: npm run docs
       - uses: gr2m/create-or-update-pull-request-action@v1.x
