@@ -6,7 +6,6 @@
   },
   "sideEffects": false,
   "type": "module",
-  "main": "./src/uti.mjs",
   "exports": {
     ".": "./src/uti.mjs"
   },
