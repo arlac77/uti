@@ -1,12 +1,12 @@
 import types from "./well-known-utis.mjs";
 
 /**
- * Object representing a UTI
+ * Object representing a UTI.
  * @param {string} name
- * @param {string} conforms
+ * @param {Set<UTI>} conforms
  *
  * @property {string} name
- * @property {string} conforms
+ * @property {Set<UTI>} conforms
  */
 class UTI {
   constructor(name, conforms) {
@@ -21,7 +21,7 @@ class UTI {
   }
 
   /**
-   * Check for conformity
+   * Check for conformity.
    * @param {UTI} other
    * @return {boolean} true if other conforms to the receiver
    */
@@ -56,13 +56,13 @@ class UTI {
   toJSON() {
     return {
       name: this.name,
-      conforms: this.conforms
+      conforms: [...this.conforms].map(u => u.name)
     };
   }
 }
 
 /**
- * Registry of UTIs
+ * Registry of UTIs.
  * @property {Map<string,UTI>} registry
  * @property {Map<string,UTI>} utiByMimeType
  * @property {Map<string,UTI>} utiByFileNameExtension
@@ -85,7 +85,7 @@ export class UTIController {
   }
 
   /**
-   * registers additional types
+   * Registers additional types.
    * @param {Object[]} types
    */
   register(types) {

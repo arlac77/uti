@@ -1,16 +1,14 @@
 import test from "ava";
-import { join, dirname } from "path";
 import { readFileSync } from "fs";
-import { fileURLToPath } from "url";
 import { UTIController } from "../src/uti.mjs";
-
-const here = dirname(fileURLToPath(import.meta.url));
 
 test("buildin uti", t => {
   const ctl = new UTIController();
   const u1 = ctl.getUTI("public.json");
 
   t.is(u1.name, "public.json");
+  t.is(`${u1}`, "public.json");
+  t.deepEqual(u1.toJSON(), { conforms: ["public.text"], name: "public.json" });
 });
 
 test("getUTIsForFileName", t => {
@@ -47,7 +45,7 @@ test("from file should be present", t => {
 
   ctl.register(
     JSON.parse(
-      readFileSync(join(here, "..", "tests", "fixtures", "uti.json"), {
+      readFileSync(new URL("fixtures/uti.json", import.meta.url).pathname, {
         encoding: "utf-8"
       })
     )
@@ -64,7 +62,7 @@ test("should fail with reference error", t => {
     ctl.register(
       JSON.parse(
         readFileSync(
-          join(here, "..", "tests", "fixtures", "missing_reference.json"),
+          new URL("fixtures/missing_reference.json", import.meta.url).pathname,
           { encoding: "utf-8" }
         )
       )
@@ -125,4 +123,5 @@ test("fileNameConformsTo public.archive glob pattern", t => {
   const ctl = new UTIController();
 
   t.true(ctl.fileNameConformsTo("**/log4j-*.tar.gz", "public.archive"));
+  t.false(ctl.fileNameConformsTo("**/log4j-*.tar.gz", "public.image"));
 });
