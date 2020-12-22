@@ -69,21 +69,21 @@ public.plain-text
 
 ## UTI
 
-Object representing a UTI
+Object representing a UTI.
 
 ### Parameters
 
 -   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `conforms` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+-   `conforms` **[Set](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Set)&lt;[UTI](#uti)>** 
 
 ### Properties
 
 -   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `conforms` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+-   `conforms` **[Set](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Set)&lt;[UTI](#uti)>** 
 
 ### conformsTo
 
-Check for conformity
+Check for conformity.
 
 #### Parameters
 
@@ -106,7 +106,7 @@ Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/G
 
 ## UTIController
 
-Registry of UTIs
+Registry of UTIs.
 
 ### Properties
 
@@ -116,7 +116,7 @@ Registry of UTIs
 
 ### register
 
-registers additional types
+Registers additional types.
 
 #### Parameters
 
