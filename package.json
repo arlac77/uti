@@ -27,7 +27,9 @@
     "cover": "c8 -x 'tests/**/*' --temp-directory build/tmp ava --timeout 2m tests/*.mjs && c8 report -r lcov -o build/coverage --temp-directory build/tmp",
     "docs": "documentation readme ./src/uti.mjs --section=API",
     "lint": "npm run lint:docs",
-    "lint:docs": "documentation lint ./src/uti.mjs"
+    "lint:docs": "documentation lint ./src/uti.mjs",
+    "--overwrite-- docs": "documentation readme --section=API ./src/**/.mjs",
+    "--overwrite-- lint:docs": "documentation lint ./src/**/.mjs"
   },
   "devDependencies": {
     "ava": "^3.15.0",
