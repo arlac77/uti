@@ -3,7 +3,7 @@
 [![minified size](https://badgen.net/bundlephobia/min/uti)](https://bundlephobia.com/result?p=uti)
 [![downloads](http://img.shields.io/npm/dm/uti.svg?style=flat-square)](https://npmjs.org/package/uti)
 [![GitHub Issues](https://img.shields.io/github/issues/arlac77/uti.svg?style=flat-square)](https://github.com/arlac77/uti/issues)
-[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Farlac77%2Futi%2Fbadge&style=flat)](https://actions-badge.atrox.dev/arlac77/uti/goto)
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Farlac77%2Futi%2Fbadge\&style=flat)](https://actions-badge.atrox.dev/arlac77/uti/goto)
 [![Styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![Known Vulnerabilities](https://snyk.io/test/github/arlac77/uti/badge.svg)](https://snyk.io/test/github/arlac77/uti)
@@ -46,26 +46,26 @@ public.plain-text
 
 ### Table of Contents
 
--   [UTI](#uti)
-    -   [Parameters](#parameters)
-    -   [Properties](#properties)
-    -   [conformsTo](#conformsto)
-        -   [Parameters](#parameters-1)
-    -   [toJSON](#tojson)
--   [UTIController](#uticontroller)
-    -   [Properties](#properties-1)
-    -   [register](#register)
-        -   [Parameters](#parameters-2)
-    -   [getUTI](#getuti)
-        -   [Parameters](#parameters-3)
-    -   [getUTIsForMimeType](#getutisformimetype)
-        -   [Parameters](#parameters-4)
-    -   [getUTIsForFileName](#getutisforfilename)
-        -   [Parameters](#parameters-5)
-    -   [conformsTo](#conformsto-1)
-        -   [Parameters](#parameters-6)
-    -   [fileNameConformsTo](#filenameconformsto)
-        -   [Parameters](#parameters-7)
+*   [UTI](#uti)
+    *   [Parameters](#parameters)
+    *   [Properties](#properties)
+    *   [conformsTo](#conformsto)
+        *   [Parameters](#parameters-1)
+    *   [toJSON](#tojson)
+*   [UTIController](#uticontroller)
+    *   [Properties](#properties-1)
+    *   [register](#register)
+        *   [Parameters](#parameters-2)
+    *   [getUTI](#getuti)
+        *   [Parameters](#parameters-3)
+    *   [getUTIsForMimeType](#getutisformimetype)
+        *   [Parameters](#parameters-4)
+    *   [getUTIsForFileName](#getutisforfilename)
+        *   [Parameters](#parameters-5)
+    *   [conformsTo](#conformsto-1)
+        *   [Parameters](#parameters-6)
+    *   [fileNameConformsTo](#filenameconformsto)
+        *   [Parameters](#parameters-7)
 
 ## UTI
 
@@ -73,13 +73,13 @@ Object representing a UTI.
 
 ### Parameters
 
--   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `conforms` **[Set](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Set)&lt;[UTI](#uti)>** 
+*   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+*   `conforms` **[Set](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Set)<[UTI](#uti)>** 
 
 ### Properties
 
--   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
--   `conforms` **[Set](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Set)&lt;[UTI](#uti)>** 
+*   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** 
+*   `conforms` **[Set](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Set)<[UTI](#uti)>** 
 
 ### conformsTo
 
@@ -87,7 +87,7 @@ Check for conformity.
 
 #### Parameters
 
--   `other` **[UTI](#uti)** 
+*   `other` **[UTI](#uti)** 
 
 Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** true if other conforms to the receiver
 
@@ -97,8 +97,8 @@ Deliver JSON representation of the UTI.
 Sample result
 ´´´json
 {
-  "name": "myUTI",
-  "conformsTo": [ "uti1", "uti2"]
+"name": "myUTI",
+"conformsTo": \[ "uti1", "uti2"]
 }
 ´´´
 
@@ -110,9 +110,9 @@ Registry of UTIs.
 
 ### Properties
 
--   `registry` **[Map](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Map)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), [UTI](#uti)>** 
--   `utiByMimeType` **[Map](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Map)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), [UTI](#uti)>** 
--   `utiByFileNameExtension` **[Map](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Map)&lt;[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), [UTI](#uti)>** 
+*   `registry` **[Map](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Map)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), [UTI](#uti)>** 
+*   `utiByMimeType` **[Map](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Map)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), [UTI](#uti)>** 
+*   `utiByFileNameExtension` **[Map](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Map)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), [UTI](#uti)>** 
 
 ### register
 
@@ -120,7 +120,7 @@ Registers additional types.
 
 #### Parameters
 
--   `types` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)&lt;[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)>** 
+*   `types` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)>** 
 
 ### getUTI
 
@@ -128,7 +128,7 @@ Lookup a given UTI.
 
 #### Parameters
 
--   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** UTI
+*   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** UTI
 
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** UTI for the given name or undefined if UTI is not present.
 
@@ -138,7 +138,7 @@ Lookup a UTIs for a mime type.
 
 #### Parameters
 
--   `mimeType` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** mime type to get UTIs for
+*   `mimeType` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** mime type to get UTIs for
 
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** UTI for the given mime type or undefined if no UTI is registerd for the mime type
 
@@ -150,7 +150,7 @@ Then a lookup in the reistered UTIs for file name extions is executed.
 
 #### Parameters
 
--   `fileName` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** file to detect UTI for
+*   `fileName` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** file to detect UTI for
 
 Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** UTI for the given fileName or undefined if no UTI is registerd for the file names extension
 
@@ -161,8 +161,8 @@ If a conforms to b and b conforms to c then a also conforms to c.
 
 #### Parameters
 
--   `a` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** first UTI
--   `b` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** second UTI
+*   `a` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** first UTI
+*   `b` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** second UTI
 
 Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** true if UTI a conforms to UTI b.
 
@@ -172,8 +172,8 @@ Lookup a UTI for a file name and check conformance
 
 #### Parameters
 
--   `fileName` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** file to detect UTI for
--   `uti` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** to check conformance egainst
+*   `fileName` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** file to detect UTI for
+*   `uti` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** to check conformance egainst
 
 Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** ture if utils for file name are conformant
 
