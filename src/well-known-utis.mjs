@@ -260,6 +260,12 @@ const types = [
     mimeType: "application/x-xz"
   },
   {
+    name: "public.zst-archive",
+    conformsTo: "public.archive",
+    fileNameExtension: ".zst",
+    mimeType: "application/zst"
+  },
+  {
     name: "public.7z-archive",
     conformsTo: "public.archive",
     fileNameExtension: ".7z",
@@ -293,11 +299,20 @@ const types = [
     conformsTo: "public.ar-archive",
     fileNameExtension: ".deb",
     mimeType: "application/vnd.debian.binary-package"
-  },
+  }, 
   {
     name: "public.arch-linux-archive",
     conformsTo: "public.archive",
+  },
+  {
+    name: "public.arch-linux-archive.xz",
+    conformsTo: ["public.arch-linux-archive", "public.xz-archive"],
     fileNameExtension: ".pkg.tar.xz"
+  },
+  {
+    name: "public.arch-linux-archive.zst",
+    conformsTo: ["public.arch-linux-archive", "public.zst-archive"],
+    fileNameExtension: ".pkg.tar.zst"
   },
   {
     name: "com.apple.package",
