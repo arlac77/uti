@@ -292,17 +292,17 @@ const types = [
   {
     name: "public.ar-archive",
     conformsTo: "public.archive",
-    fileNameExtension: [".a",".lib"]
+    fileNameExtension: [".a", ".lib"]
   },
   {
     name: "public.deb-archive",
     conformsTo: "public.ar-archive",
     fileNameExtension: ".deb",
     mimeType: "application/vnd.debian.binary-package"
-  }, 
+  },
   {
     name: "public.arch-linux-archive",
-    conformsTo: "public.archive",
+    conformsTo: "public.archive"
   },
   {
     name: "public.arch-linux-archive.xz",
