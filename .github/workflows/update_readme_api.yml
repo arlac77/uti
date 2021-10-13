@@ -11,7 +11,7 @@ jobs:
           fetch-depth: '2'
       - uses: actions/setup-node@v2
         with:
-          node-version: 16.11.0
+          node-version: 16.11.1
       - run: npm install
       - run: npm run docs
       - uses: gr2m/create-or-update-pull-request-action@v1
