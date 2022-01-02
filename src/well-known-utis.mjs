@@ -12,6 +12,9 @@ const types = [
     name: "public.contact"
   },
   {
+    name: "public.configuration"
+  },
+  {
     name: "public.composite-content",
     conformsTo: "public.content"
   },
@@ -168,13 +171,13 @@ const types = [
   },
   {
     name: "public.toml",
-    conformsTo: "public.text",
+    conformsTo: ["public.text", "public.configuration"],
     fileNameExtension: ".toml",
     mimeType: "application/toml"
   },
   {
     name: "public.ini",
-    conformsTo: "public.text",
+    conformsTo: ["public.text", "public.configuration"],
     fileNameExtension: ".ini",
     mimeType: "zz-application/zz-winassoc-ini"
   },
@@ -496,24 +499,54 @@ const types = [
     mimeType: "application/x-pkcs7-certreqresp"
   },
   {
-  	name: "public.systemd-service-unit",
-  	conformsTo: "public.text",
-  	fileNameExtension: ".service"
+    name: "public.systemd-service-unit",
+    conformsTo: ["public.text", "public.configuration"],
+    fileNameExtension: ".service"
   },
   {
-  	name: "public.systemd-socket-unit",
-  	conformsTo: "public.text",
-  	fileNameExtension: ".socket"
+    name: "public.systemd-socket-unit",
+    conformsTo: ["public.text", "public.configuration"],
+    fileNameExtension: ".socket"
   },
   {
-  	name: "public.systemd-timer-unit",
-  	conformsTo: "public.text",
-  	fileNameExtension: ".timer"
+    name: "public.systemd-timer-unit",
+    conformsTo: ["public.text", "public.configuration"],
+    fileNameExtension: ".timer"
   },
   {
-  	name: "public.systemd-path-unit",
-  	conformsTo: "public.text",
-  	fileNameExtension: ".socket"
+    name: "public.systemd-path-unit",
+    conformsTo: ["public.text", "public.configuration"],
+    fileNameExtension: ".socket"
+  },
+  {
+    name: "public.systemd-device-unit",
+    conformsTo: ["public.text", "public.configuration"],
+    fileNameExtension: ".device"
+  },
+  {
+    name: "public.systemd-mount-unit",
+    conformsTo: ["public.text", "public.configuration"],
+    fileNameExtension: ".mount"
+  },
+  {
+    name: "public.systemd-swap-unit",
+    conformsTo: ["public.text", "public.configuration"],
+    fileNameExtension: ".swap"
+  },
+  {
+    name: "public.systemd-target-unit",
+    conformsTo: ["public.text", "public.configuration"],
+    fileNameExtension: ".target"
+  },
+  {
+    name: "public.systemd-slice-unit",
+    conformsTo: ["public.text", "public.configuration"],
+    fileNameExtension: ".slice"
+  },
+  {
+    name: "public.systemd-scope-unit",
+    conformsTo: ["public.text", "public.configuration"],
+    fileNameExtension: ".scope"
   }
 ];
 
