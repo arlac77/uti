@@ -45,12 +45,12 @@ class UTI {
   /**
    * Deliver JSON representation of the UTI.
    * Sample result
-   * ´´´json
+   * ```json
    * {
    *   "name": "myUTI",
    *   "conformsTo": [ "uti1", "uti2"]
    * }
-   * ´´´
+   * ```
    * @return {Object} json representation of the UTI
    */
   toJSON() {
