@@ -494,6 +494,26 @@ const types = [
     conformsTo: "public.data",
     fileNameExtension: ".p7r",
     mimeType: "application/x-pkcs7-certreqresp"
+  },
+  {
+  	name: "public.systemd-service-unit",
+  	conformsTo: "public.text",
+  	fileNameExtension: ".service"
+  },
+  {
+  	name: "public.systemd-socket-unit",
+  	conformsTo: "public.text",
+  	fileNameExtension: ".socket"
+  },
+  {
+  	name: "public.systemd-timer-unit",
+  	conformsTo: "public.text",
+  	fileNameExtension: ".timer"
+  },
+  {
+  	name: "public.systemd-path-unit",
+  	conformsTo: "public.text",
+  	fileNameExtension: ".socket"
   }
 ];
 
