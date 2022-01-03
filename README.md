@@ -95,12 +95,13 @@ Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 
 Deliver JSON representation of the UTI.
 Sample result
-´´´json
+
+```json
 {
-"name": "myUTI",
-"conformsTo": \[ "uti1", "uti2"]
+  "name": "myUTI",
+  "conformsTo": [ "uti1", "uti2"]
 }
-´´´
+```
 
 Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** json representation of the UTI
 
