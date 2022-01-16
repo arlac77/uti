@@ -219,8 +219,25 @@ const types = [
   {
     name: "com.netscape.javascript-source",
     conformsTo: ["public.source-code", "public.executable"],
-    fileNameExtension: [".js", ".jscript", ".javascript"],
-    mimeType: ["application/javascript", "application/ecmascript"]
+    fileNameExtension: [".mjs",".cjs", ".js", ".jscript", ".javascript"],
+    mimeType: [
+      "application/ecmascript",
+      "application/javascript",
+      "application/x-ecmascript",
+      "application/x-javascript",
+      "text/ecmascript",
+      "text/javascript",
+      "text/javascript1.0",
+      "text/javascript1.1",
+      "text/javascript1.2",
+      "text/javascript1.3",
+      "text/javascript1.4",
+      "text/javascript1.5",
+      "text/jscript",
+      "text/livescript",
+      "text/x-ecmascript",
+      "text/x-javascript"
+    ]
   },
   {
     name: "public.bzip2-archive",
@@ -326,6 +343,12 @@ const types = [
     conformsTo: "public.data"
   },
   {
+    name: "public.wasm-executable",
+    conformsTo: ["public.executable"],
+    mimeType: "application/wasm",
+    fileNameExtension: ".wasm"
+  },
+  {
     name: "com.apple.application-bundle",
     conformsTo: "com.apple.application",
     fileNameExtension: [
@@ -396,19 +419,19 @@ const types = [
     name: "com.adobe.postscript",
     conformsTo: "public.image",
     fileNameExtension: [".ps"],
-    mimeType: ["application/postscript"]
+    mimeType: "application/postscript"
   },
   {
     name: "net.daringfireball.markdown",
     conformsTo: "public.text",
     fileNameExtension: [".md", ".markdown"],
-    mimeType: ["text/markdown"]
+    mimeType: "text/markdown"
   },
   {
     name: "com.apple.disk-image",
     conformsTo: "public.disk-image",
     fileNameExtension: [".dmg", ".smi", ".img"],
-    mimeType: ["application/x-apple-diskimage"]
+    mimeType: "application/x-apple-diskimage"
   },
   {
     name: "public.security.private-key",
