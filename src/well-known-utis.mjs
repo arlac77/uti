@@ -158,6 +158,12 @@ const types = [
     mimeType: "text/html"
   },
   {
+    name: "public.css",
+    conformsTo: "public.text",
+    fileNameExtension: ".css",
+    mimeType: "text/css"
+  },
+  {
     name: "public.xml",
     conformsTo: "public.text",
     fileNameExtension: ".xml",
@@ -570,6 +576,12 @@ const types = [
     name: "public.systemd-scope-unit",
     conformsTo: ["public.text", "public.configuration"],
     fileNameExtension: ".scope"
+  },
+  {
+    name: "public.webmanifest",
+    conformsTo: "public.json",
+    fileNameExtension: ".webmanifest",
+    mimeType: "application/manifest+json"
   }
 ];
 
