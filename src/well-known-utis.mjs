@@ -582,7 +582,12 @@ const types = [
     conformsTo: "public.json",
     fileNameExtension: ".webmanifest",
     mimeType: "application/manifest+json"
-  }
+  },
+  {
+    name: "public.polkit.rules",
+    conformsTo: ["com.netscape.javascript-source", "public.configuration"],
+    fileNameExtension: ".rules"
+  },
 ];
 
 export default types;
