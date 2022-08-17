@@ -68,19 +68,12 @@ class UTI {
  * @property {Map<string,UTI>} utiByFileNameExtension
  */
 export class UTIController {
-  constructor() {
-    Object.defineProperties(this, {
-      registry: {
-        value: new Map()
-      },
-      utiByMimeType: {
-        value: new Map()
-      },
-      utiByFileNameExtension: {
-        value: new Map()
-      }
-    });
+  registry = new Map();
+  utiByMimeType = new Map();
+  utiByFileNameExtension = new Map();
 
+  constructor()
+  {   
     this.register(types);
   }
 
