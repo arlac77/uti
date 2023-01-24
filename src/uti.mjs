@@ -72,8 +72,7 @@ export class UTIController {
   utiByMimeType = new Map();
   utiByFileNameExtension = new Map();
 
-  constructor()
-  {   
+  constructor() {
     this.register(types);
   }
 
@@ -147,7 +146,9 @@ export class UTIController {
    */
   getUTIsForFileName(fileName) {
     const m = fileName.match(/(\.[a-zA-Z_0-9]+)$/);
-    return m ? this.utiByFileNameExtension.get(m[1]) : undefined;
+    if (m) {
+      return this.utiByFileNameExtension.get(m[1]);
+    }
   }
 
   /**
@@ -163,7 +164,7 @@ export class UTIController {
   }
 
   /**
-   * Lookup a UTI for a file name and check conformance
+   * Lookup a UTI for a file name and check conformance.
    * @param {string} fileName file to detect UTI for
    * @param {string} uti to check conformance egainst
    * @return {boolean} ture if utils for file name are conformant
