@@ -142,7 +142,7 @@ export class UTIController {
    * First the file name extension is extracted.
    * Then a lookup in the reistered UTIs for file name extions is executed.
    * @param {string} fileName file to detect UTI for
-   * @return {string} UTI for the given fileName or undefined if no UTI is registerd for the file names extension
+   * @return {string[]} UTI for the given fileName or undefined if no UTI is registerd for the file names extension
    */
   getUTIsForFileName(fileName) {
     const m = fileName.match(/(\.[a-zA-Z_0-9]+)$/);
