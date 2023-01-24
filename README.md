@@ -153,7 +153,7 @@ Then a lookup in the reistered UTIs for file name extions is executed.
 
 *   `fileName` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** file to detect UTI for
 
-Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** UTI for the given fileName or undefined if no UTI is registerd for the file names extension
+Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** UTI for the given fileName or undefined if no UTI is registerd for the file names extension
 
 ### conformsTo
 
@@ -169,7 +169,7 @@ Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/
 
 ### fileNameConformsTo
 
-Lookup a UTI for a file name and check conformance
+Lookup a UTI for a file name and check conformance.
 
 #### Parameters
 
