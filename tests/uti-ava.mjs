@@ -13,7 +13,7 @@ test("buildin uti", t => {
 test("getUTIsForFileName", t => {
   const ctl = new UTIController();
 
-  t.is(ctl.getUTIsForFileName("a"), undefined);
+  t.deepEqual(ctl.getUTIsForFileName("a"), []);
   t.deepEqual(ctl.getUTIsForFileName("a.txt"), ["public.plain-text"]);
 });
 

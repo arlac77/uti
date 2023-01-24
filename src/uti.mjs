@@ -149,6 +149,8 @@ export class UTIController {
     if (m) {
       return this.utiByFileNameExtension.get(m[1]);
     }
+
+    return [];
   }
 
   /**
