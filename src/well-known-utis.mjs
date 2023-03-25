@@ -1,4 +1,4 @@
-const types = [
+export default [
   {
     name: "public.item"
   },
@@ -607,5 +607,3 @@ const types = [
     fileNameExtension: ".rules"
   },
 ];
-
-export default types;
