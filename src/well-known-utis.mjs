@@ -524,14 +524,14 @@ export default [
   {
     name: "public.x-pkcs12",
     conformsTo: "public.data",
-    fileNameExtension: ".pem",
-    mimeType: "application/x-pem-file"
+    fileNameExtension: [".p12", ".pfx"],
+    mimeType: "application/x-pkcs12"
   },
   {
     name: "public.x-pem-file",
     conformsTo: "public.data",
-    fileNameExtension: [".p12", ".pfx"],
-    mimeType: "application/x-pkcs12"
+    fileNameExtension: ".pem",
+    mimeType: "application/x-pem-file"
   },
   {
     name: "public.x-pkcs7-certificates",
