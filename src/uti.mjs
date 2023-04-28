@@ -169,12 +169,11 @@ export class UTIController {
    */
   fileNameConformsTo(fileName, uti) {
     const utis = this.getUTIsForFileName(fileName);
-    if (utis === undefined) {
-      return false;
-    }
-    for (const u of utis) {
-      if (this.conformsTo(u, uti)) {
-        return true;
+    if (utis !== undefined) {
+      for (const u of utis) {
+        if (this.conformsTo(u, uti)) {
+          return true;
+        }
       }
     }
     return false;
