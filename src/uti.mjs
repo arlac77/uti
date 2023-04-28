@@ -146,11 +146,7 @@ export class UTIController {
    */
   getUTIsForFileName(fileName) {
     const m = fileName.match(/(\.[a-zA-Z_0-9]+)$/);
-    if (m) {
-      return this.utiByFileNameExtension.get(m[1]);
-    }
-
-    return [];
+    return m ? this.utiByFileNameExtension.get(m[1]) : [];
   }
 
   /**
