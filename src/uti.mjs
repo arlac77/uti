@@ -10,14 +10,8 @@ import types from "./well-known-utis.mjs";
  */
 class UTI {
   constructor(name, conforms) {
-    Object.defineProperties(this, {
-      name: {
-        value: name
-      },
-      conforms: {
-        value: conforms
-      }
-    });
+    this.name = name;
+    this.conforms = conforms;
   }
 
   /**
