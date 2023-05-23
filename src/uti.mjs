@@ -158,7 +158,7 @@ export class UTIController {
   /**
    * Lookup a UTI for a file name and check conformance.
    * @param {string} fileName file to detect UTI for
-   * @param {string} uti to check conformance egainst
+   * @param {string} uti to check conformance against
    * @return {boolean} ture if utils for file name are conformant
    */
   fileNameConformsTo(fileName, uti) {
