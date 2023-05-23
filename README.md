@@ -174,7 +174,7 @@ Lookup a UTI for a file name and check conformance.
 #### Parameters
 
 *   `fileName` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** file to detect UTI for
-*   `uti` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** to check conformance egainst
+*   `uti` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** to check conformance against
 
 Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** ture if utils for file name are conformant
 
