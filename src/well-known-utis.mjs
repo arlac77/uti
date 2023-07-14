@@ -225,7 +225,7 @@ export default [
   {
     name: "com.netscape.javascript-source",
     conformsTo: ["public.source-code", "public.executable"],
-    fileNameExtension: [".mjs",".cjs", ".js", ".jscript", ".javascript"],
+    fileNameExtension: [".mjs", ".cjs", ".js", ".jscript", ".javascript"],
     mimeType: [
       "application/ecmascript",
       "application/javascript",
@@ -419,7 +419,14 @@ export default [
   {
     name: "public.jpeg",
     conformsTo: "public.image",
+    mimeType: ["image/jpeg"],
     fileNameExtension: [".jpg", ".jpeg"]
+  },
+  {
+    name: "public.jpeg2000",
+    conformsTo: "public.image",
+    mimeType: ["image/jp2", "image/jpx", "image/jpm"],
+    fileNameExtension: [".jk2"]
   },
   {
     name: "com.adobe.postscript",
@@ -439,20 +446,21 @@ export default [
     fileNameExtension: [".dmg", ".smi", ".img"],
     mimeType: "application/x-apple-diskimage"
   },
-  { name: "public.oci.image.layer.v1",
-    conformsTo: ["public.data"],
-  },  
-  { name: "public.oci.image.layer.v1.tar",
+  { name: "public.oci.image.layer.v1", conformsTo: ["public.data"] },
+  {
+    name: "public.oci.image.layer.v1.tar",
     conformsTo: ["public.oci.image.layer.v1"],
     filNameExtension: [".tar"],
     mimeType: "application/vnd.oci.image.layer.v1.tar"
   },
-  { name: "public.oci.image.layer.v1.tar.gzip",
+  {
+    name: "public.oci.image.layer.v1.tar.gzip",
     conformsTo: ["public.oci.image.layer.v1"],
     filNameExtension: [".tar.gz"],
     mimeType: "application/vnd.oci.image.layer.v1.tar+gzip"
   },
-  { name: "public.oci.image.layer.v1.tar.zstd",
+  {
+    name: "public.oci.image.layer.v1.tar.zstd",
     conformsTo: ["public.oci.image.layer.v1"],
     filNameExtension: [".tar.zstd"],
     mimeType: "application/vnd.oci.image.layer.v1.tar+zstd"
@@ -605,5 +613,5 @@ export default [
     name: "public.polkit.rules",
     conformsTo: ["com.netscape.javascript-source", "public.configuration"],
     fileNameExtension: ".rules"
-  },
+  }
 ];
