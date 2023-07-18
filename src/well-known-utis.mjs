@@ -188,6 +188,11 @@ export default [
     mimeType: "zz-application/zz-winassoc-ini"
   },
   {
+    name: "public.conf",
+    conformsTo: ["public.text", "public.configuration"],
+    fileNameExtension: ".conf"
+  },
+  {
     name: "public.source-code",
     conformsTo: "public.plain-text"
   },
@@ -221,6 +226,11 @@ export default [
     name: "public.assembly-source",
     conformsTo: "public.source-code",
     fileNameExtension: ".s"
+  },
+  {
+    name: "public.sourcemap",
+    conformsTo: "public.json",
+    fileNameExtension: ".js.map"
   },
   {
     name: "com.netscape.javascript-source",
