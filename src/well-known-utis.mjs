@@ -273,6 +273,12 @@ export default [
     mimeType: ["application/x-tar", "application/tar"]
   },
   {
+    name: "public.brotli",
+    conformsTo: "public.archive",
+    fileNameExtension: ".br",
+    mimeType: "application/brotli"
+  },
+  {
     name: "org.gnu.gnu-zip-archive",
     conformsTo: "public.archive",
     fileNameExtension: [".gz", ".gzip"],
