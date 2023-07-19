@@ -15,6 +15,8 @@ test("getUTIsForFileName", t => {
 
   t.deepEqual(ctl.getUTIsForFileName("a"), []);
   t.deepEqual(ctl.getUTIsForFileName("a.txt"), ["public.plain-text"]);
+  t.deepEqual(ctl.getUTIsForFileName("a.js.map"), ["public.sourcemap"]);
+  t.deepEqual(ctl.getUTIsForFileName("a-1.2.3.js.map"), ["public.sourcemap"]);
 });
 
 test("getUTIsForMimeType", t => {
@@ -38,7 +40,6 @@ test("additinal UTIs", t => {
 
   t.is(u1.name, "com.mydomain.sample2");
 });
-
 
 test("conformsTo positive", t => {
   const ctl = new UTIController();

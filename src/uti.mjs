@@ -139,8 +139,22 @@ export class UTIController {
    * @return {string[]} UTI for the given fileName or undefined if no UTI is registerd for the file names extension
    */
   getUTIsForFileName(fileName) {
-    const m = fileName.match(/(\.[a-zA-Z_0-9]+)$/);
-    return m ? this.utiByFileNameExtension.get(m[1]) : [];
+    const m = fileName.match(/(\.[\.a-zA-Z_0-9]+)$/);
+
+    if (m) {
+      for (
+        let extension = m[1];
+        extension.length > 0;
+        extension = extension.replace(/^\.[a-zA-Z_0-9]+/, "")
+      ) {
+        const utis = this.utiByFileNameExtension.get(extension);
+        if (utis) {
+          return utis;
+        }
+      }
+    }
+
+    return [];
   }
 
   /**
