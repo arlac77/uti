@@ -230,7 +230,7 @@ export default [
   {
     name: "public.sourcemap",
     conformsTo: "public.json",
-    fileNameExtension: ".js.map"
+    fileNameExtension: [".js.map", ".mjs.map"]
   },
   {
     name: "com.netscape.javascript-source",
@@ -423,10 +423,10 @@ export default [
     conformsTo: ["public.data", "public.composite-content"]
   },
   {
-  	name: "public.svg",
-  	conformsTo: ["public.image", "public.xml"],
-  	mimeType: "image/svg+xml",
-  	fileNameExtension: "*.svg"
+    name: "public.svg",
+    conformsTo: ["public.image", "public.xml"],
+    mimeType: "image/svg+xml",
+    fileNameExtension: ".svg"
   },
   {
     name: "public.jpeg",
