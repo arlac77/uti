@@ -92,12 +92,12 @@ export default [
   },
   {
     name: "com.sun.java-web-archive",
-    conformsTo: ["public.executable", "public.zip-archive"],
+    conformsTo: ["com.sun.java-archive"],
     fileNameExtension: ".war"
   },
   {
     name: "com.sun.java-enterprise-archive",
-    conformsTo: ["public.executable", "public.zip-archive"],
+    conformsTo: ["com.sun.java-archive"],
     fileNameExtension: ".ear"
   },
   {
