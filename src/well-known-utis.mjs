@@ -214,12 +214,12 @@ export default [
   {
     name: "public.bash-script",
     conformsTo: "public.shell-script",
-    fileNameExtension: [".bash"]
+    fileNameExtension: ".bash"
   },
   {
     name: "public.ksh-script",
     conformsTo: "public.shell-script",
-    fileNameExtension: [".ksh"],
+    fileNameExtension: ".ksh",
     mimeType: ["text/x-script.ksh", "application/x-ksh"]
   },
   {
@@ -444,12 +444,18 @@ export default [
     name: "public.jpeg2000",
     conformsTo: "public.image",
     mimeType: ["image/jp2", "image/jpx", "image/jpm"],
-    fileNameExtension: [".jk2"]
+    fileNameExtension: ".jk2"
+  },
+  {
+    name: "public.webp",
+    conformsTo: "public.image",
+    mimeType: "image/webp",
+    fileNameExtension: ".webp"
   },
   {
     name: "com.adobe.postscript",
     conformsTo: "public.image",
-    fileNameExtension: [".ps"],
+    fileNameExtension: ".ps",
     mimeType: "application/postscript"
   },
   {
@@ -468,19 +474,19 @@ export default [
   {
     name: "public.oci.image.layer.v1.tar",
     conformsTo: ["public.oci.image.layer.v1"],
-    filNameExtension: [".tar"],
+    filNameExtension: ".tar",
     mimeType: "application/vnd.oci.image.layer.v1.tar"
   },
   {
     name: "public.oci.image.layer.v1.tar.gzip",
     conformsTo: ["public.oci.image.layer.v1"],
-    filNameExtension: [".tar.gz"],
+    filNameExtension: ".tar.gz",
     mimeType: "application/vnd.oci.image.layer.v1.tar+gzip"
   },
   {
     name: "public.oci.image.layer.v1.tar.zstd",
     conformsTo: ["public.oci.image.layer.v1"],
-    filNameExtension: [".tar.zstd"],
+    filNameExtension: ".tar.zstd",
     mimeType: "application/vnd.oci.image.layer.v1.tar+zstd"
   },
   {
