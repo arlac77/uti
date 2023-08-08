@@ -65,11 +65,11 @@ export default [
   },
   {
     name: "public.key-value",
-    conformsTo: ["public.data"]
+    conformsTo: "public.data"
   },
   {
     name: "com.sun.java-properties",
-    conformsTo: ["public.key-value"],
+    conformsTo: "public.key-value",
     fileNameExtension: ".properties",
     mimeType: "text/x-java-properties"
   },
@@ -92,12 +92,12 @@ export default [
   },
   {
     name: "com.sun.java-web-archive",
-    conformsTo: ["com.sun.java-archive"],
+    conformsTo: "com.sun.java-archive",
     fileNameExtension: ".war"
   },
   {
     name: "com.sun.java-enterprise-archive",
-    conformsTo: ["com.sun.java-archive"],
+    conformsTo: "com.sun.java-archive",
     fileNameExtension: ".ear"
   },
   {
@@ -209,7 +209,7 @@ export default [
     name: "public.shell-script",
     conformsTo: "public.script",
     fileNameExtension: [".sh", ".command"],
-    mimeType: ["text/x-shellscript"]
+    mimeType: "text/x-shellscript"
   },
   {
     name: "public.bash-script",
@@ -222,6 +222,54 @@ export default [
     fileNameExtension: ".ksh",
     mimeType: ["text/x-script.ksh", "application/x-ksh"]
   },
+  {
+    name: "public.tcsh-script",
+    conformsTo: "public.shell-script",
+    fileNameExtension: ".tcsh",
+    mimeType: "text/x-script.ksh"
+  },
+  {
+    name: "public.csh-script",
+    conformsTo: "public.shell-script",
+    fileNameExtension: ".csh",
+    mimeType: "text/x-script.ksh"
+  },
+  {
+    name: "public.lex-source",
+    conformsTo: "public.source-code",
+    fileNameExtension: [".l", ".lm", ".lmm", ".lpp", ".lxx", ".ll"]
+  },
+  {
+    name: "public.yacc-source",
+    conformsTo: "public.source-code",
+    fileNameExtension: [".y", ".ym", ".ymm", ".ypp", ".yxx", ".yy"]
+  },
+  {
+    name: "public.make-source",
+    conformsTo: "public.script",
+    fileNameExtension: [".make", ".mak", ".gmk"]
+  },
+  {
+    name: "public.perl-script",
+    conformsTo: "public.shell-script",
+    fileNameExtension: ".pl"
+  },
+  {
+    name: "public.python-script",
+    conformsTo: "public.shell-script",
+    fileNameExtension: ".py"
+  },
+  {
+    name: "public.ruby-script",
+    conformsTo: "public.shell-script",
+    fileNameExtension: [".rb", ".rbw"]
+  },
+  {
+    name: "public.php-script",
+    conformsTo: "public.shell-script",
+    fileNameExtension: ".php"
+  },
+
   {
     name: "public.assembly-source",
     conformsTo: "public.source-code",
@@ -470,22 +518,22 @@ export default [
     fileNameExtension: [".dmg", ".smi", ".img"],
     mimeType: "application/x-apple-diskimage"
   },
-  { name: "public.oci.image.layer.v1", conformsTo: ["public.data"] },
+  { name: "public.oci.image.layer.v1", conformsTo: "public.data" },
   {
     name: "public.oci.image.layer.v1.tar",
-    conformsTo: ["public.oci.image.layer.v1"],
+    conformsTo: "public.oci.image.layer.v1",
     filNameExtension: ".tar",
     mimeType: "application/vnd.oci.image.layer.v1.tar"
   },
   {
     name: "public.oci.image.layer.v1.tar.gzip",
-    conformsTo: ["public.oci.image.layer.v1"],
+    conformsTo: "public.oci.image.layer.v1",
     filNameExtension: ".tar.gz",
     mimeType: "application/vnd.oci.image.layer.v1.tar+gzip"
   },
   {
     name: "public.oci.image.layer.v1.tar.zstd",
-    conformsTo: ["public.oci.image.layer.v1"],
+    conformsTo: "public.oci.image.layer.v1",
     filNameExtension: ".tar.zstd",
     mimeType: "application/vnd.oci.image.layer.v1.tar+zstd"
   },
