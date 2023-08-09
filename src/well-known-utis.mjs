@@ -176,6 +176,12 @@ export default [
     mimeType: ["application/json", "text/json"]
   },
   {
+    name: "public.yaml",
+    conformsTo: "public.text",
+    fileNameExtension: [".yml", ".yaml"],
+    mimeType: "application/x-yaml"
+  },
+  {
     name: "public.toml",
     conformsTo: ["public.text", "public.configuration"],
     fileNameExtension: ".toml",
@@ -685,5 +691,18 @@ export default [
     name: "public.polkit.rules",
     conformsTo: ["com.netscape.javascript-source", "public.configuration"],
     fileNameExtension: ".rules"
+  },
+  {
+    name: "com.apple.xcode.project",
+    conformsTo: ["public.composite-content", "com.apple.package"],
+    fileNameExtension: [".xcodeproj", ".xcode", ".pbproj"]
+  },
+  {
+    name: "public.c-plus-plus-header",
+    fileNameExtension: [".hh", ".hp", ".hpp", ".hxx", ".h++", ".ipp"]
+  },
+  {
+    name: "public.c-plus-plus-source",
+    fileNameExtension: [".cc", ".cp", ".cpp", ".cxx", ".c++"]
   }
 ];
