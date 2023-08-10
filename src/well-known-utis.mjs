@@ -345,9 +345,20 @@ export default [
     fileNameExtension: [".tar.gz", ".tgz"]
   },
   {
+    name: "public.tar-bzip2-archive",
+    conformsTo: "public.bzip2-archive",
+    fileNameExtension: [".tbz2", ".tbz"]
+  },
+  {
     name: "com.apple.xar-archive",
     conformsTo: "public.archive",
     fileNameExtension: ".xar"
+  },
+  {
+    name: "com.microsoft.cab-archive",
+    conformsTo: ["public.archive", "public.data"],
+    fileNameExtension: ".cab",
+    mimeType: "application/vnd.ms-cab-compressed"
   },
   {
     name: "public.xz-archive",
@@ -394,7 +405,7 @@ export default [
     name: "public.deb-archive",
     conformsTo: "public.ar-archive",
     fileNameExtension: ".deb",
-    mimeType: "application/vnd.debian.binary-package"
+    mimeType: ["application/vnd.debian.binary-package", "application/x-deb"]
   },
   {
     name: "public.arch-linux-archive",
