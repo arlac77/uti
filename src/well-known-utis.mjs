@@ -130,7 +130,7 @@ export default [
   {
     name: "public.plain-text",
     conformsTo: "public.text",
-    fileNameExtension: ".txt",
+    fileNameExtension: [".txt", ".text"],
     mimeType: "text/plain"
   },
   {
@@ -154,7 +154,7 @@ export default [
   {
     name: "public.html",
     conformsTo: "public.text",
-    fileNameExtension: [".html", ".htm"],
+    fileNameExtension: [".html", ".htm", ".shtml", ".shtm"],
     mimeType: "text/html"
   },
   {
@@ -253,7 +253,7 @@ export default [
   {
     name: "public.make-source",
     conformsTo: "public.script",
-    fileNameExtension: [".make", ".mak", ".gmk"]
+    fileNameExtension: [".make", ".mak", ".gmk", ".mk"]
   },
   {
     name: "public.perl-script",
@@ -273,13 +273,12 @@ export default [
   {
     name: "public.php-script",
     conformsTo: "public.shell-script",
-    fileNameExtension: ".php"
+    fileNameExtension: [".php", ".php3", ".php4", ".ph3", ".ph4", ".phtml"]
   },
-
   {
     name: "public.assembly-source",
     conformsTo: "public.source-code",
-    fileNameExtension: ".s"
+    fileNameExtension: [".s", ".asm"]
   },
   {
     name: "public.sourcemap",
@@ -387,7 +386,7 @@ export default [
   {
     name: "public.cpio-archive",
     conformsTo: "public.archive",
-    fileNameExtension: ".cpio",
+    fileNameExtension: [".cpio", ".pax"],
     mimeType: "application/x-cpio"
   },
   {
@@ -477,12 +476,12 @@ export default [
   {
     name: "com.microsoft.word.doc",
     conformsTo: ["public.data", "public.composite-content"],
-    fileNameExtension: ".docx"
+    fileNameExtension: [".doc", ".docx"]
   },
   {
     name: "com.microsoft.excel.xls",
     conformsTo: ["public.data", "public.composite-content"],
-    fileNameExtension: ".xlsx"
+    fileNameExtension: [".xls", ".xlsx"]
   },
   {
     name: "com.microsoft.powerpoint.ppt",
