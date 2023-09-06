@@ -517,6 +517,18 @@ export default [
     fileNameExtension: ".webp"
   },
   {
+    name: "public.heic",
+    conformsTo: "public.image",
+    mimeType: "image/heic",
+    fileNameExtension: ".heic"
+  },
+  {
+    name: "public.avif",
+    conformsTo: "public.image",
+    mimeType: "image/avif",
+    fileNameExtension: ".avif"
+  },
+  {
     name: "com.adobe.postscript",
     conformsTo: "public.image",
     fileNameExtension: ".ps",
