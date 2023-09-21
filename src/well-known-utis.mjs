@@ -529,6 +529,12 @@ export default [
     fileNameExtension: ".avif"
   },
   {
+    name: "public.jxl",
+    conformsTo: "public.image",
+    mimeType: "image/jxl",
+    fileNameExtension: ".jxl"
+  },
+  {
     name: "com.adobe.postscript",
     conformsTo: "public.image",
     fileNameExtension: ".ps",
