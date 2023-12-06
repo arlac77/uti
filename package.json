@@ -31,7 +31,7 @@
     "lint:tsc": "tsc --allowJs --checkJs --noEmit -t esnext -m esnext --moduleResolution nodenext ./src/*.mjs"
   },
   "devDependencies": {
-    "ava": "^6.0.0",
+    "ava": "^6.0.1",
     "browser-ava": "^2.1.4",
     "c8": "^8.0.1",
     "documentation": "^14.0.2",
