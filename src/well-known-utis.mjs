@@ -493,10 +493,10 @@ export default [
     conformsTo: ["public.data", "public.composite-content"]
   },
   {
-    name: "public.svg",
+    name: "public.svg-image",
     conformsTo: ["public.image", "public.xml"],
     mimeType: "image/svg+xml",
-    fileNameExtension: ".svg"
+    fileNameExtension: [".svg", ".svgz"]
   },
   {
     name: "public.jpeg",
