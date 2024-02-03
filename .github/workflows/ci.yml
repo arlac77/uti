@@ -8,10 +8,8 @@ name: CI
     branches:
       - master
       - next
-
 permissions:
-  contents: read 
-
+  contents: read
 jobs:
   test-node:
     runs-on: ubuntu-latest
