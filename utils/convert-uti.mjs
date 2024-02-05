@@ -45,10 +45,7 @@ for await (const line of lineIterator(lsregister.stdout)) {
     const b = wellKnown.find(u => u.name === name);
     const a = {
       name,
-      conformsTo: asScalar([
-        ...asArray(conformsTo),
-        ...asArray(b?.conformsTo)
-      ]),
+      conformsTo: asScalar([...asArray(conformsTo), ...asArray(b?.conformsTo)]),
       fileNameExtension: asScalar(
         new Set([
           ...asArray(tags?.filter(t => t.match(/^\./))),
@@ -61,10 +58,13 @@ for await (const line of lineIterator(lsregister.stdout)) {
       ])
     };
 
-    if(b) {
-      Object.assign(b,a);
-    }
-    else {
+    if (b) {
+      for (const p of ["conformsTo", "fileNameExtension", "mimeType"]) {
+        if (Array.isArray(b[p])) {
+          a[p] = b[p];
+        }
+      }
+    } else {
       wellKnown.push(a);
     }
 
