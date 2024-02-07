@@ -56,7 +56,7 @@
     "inheritFrom": [
       "arlac77/template-arlac77-github",
       "arlac77/template-browser-ava",
-      "arlac77/template-esm-only",
+      "arlac77/template-javascript-component",
       "arlac77/template-node-component",
       "arlac77/template-typescript"
     ]
