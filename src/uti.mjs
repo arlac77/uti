@@ -63,8 +63,8 @@ class UTI {
  */
 export class UTIController {
   registry = new Map();
-  utiByMimeType = new Map();
-  utiByFileNameExtension = new Map();
+  /** @type {Map<string,string[]>} */ utiByMimeType = new Map();
+  /** @type {Map<string,string[]>} */ utiByFileNameExtension = new Map();
 
   constructor() {
     this.register(types);
@@ -116,7 +116,7 @@ export class UTIController {
   /**
    * Lookup a given UTI.
    * @param {string} name UTI
-   * @return {string} UTI for the given name or undefined if UTI is not present.
+   * @return {string|undefined} UTI for the given name or undefined if UTI is not present.
    */
   getUTI(name) {
     return this.registry.get(name);
@@ -125,10 +125,10 @@ export class UTIController {
   /**
    * Lookup a UTIs for a mime type.
    * @param {string} mimeType mime type to get UTIs for
-   * @return {string} UTI for the given mime type or undefined if no UTI is registerd for the mime type
+   * @return {string[]} UTIs for the given mime type
    */
   getUTIsForMimeType(mimeType) {
-    return this.utiByMimeType.get(mimeType);
+    return this.utiByMimeType.get(mimeType) || [];
   }
 
   /**
@@ -136,7 +136,7 @@ export class UTIController {
    * First the file name extension is extracted.
    * Then a lookup in the reistered UTIs for file name extions is executed.
    * @param {string} fileName file to detect UTI for
-   * @return {string[]} UTI for the given fileName or undefined if no UTI is registerd for the file names extension
+   * @return {string[]} UTIs for the given fileName
    */
   getUTIsForFileName(fileName) {
     const m = fileName.match(/(\.[\.a-zA-Z_0-9]+)$/);
