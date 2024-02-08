@@ -54,6 +54,8 @@ public.plain-text
     *   [toJSON](#tojson)
 *   [UTIController](#uticontroller)
     *   [Properties](#properties-1)
+    *   [utiByMimeType](#utibymimetype)
+    *   [utiByFileNameExtension](#utibyfilenameextension)
     *   [register](#register)
         *   [Parameters](#parameters-2)
     *   [getUTI](#getuti)
@@ -115,6 +117,14 @@ Registry of UTIs.
 *   `utiByMimeType` **[Map](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Map)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), [UTI](#uti)>**&#x20;
 *   `utiByFileNameExtension` **[Map](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Map)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), [UTI](#uti)>**&#x20;
 
+### utiByMimeType
+
+Type: [Map](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Map)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>>
+
+### utiByFileNameExtension
+
+Type: [Map](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Map)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>>
+
 ### register
 
 Registers additional types.
@@ -131,7 +141,7 @@ Lookup a given UTI.
 
 *   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** UTI
 
-Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** UTI for the given name or undefined if UTI is not present.
+Returns **([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) | [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** UTI for the given name or undefined if UTI is not present.
 
 ### getUTIsForMimeType
 
@@ -141,7 +151,7 @@ Lookup a UTIs for a mime type.
 
 *   `mimeType` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** mime type to get UTIs for
 
-Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** UTI for the given mime type or undefined if no UTI is registerd for the mime type
+Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** UTIs for the given mime type
 
 ### getUTIsForFileName
 
@@ -153,7 +163,7 @@ Then a lookup in the reistered UTIs for file name extions is executed.
 
 *   `fileName` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** file to detect UTI for
 
-Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** UTI for the given fileName or undefined if no UTI is registerd for the file names extension
+Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>** UTIs for the given fileName
 
 ### conformsTo
 
