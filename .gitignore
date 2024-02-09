@@ -1,5 +1,4 @@
 build
-dist
 bun.lockb
 /node_modules/**
 *.log
@@ -8,3 +7,4 @@ bun.lockb
 .DS_Store
 .test
 .tmp
+types
