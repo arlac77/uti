@@ -8,8 +8,8 @@
   "types": "./types/uti.d.mts",
   "exports": {
     ".": {
-      "types": "./types/uti.d.mts",
-      "default": "./src/uti.mjs"
+      "default": "./src/uti.mjs",
+      "types": "./types/uti.d.mts"
     }
   },
   "description": "javascript implementation of a \"Uniform Type Identifier\" (UTI)",
