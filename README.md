@@ -1,14 +1,11 @@
 [![npm](https://img.shields.io/npm/v/uti.svg)](https://www.npmjs.com/package/uti)
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
-[![Typed with TypeScript](https://flat.badgen.net/badge/icon/Typed?icon=typescript\&label\&labelColor=blue\&color=555555)](https://typescriptlang.org)
 [![bundlejs](https://deno.bundlejs.com/?q=uti\&badge=detailed)](https://bundlejs.com/?q=uti)
 [![downloads](http://img.shields.io/npm/dm/uti.svg?style=flat-square)](https://npmjs.org/package/uti)
-[![GitHub Issues](https://img.shields.io/github/issues/arlac77/uti.svg?style=flat-square)](https://github.com/arlac77/uti/issues)
-[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Farlac77%2Futi%2Fbadge\&style=flat)](https://actions-badge.atrox.dev/arlac77/uti/goto)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](git+https://github.com/arlac77/uti.git)
 [![Styled with prettier](https://img.shields.io/badge/styled_with-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![Known Vulnerabilities](https://snyk.io/test/github/arlac77/uti/badge.svg)](https://snyk.io/test/github/arlac77/uti)
-[![Coverage Status](https://coveralls.io/repos/arlac77/uti/badge.svg)](https://coveralls.io/github/arlac77/uti)
 
 # uti
 
