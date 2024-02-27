@@ -1,10 +1,11 @@
 name: API to readme
 on:
-  schedule:
-    - cron: 31 14 * * 6
   push:
     paths:
       - src/*
+  schedule:
+    - cron: 31 14 * * 6
+  workflow_dispatch:
 jobs:
   update_readme_api:
     runs-on: ubuntu-latest
