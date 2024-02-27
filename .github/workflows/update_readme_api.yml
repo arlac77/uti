@@ -1,5 +1,5 @@
 name: API to readme
-'on':
+on:
   schedule:
     - cron: 31 14 * * 6
   push:
@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4.1.1
         with:
-          fetch-depth: '2'
+          fetch-depth: "2"
       - uses: actions/setup-node@v4.0.2
         with:
           node-version: 20.11.1
@@ -24,4 +24,4 @@ jobs:
           path: README.md
           title: Sync API into README
           branch: readme-api
-          commit-message: 'docs(README): sync API'
+          commit-message: "docs(README): sync API"
