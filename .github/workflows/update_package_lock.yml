@@ -1,4 +1,3 @@
-name: Update package lock
 on:
   schedule:
     - cron: 13 8 * * 6
@@ -34,3 +33,4 @@ jobs:
           branch: package-lock
           labels: npm
           commit-message: "chore(deps): lock"
+name: Update package lock
