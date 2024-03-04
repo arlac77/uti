@@ -1,28 +1,28 @@
-name: CodeQL
 on:
-  push:
+  pull_request:
     branches:
       - master
-  pull_request:
+  push:
     branches:
       - master
 jobs:
   analyze:
-    name: Analyze
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4.1.1
-      - run: git checkout
-        if: ${{ github.event_name == 'pull_request' }}
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v3
         with:
           languages: javascript
-      - uses: actions/setup-node@v4.0.2
-        with:
-          node-version: 20.11.1
-          cache: npm
-      - run: npm ci
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v3
+      - uses: actions/setup-node@v4.0.2
+        with:
+          cache: npm
+          node-version: 20.11.1
+      - if: ${{ github.event_name == 'pull_request' }}
+        run: git checkout
+      - run: npm ci
+    name: Analyze
+name: CodeQL
