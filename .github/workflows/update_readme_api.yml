@@ -1,4 +1,3 @@
-name: API to readme
 on:
   push:
     paths:
@@ -15,13 +14,14 @@ jobs:
       - uses: actions/setup-node@v4.0.2
         with:
           node-version: 20.11.1
-      - run: npm ci
-      - run: npm run docs
-      - uses: gr2m/create-or-update-pull-request-action@v1
-        env:
+      - env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: gr2m/create-or-update-pull-request-action@v1
         with:
-          path: README.md
-          title: Sync API into README
           branch: readme-api
           commit-message: "docs(README): sync API"
+          path: README.md
+          title: Sync API into README
+      - run: npm ci
+      - run: npm run docs
+name: API to readme
