@@ -1,4 +1,3 @@
-name: Auto approve
 on: pull_request_target
 jobs:
   auto-approve:
@@ -9,3 +8,4 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           review-message: Auto approved automated PR
+name: Auto approve
