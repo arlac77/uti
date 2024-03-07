@@ -52,9 +52,11 @@ public.plain-text
     *   [Properties](#properties)
     *   [conformsTo](#conformsto)
         *   [Parameters](#parameters-1)
+    *   [toString](#tostring)
     *   [toJSON](#tojson)
 *   [UTIController](#uticontroller)
     *   [Properties](#properties-1)
+    *   [registry](#registry)
     *   [utiByMimeType](#utibymimetype)
     *   [utiByFileNameExtension](#utibyfilenameextension)
     *   [register](#register)
@@ -69,6 +71,10 @@ public.plain-text
         *   [Parameters](#parameters-6)
     *   [fileNameConformsTo](#filenameconformsto)
         *   [Parameters](#parameters-7)
+    *   [assignMimeTypes](#assignmimetypes)
+        *   [Parameters](#parameters-8)
+    *   [assignExtensions](#assignextensions)
+        *   [Parameters](#parameters-9)
 
 ## UTI
 
@@ -94,6 +100,12 @@ Check for conformity.
 
 Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** true if other conforms to the receiver
 
+### toString
+
+name of the UTI.
+
+Returns **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**&#x20;
+
 ### toJSON
 
 Deliver JSON representation of the UTI.
@@ -106,7 +118,7 @@ Sample result
 }
 ```
 
-Returns **[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)** json representation of the UTI
+Returns **{name: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), conforms: [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>}** json representation of the UTI
 
 ## UTIController
 
@@ -117,6 +129,10 @@ Registry of UTIs.
 *   `registry` **[Map](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Map)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), [UTI](#uti)>**&#x20;
 *   `utiByMimeType` **[Map](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Map)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), [UTI](#uti)>**&#x20;
 *   `utiByFileNameExtension` **[Map](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Map)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), [UTI](#uti)>**&#x20;
+
+### registry
+
+Type: [Map](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Map)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String), [UTI](#uti)>
 
 ### utiByMimeType
 
@@ -142,7 +158,7 @@ Lookup a given UTI.
 
 *   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** UTI
 
-Returns **([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) | [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** UTI for the given name or undefined if UTI is not present.
+Returns **([UTI](#uti) | [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))** UTI for the given name or undefined if UTI is not present.
 
 ### getUTIsForMimeType
 
@@ -188,6 +204,24 @@ Lookup a UTI for a file name and check conformance.
 *   `uti` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** to check conformance against
 
 Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** ture if utils for file name are conformant
+
+### assignMimeTypes
+
+Assign mime types to a UTI
+
+#### Parameters
+
+*   `uti` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**&#x20;
+*   `mimeTypes` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>**&#x20;
+
+### assignExtensions
+
+Assign mime types to a UTI
+
+#### Parameters
+
+*   `uti` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**&#x20;
+*   `extensions` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>**&#x20;
 
 # install
 
