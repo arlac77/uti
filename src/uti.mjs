@@ -9,6 +9,14 @@ import types from "./well-known-utis.mjs";
  * @property {Set<UTI>} conforms
  */
 class UTI {
+  /**
+   * Object representing a UTI.
+   * @param {string} name
+   * @param {Set<UTI>} conforms
+   *
+   * @property {string} name
+   * @property {Set<UTI>} conforms
+   */
   constructor(name, conforms) {
     this.name = name;
     this.conforms = conforms;
@@ -32,6 +40,10 @@ class UTI {
     return false;
   }
 
+  /**
+   * name of the UTI.
+   * @returns {string}
+   */
   toString() {
     return this.name;
   }
@@ -45,7 +57,7 @@ class UTI {
    *   "conformsTo": [ "uti1", "uti2"]
    * }
    * ```
-   * @return {Object} json representation of the UTI
+   * @return {{name:string, conforms: string[]}} json representation of the UTI
    */
   toJSON() {
     return {
@@ -62,7 +74,7 @@ class UTI {
  * @property {Map<string,UTI>} utiByFileNameExtension
  */
 export class UTIController {
-  registry = new Map();
+  /** @type {Map<string,UTI>} */ registry = new Map();
   /** @type {Map<string,string[]>} */ utiByMimeType = new Map();
   /** @type {Map<string,string[]>} */ utiByFileNameExtension = new Map();
 
@@ -116,7 +128,7 @@ export class UTIController {
   /**
    * Lookup a given UTI.
    * @param {string} name UTI
-   * @return {string|undefined} UTI for the given name or undefined if UTI is not present.
+   * @return {UTI|undefined} UTI for the given name or undefined if UTI is not present.
    */
   getUTI(name) {
     return this.registry.get(name);
@@ -187,24 +199,34 @@ export class UTIController {
     return false;
   }
 
-  assignMimeTypes(name, mimTypes) {
-    mimTypes.forEach(type => {
+  /**
+   * Assign mime types to a UTI
+   * @param {string} uti
+   * @param {string[]} mimeTypes
+   */
+  assignMimeTypes(uti, mimeTypes) {
+    mimeTypes.forEach(type => {
       const u = this.utiByMimeType.get(type);
       if (u === undefined) {
-        this.utiByMimeType.set(type, [name]);
+        this.utiByMimeType.set(type, [uti]);
       } else {
-        u.push(name);
+        u.push(uti);
       }
     });
   }
 
-  assignExtensions(name, extensions) {
+  /**
+   * Assign mime types to a UTI
+   * @param {string} uti
+   * @param {string[]} extensions
+   */
+  assignExtensions(uti, extensions) {
     extensions.forEach(ext => {
       const e = this.utiByFileNameExtension.get(ext);
       if (e === undefined) {
-        this.utiByFileNameExtension.set(ext, [name]);
+        this.utiByFileNameExtension.set(ext, [uti]);
       } else {
-        e.push(name);
+        e.push(uti);
       }
     });
   }
