@@ -547,6 +547,18 @@ export default [
     mimeType: "text/markdown"
   },
   {
+    name: "public.jsx",
+    conformsTo: "public.source-code",
+    fileNameExtension: [".jsx"],
+    mimeType: "text/jsx"
+  },
+  {
+    name: "public.mdx",
+    conformsTo: ["net.daringfireball.markdown","public.jsx"],
+    fileNameExtension: [".mdx"],
+    mimeType: "text/mdx"
+  },
+  {
     name: "com.apple.disk-image",
     conformsTo: "public.disk-image",
     fileNameExtension: [".dmg", ".smi", ".img"],
