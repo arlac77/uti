@@ -199,6 +199,11 @@ export default [
     fileNameExtension: ".conf"
   },
   {
+    name: "public.csp-report",
+    conformsTo: "public.json",
+    mimeType: "application/csp-report"
+  },
+  {
     name: "public.source-code",
     conformsTo: "public.plain-text"
   },
