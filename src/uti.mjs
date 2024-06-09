@@ -84,7 +84,7 @@ export class UTIController {
 
   /**
    * Registers additional types.
-   * @param {Object[]} types
+   * @param {UTI[]} types
    */
   register(types) {
     for (const u of types) {
@@ -146,7 +146,7 @@ export class UTIController {
   /**
    * Lookup a UTI for a file name.
    * First the file name extension is extracted.
-   * Then a lookup in the reistered UTIs for file name extions is executed.
+   * Then a lookup in the registered UTIs for file name extension is executed.
    * @param {string} fileName file to detect UTI for
    * @return {string[]} UTIs for the given fileName
    */
@@ -185,7 +185,7 @@ export class UTIController {
    * Lookup a UTI for a file name and check conformance.
    * @param {string} fileName file to detect UTI for
    * @param {string} uti to check conformance against
-   * @return {boolean} ture if utils for file name are conformant
+   * @return {boolean} true if utils for file name are conformant
    */
   fileNameConformsTo(fileName, uti) {
     const utis = this.getUTIsForFileName(fileName);
