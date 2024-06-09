@@ -573,19 +573,19 @@ export default [
   {
     name: "public.oci.image.layer.v1.tar",
     conformsTo: "public.oci.image.layer.v1",
-    filNameExtension: ".tar",
+    fileNameExtension: ".tar",
     mimeType: "application/vnd.oci.image.layer.v1.tar"
   },
   {
     name: "public.oci.image.layer.v1.tar.gzip",
     conformsTo: "public.oci.image.layer.v1",
-    filNameExtension: ".tar.gz",
+    fileNameExtension: ".tar.gz",
     mimeType: "application/vnd.oci.image.layer.v1.tar+gzip"
   },
   {
     name: "public.oci.image.layer.v1.tar.zstd",
     conformsTo: "public.oci.image.layer.v1",
-    filNameExtension: ".tar.zstd",
+    fileNameExtension: ".tar.zstd",
     mimeType: "application/vnd.oci.image.layer.v1.tar+zstd"
   },
   {
