@@ -148,7 +148,7 @@ Registers additional types.
 
 #### Parameters
 
-*   `types` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)>**&#x20;
+*   `types` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[UTI](#uti)>**&#x20;
 
 ### getUTI
 
@@ -174,7 +174,7 @@ Returns **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Gl
 
 Lookup a UTI for a file name.
 First the file name extension is extracted.
-Then a lookup in the reistered UTIs for file name extions is executed.
+Then a lookup in the registered UTIs for file name extension is executed.
 
 #### Parameters
 
@@ -203,7 +203,7 @@ Lookup a UTI for a file name and check conformance.
 *   `fileName` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** file to detect UTI for
 *   `uti` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)** to check conformance against
 
-Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** ture if utils for file name are conformant
+Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** true if utils for file name are conformant
 
 ### assignMimeTypes
 
