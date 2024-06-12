@@ -50,6 +50,8 @@ public.plain-text
 *   [UTI](#uti)
     *   [Parameters](#parameters)
     *   [Properties](#properties)
+    *   [name](#name)
+    *   [conforms](#conforms)
     *   [conformsTo](#conformsto)
         *   [Parameters](#parameters-1)
     *   [toString](#tostring)
@@ -90,13 +92,21 @@ Object representing a UTI.
 *   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**&#x20;
 *   `conforms` **[Set](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Set)<[UTI](#uti)>**&#x20;
 
+### name
+
+Type: [string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)
+
+### conforms
+
+Type: [Set](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Set)<[UTI](#uti)>
+
 ### conformsTo
 
 Check for conformity.
 
 #### Parameters
 
-*   `other` **[UTI](#uti)**&#x20;
+*   `other` **([UTI](#uti) | [undefined](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/undefined))**&#x20;
 
 Returns **[boolean](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** true if other conforms to the receiver
 
