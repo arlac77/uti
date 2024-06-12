@@ -9,6 +9,9 @@ import types from "./well-known-utis.mjs";
  * @property {Set<UTI>} conforms
  */
 class UTI {
+  /** @type {string} */ name;
+  /** @type {Set<UTI>} */ conforms;
+  
   /**
    * Object representing a UTI.
    * @param {string} name
@@ -24,7 +27,7 @@ class UTI {
 
   /**
    * Check for conformity.
-   * @param {UTI} other
+   * @param {UTI|undefined} other
    * @return {boolean} true if other conforms to the receiver
    */
   conformsTo(other) {
