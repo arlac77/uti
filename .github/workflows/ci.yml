@@ -56,6 +56,7 @@ jobs:
       - name: checkout
         run: npm ci
       - name: install playwright
+        name: install playwright
         run: npx playwright install
       - run: npm run test:browser-ava --if-present
         env:
