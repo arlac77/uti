@@ -79,7 +79,6 @@ jobs:
       - name: checkout
         run: npm ci
       - name: release
-        name: release
         run: npx semantic-release
         env:
           CI: "true"
