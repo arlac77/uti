@@ -32,6 +32,8 @@ jobs:
           cache-dependency-path: package-lock.json
       - name: checkout
         run: npm ci
+      - name: install
+        run: npm ci
       - name: test and coverage
         run: npm run cover --if-present
       - name: coveralls
@@ -60,6 +62,8 @@ jobs:
           cache-dependency-path: package-lock.json
       - name: checkout
         run: npm ci
+      - name: install
+        run: npm ci
       - name: install playwright
         run: npx playwright install
       - name: test browser
@@ -86,6 +90,8 @@ jobs:
           cache: npm
           cache-dependency-path: package-lock.json
       - name: checkout
+        run: npm ci
+      - name: install
         run: npm ci
       - name: release
         run: npx semantic-release
