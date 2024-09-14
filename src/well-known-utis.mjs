@@ -510,6 +510,12 @@ export default [
     fileNameExtension: [".jpg", ".jpeg"]
   },
   {
+    name: "public.jxl",
+    conformsTo: "public.image",
+    mimeType: ["image/jxl"],
+    fileNameExtension: [".jxl"]
+  },
+  {
     name: "public.jpeg2000",
     conformsTo: "public.image",
     mimeType: ["image/jp2", "image/jpx", "image/jpm"],
