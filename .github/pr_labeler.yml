@@ -1,74 +1,74 @@
-test:
+ci:
   - changed-files:
-    - any-glob-to-any-file: "tests/**/*"
-
-documentation:
-  - changed-files:
-    - any-glob-to-any-file:
-      - "docs/**/*"
-      - "**/*.md"
+      - any-glob-to-any-file:
+          - ".github/workflows/*"
+          - .travis.yml
 
 dependencies:
   - changed-files:
-    - any-glob-to-any-file:
-      - package-lock.json
-      - yarn.lockfile
-
-ci:
-  - changed-files:
-    - any-glob-to-any-file:
-      - ".github/workflows/*"
-      - .travis.yml
-
-github:
-  - changed-files:
-    - any-glob-to-any-file:
-      - ".github/**/*"
-
-git:
-  - changed-files:
-    - any-glob-to-any-file:
-      - .gitignore
-
-npm:
-  - changed-files:
-    - any-glob-to-any-file:
-      - .npmignore
-      - package.json
-      - package-lock.json
+      - any-glob-to-any-file:
+          - package-lock.json
+          - yarn.lockfile
 
 deployment:
   - changed-files:
-    - any-glob-to-any-file:
-      - netlify.toml
-      - _redirects
+      - any-glob-to-any-file:
+          - netlify.toml
+          - _redirects
 
-rollup:
+documentation:
   - changed-files:
-    - any-glob-to-any-file:
-      - rollup.config.mjs
+      - any-glob-to-any-file:
+          - "docs/**/*"
+          - "**/*.md"
 
-vscode:
+github:
   - changed-files:
-    - any-glob-to-any-file:
-      - ".vscode/*"
+      - any-glob-to-any-file:
+          - ".github/**/*"
 
-openapi:
+git:
   - changed-files:
-    - any-glob-to-any-file:
-      - openapi/*
+      - any-glob-to-any-file:
+          - .gitignore
 
 labels:
   - changed-files:
-    - any-glob-to-any-file:
-      - .github/pr_labeler.yml
-
-styling:
-  - changed-files:
-    - any-glob-to-any-file:
-      - "**/*.css"
+      - any-glob-to-any-file:
+          - .github/pr_labeler.yml
 
 lint:
   - changed-files:
-    - any-glob-to-any-file:
-      - .stylelintrc.json
+      - any-glob-to-any-file:
+          - .stylelintrc.json
+
+npm:
+  - changed-files:
+      - any-glob-to-any-file:
+          - .npmignore
+          - package.json
+          - package-lock.json
+
+openapi:
+  - changed-files:
+      - any-glob-to-any-file:
+          - openapi/*
+
+rollup:
+  - changed-files:
+      - any-glob-to-any-file:
+          - rollup.config.mjs
+
+styling:
+  - changed-files:
+      - any-glob-to-any-file:
+          - "**/*.css"
+
+test:
+  - changed-files:
+      - any-glob-to-any-file: "tests/**/*"
+
+vscode:
+  - changed-files:
+      - any-glob-to-any-file:
+          - ".vscode/*"
