@@ -46,7 +46,7 @@
     "typescript": "^5.7.0-dev.20241017"
   },
   "engines": {
-    "node": ">=22.7.0",
+    "node": ">=22.9.0",
     "bun": ">=1.0.0"
   },
   "repository": {
