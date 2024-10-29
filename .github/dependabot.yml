@@ -8,11 +8,7 @@ updates:
       prefix: "fix(deps):"
       prefix-development: "chore(deps):"
     labels:
-      - npm dependencies
-  - package-ecosystem: github-actions
-    directory: /
-    schedule:
-      interval: daily
+      - "npm dependencies"
   - package-ecosystem: github-actions
     directory: /
     schedule:
@@ -20,4 +16,4 @@ updates:
     commit-message:
       prefix: "chore(action):"
     labels:
-      - dependencies
+      - "dependencies"
