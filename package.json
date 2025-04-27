@@ -46,7 +46,7 @@
     "typescript": "^5.8.3"
   },
   "engines": {
-    "node": ">=22.14.0",
+    "node": ">=22.15.0",
     "bun": ">=1.0.0"
   },
   "repository": {
