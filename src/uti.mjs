@@ -1,6 +1,14 @@
 import types from "./well-known-utis.mjs";
 
 /**
+ * @typedef {Object} UTIDeclaration
+ * @property {string} name
+ * @property {string|string[]} [conformsTo]
+ * @property {string|string[]} [mimeType]
+ * @property {string|string[]} [fileNameExtension]
+ */
+
+/**
  * Object representing a UTI.
  * @param {string} name
  * @param {Set<UTI>} conforms
@@ -87,7 +95,7 @@ export class UTIController {
 
   /**
    * Registers additional types.
-   * @param {UTI[]} types
+   * @param {UTIDeclaration[]} types
    */
   register(types) {
     for (const u of types) {
