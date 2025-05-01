@@ -47,9 +47,11 @@ public.plain-text
 
 ### Table of Contents
 
+*   [UTIDeclaration](#utideclaration)
+    *   [Properties](#properties)
 *   [UTI](#uti)
     *   [Parameters](#parameters)
-    *   [Properties](#properties)
+    *   [Properties](#properties-1)
     *   [name](#name)
     *   [conforms](#conforms)
     *   [conformsTo](#conformsto)
@@ -57,7 +59,7 @@ public.plain-text
     *   [toString](#tostring)
     *   [toJSON](#tojson)
 *   [UTIController](#uticontroller)
-    *   [Properties](#properties-1)
+    *   [Properties](#properties-2)
     *   [registry](#registry)
     *   [utiByMimeType](#utibymimetype)
     *   [utiByFileNameExtension](#utibyfilenameextension)
@@ -77,6 +79,17 @@ public.plain-text
         *   [Parameters](#parameters-8)
     *   [assignExtensions](#assignextensions)
         *   [Parameters](#parameters-9)
+
+## UTIDeclaration
+
+Type: [Object](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Object)
+
+### Properties
+
+*   `name` **[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)**&#x20;
+*   `conformsTo` **([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) | [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>)?**&#x20;
+*   `mimeType` **([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) | [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>)?**&#x20;
+*   `fileNameExtension` **([string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String) | [Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[string](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/String)>)?**&#x20;
 
 ## UTI
 
@@ -158,7 +171,7 @@ Registers additional types.
 
 #### Parameters
 
-*   `types` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[UTI](#uti)>**&#x20;
+*   `types` **[Array](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Array)<[UTIDeclaration](#utideclaration)>**&#x20;
 
 ### getUTI
 
