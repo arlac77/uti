@@ -440,6 +440,11 @@ export default [
     fileNameExtension: ".wasm"
   },
   {
+    name: "public.wasm-text",
+    conformsTo: ["public.text"],
+    fileNameExtension: ".wat"
+  },
+  {
     name: "com.apple.application-bundle",
     conformsTo: "com.apple.application",
     fileNameExtension: [
@@ -565,7 +570,7 @@ export default [
   },
   {
     name: "public.mdx",
-    conformsTo: ["net.daringfireball.markdown","public.jsx"],
+    conformsTo: ["net.daringfireball.markdown", "public.jsx"],
     fileNameExtension: [".mdx"],
     mimeType: "text/mdx"
   },
