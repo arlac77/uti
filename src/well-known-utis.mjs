@@ -59,6 +59,11 @@ export default [
     conformsTo: ["public.executable", "public.data"]
   },
   {
+    name: "public.node-dynamic-link-library",
+    conformsTo: ["public.executable", "public.data"],
+    fileNameExtension: ".node"
+  },
+  {
     name: "com.sun.java-class",
     conformsTo: ["public.executable", "public.data"],
     fileNameExtension: ".class"
