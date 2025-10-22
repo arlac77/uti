@@ -162,7 +162,7 @@ export class UTIController {
    * @return {string[]} UTIs for the given fileName
    */
   getUTIsForFileName(fileName) {
-    const m = fileName.match(/(\.[\.a-zA-Z_0-9]+)$/);
+    const m = fileName.match(/(\.[a-zA-Z_0-9]+(\.[a-zA-Z_0-9]+)*)$/);
 
     if (m) {
       for (
