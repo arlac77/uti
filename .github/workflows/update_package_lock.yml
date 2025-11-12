@@ -8,12 +8,6 @@ on:
 jobs:
   update_package_lock:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        node-version:
-          - 24.11.0
-        browser:
-          - chrome
     steps:
       - name: checkout
         uses: actions/checkout@v5.0.0
