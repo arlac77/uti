@@ -30,10 +30,6 @@ jobs:
         uses: actions/setup-node@v6.1.0
         with:
           node-version: ${{ matrix.node-version }}
-      - name: install
-        run: npm ci
-      - name: test and coverage
-        run: npm run cover --if-present
       - name: coveralls
         uses: coverallsapp/github-action@v2
         with:
@@ -42,6 +38,10 @@ jobs:
           path-to-lcov: build/coverage/lcov.info
           parallel: true
         continue-on-error: true
+      - name: install
+        run: npm ci
+      - name: test and coverage
+        run: npm run cover --if-present
   test-browser:
     runs-on: ubuntu-latest
     strategy:
@@ -56,10 +56,10 @@ jobs:
         uses: actions/setup-node@v6.1.0
         with:
           node-version: 24.11.1
-      - name: install
-        run: npm ci
       - name: install playwright
         run: npx playwright install
+      - name: install
+        run: npm ci
       - name: test browser
         run: npm run test:browser-ava --if-present
         env:
@@ -81,14 +81,14 @@ jobs:
         uses: actions/setup-node@v6.1.0
         with:
           node-version: 24.11.1
-      - name: install
-        run: npm ci
       - name: release
         run: npx semantic-release
         env:
           CI: "true"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      - name: install
+        run: npm ci
   finish:
     needs:
       - test-node
