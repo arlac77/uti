@@ -22,7 +22,7 @@ jobs:
           - windows-latest
         node-version:
           - 24.11.1
-          - 25.0.0
+          - 25.2.1
     steps:
       - name: checkout
         uses: actions/checkout@v6.0.1
@@ -88,7 +88,6 @@ jobs:
         env:
           CI: "true"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
   finish:
     needs:
       - test-node
