@@ -749,7 +749,7 @@ export default [
   },
   {
     name: "public.webmanifest",
-    conformsTo: "public.json",
+    conformsTo: ["public.json", "public.configuration"],
     fileNameExtension: ".webmanifest",
     mimeType: "application/manifest+json"
   },
@@ -765,10 +765,12 @@ export default [
   },
   {
     name: "public.c-plus-plus-header",
+    conformsTo: "public.source-code",
     fileNameExtension: [".hh", ".hp", ".hpp", ".hxx", ".h++", ".ipp"]
   },
   {
     name: "public.c-plus-plus-source",
+    conformsTo: "public.source-code",
     fileNameExtension: [".cc", ".cp", ".cpp", ".cxx", ".c++"]
   }
 ];
