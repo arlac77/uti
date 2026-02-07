@@ -130,6 +130,11 @@ export default [
     conformsTo: "public.data"
   },
   {
+    name: "public.log",
+    conformsTo: "public.data",
+    fileNameExtension: ".log"
+  },
+  {
     name: "public.file-url",
     conformsTo: "public.url"
   },
