@@ -63,7 +63,7 @@ export default [
     conformsTo: ["public.executable", "public.data"],
     fileNameExtension: ".node"
   },
-    {
+  {
     name: "public.bare-dynamic-link-library",
     conformsTo: ["public.executable", "public.data"],
     fileNameExtension: ".bare"
@@ -148,7 +148,7 @@ export default [
     conformsTo: "public.plain-text"
   },
   {
-    name: "public.utf16-external-plain-​text",
+    name: "public.utf16-external-plain-text",
     conformsTo: "public.plain-text"
   },
   {
