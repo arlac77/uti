@@ -135,6 +135,11 @@ export default [
     fileNameExtension: ".log"
   },
   {
+    name: "systemd.journal",
+    conformsTo: "public.log",
+    mimeType: "application/vnd.fdo.journal"
+  },
+  {
     name: "public.file-url",
     conformsTo: "public.url"
   },
